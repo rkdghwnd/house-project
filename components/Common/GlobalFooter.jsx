@@ -11,7 +11,7 @@ const GlobalFooter = () => {
               <i className="ic-chevron" aria-hidden></i>
             </h3>
             <a className="global-footer-contact" href="tel:10041004">
-              1004-1004
+              1001-1001
             </a>
             <p className="global-footer-time">
               평일 09:00 ~ 18:00 (주말 &amp; 공휴일 제외)
@@ -20,13 +20,13 @@ const GlobalFooter = () => {
             <dl className="global-footer-detail-list">
               <div className="global-footer-detail-item">
                 <dt>상호명</dt>
-                <dd>버그가 너무 많아 김버그</dd>
+                <dd>프로젝트 내일의집</dd>
               </div>
               <div className="global-footer-detail-item">
                 <dt>이메일</dt>
                 <dd>
                   <address>
-                    <a href="mailto:kimbugx@gmail.com">kimbugx@gmail.com</a>
+                    <a href="mailto:kimbugx@gmail.com">ghwnd6448@gmail.com</a>
                   </address>
                   (제휴문의)
                 </dd>
@@ -44,7 +44,7 @@ const GlobalFooter = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      https://www.youtube.com/c/kimbug
+                      https://github.com/rkdghwnd
                     </a>
                   </address>
                 </dd>
