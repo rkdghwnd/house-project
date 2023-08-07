@@ -14,8 +14,8 @@ const GnbLeft = () => {
   return (
     <div className="gnb-left">
       <h1 className="logo">
-        <a href="/">
-          <img src="./assets/images/logo.svg" alt="내일의 집" />
+        <a href="javscript:void();">
+          <img src="/assets/images/logo.svg" alt="내일의 집" />
         </a>
       </h1>
       <GnbNav />

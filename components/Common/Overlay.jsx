@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import modalSlice from '../../reducers/scrollSlice';
+import modalSlice from '../../reducers/modalSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Overlay = () => {
