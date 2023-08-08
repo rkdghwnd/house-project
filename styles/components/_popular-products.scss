@@ -1,0 +1,86 @@
+.popular-products {
+  margin-top: 20px;
+
+  h3 {
+    margin-bottom: 15px;
+  }
+
+  &-header {
+    margin-bottom: 10px;
+    .btn-filter {
+      padding: 10px 10px 10px 0;
+
+      .ri-filter {
+        vertical-align: middle;
+        font-size: 22px;
+        color: $tertiary;
+        &:hover {
+          color: $border;
+          transition: color 100ms ease-in-out;
+        }
+      }
+    }
+
+    .btn-delivery {
+      opacity: 0.7;
+      &:not(:disabled):hover {
+        opacity: 1;
+        background-color: $border;
+        transition: opacity 100ms ease-in-out;
+      }
+    }
+
+    .btn-arrange {
+      float: right;
+      text-align: right;
+      font-size: $font-size-13;
+      color: $primary;
+      padding: 5px 0;
+
+      .ic-caret {
+        font-size: 20px;
+        color: $tertiary;
+        vertical-align: middle;
+      }
+
+      &:hover {
+        opacity: 0.5;
+        transition: opacity 100ms ease-in-out;
+      }
+    }
+
+    &::after {
+      content: '';
+      clear: both;
+    }
+  }
+
+  &-list {
+    &-col {
+      @include flexbox;
+    }
+
+    .store-item {
+      flex-direction: column;
+      align-items: baseline;
+      border-bottom: none;
+    }
+  }
+
+  @include responsive(T) {
+    &-list {
+      &-row {
+        display: flex;
+      }
+
+      &-col {
+        // margin-right: 10px;
+        .store-item {
+          &:first-child {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}

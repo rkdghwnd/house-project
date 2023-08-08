@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import StoreItems from './StoreItems';
+import StoreItems from './StoreItem';
 
 const TodayDeals = () => {
   return (
@@ -8,10 +8,13 @@ const TodayDeals = () => {
       <div className="today-deals-header">
         <h3>오늘의 딜</h3> <Link href="/">더보기</Link>
       </div>
-      <StoreItems />
-      <StoreItems />
-      <StoreItems />
-      <StoreItems />
+      <div className="today-deals-items">
+        <StoreItems />
+        <StoreItems />
+        <StoreItems />
+        <StoreItems />
+      </div>
+      <button className="btn-48 btn-secondary">오늘의딜 더보기 {'>'}</button>
     </section>
   );
 };
