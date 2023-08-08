@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import React from 'react';
-import Image from 'next/image';
 import { storeMenus1, storeMenus2 } from '../../hooks/storeMenus';
 import shortid from 'shortid';
 

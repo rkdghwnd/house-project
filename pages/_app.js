@@ -2,10 +2,10 @@ import { DefaultSeo } from 'next-seo';
 import SEO from '../seo.config';
 import Head from 'next/head';
 import '../styles/main.scss';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch, useSelector } from 'react-redux';
 import store from '../store';
 
-export default function App({ Component, pageProps }) {
+function todayHouse({ Component, pageProps }) {
   return (
     <>
       <Head />
@@ -16,3 +16,5 @@ export default function App({ Component, pageProps }) {
     </>
   );
 }
+
+export default todayHouse;
