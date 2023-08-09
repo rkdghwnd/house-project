@@ -6,7 +6,7 @@ const Sidebar = () => {
   const { sideBarVisible } = useSelector((state) => state.modal);
 
   return (
-    <aside className={`sidebar sm-only ${sideBarVisible ? 'is-active' : ''}`}>
+    <aside className={`sidebar ${sideBarVisible ? 'is-active' : ''}`}>
       <SidebarHeader />
       <SidebarNav />
     </aside>
