@@ -1,25 +1,15 @@
-import React, { useEffect, useRef } from 'react';
+import React, { forwardRef } from 'react';
 import ReviewScoreBoard from './ReviewScoreBoard';
 import ReviewCard from './ReviewCard';
 import Pagination from './Pagination';
-import { useDispatch } from 'react-redux';
-import scrollSlice from '../../reducers/scrollSlice';
 
-const ProductReview = () => {
-  const dispatch = useDispatch();
-  const productReview = useRef();
-
-  useEffect(() => {
-    const scrollY = productReview.current.offsetTop + 360;
-    dispatch(scrollSlice.actions.updateProductReviewScrollY(scrollY));
-  }, [productReview]);
-
+const ProductReview = (props, ref) => {
   return (
     <section
       className="product-section product-review"
       id="product-review"
       role="tabpanel"
-      ref={productReview}
+      ref={ref}
     >
       <header className="product-section-header">
         <h1 className="title">리뷰</h1>
@@ -294,4 +284,4 @@ const ProductReview = () => {
   );
 };
 
-export default ProductReview;
+export default forwardRef(ProductReview);

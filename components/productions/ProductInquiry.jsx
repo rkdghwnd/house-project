@@ -1,24 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React, { forwardRef } from 'react';
 import InquiryCard from './InquiryCard';
-import { useDispatch } from 'react-redux';
-import scrollSlice from '../../reducers/scrollSlice';
 
-const ProductInquiry = () => {
-  const dispatch = useDispatch();
-  const productInquiry = useRef();
-
-  useEffect(() => {
-    const scrollY = productInquiry.current.offsetTop + 360;
-    dispatch(scrollSlice.actions.updateProductInquiryScrollY(scrollY));
-  }, [productInquiry]);
-
+const ProductInquiry = (props, ref) => {
   return (
     <>
       <section
         className="product-section product-inquiry is-open"
         id="product-inquiry"
         role="tabpanel"
-        ref={productInquiry}
+        ref={ref}
       >
         <header className="product-section-header">
           <h1 className="title">문의</h1>
@@ -193,4 +183,4 @@ const ProductInquiry = () => {
   );
 };
 
-export default ProductInquiry;
+export default forwardRef(ProductInquiry);
