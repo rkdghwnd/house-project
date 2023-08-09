@@ -1,13 +1,11 @@
 .store-item {
   @include flexbox;
-  margin-top: 10px;
   padding-bottom: 7px;
   border-bottom: 1px solid $border;
 
   &-image {
     width: 100%;
     height: auto;
-    margin-right: 12px;
 
     img {
       width: 100%;
@@ -18,7 +16,7 @@
   }
 
   &-info {
-    margin: auto 0;
+    padding: 0 10px;
     h4 {
       color: $secondary;
       font-weight: 400;
@@ -65,13 +63,6 @@
         font-family: $font-main;
         font-size: 19px;
         font-weight: 700;
-      }
-    }
-
-    &-tag {
-      margin-top: 5px;
-      .tag-gray {
-        margin-right: 3px;
       }
     }
   }
