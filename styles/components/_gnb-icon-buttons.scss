@@ -8,10 +8,12 @@
   font-size: 24px;
   color: $secondary;
   border-radius: 50%;
-  transition: color 200ms ease-in-out, background-color 200ms ease-in-out;
+  transition:
+    color 200ms ease-in-out,
+    background-color 200ms ease-in-out;
 
   &.is-menu {
-    color: $blue;
+    color: $secondary;
 
     &:active {
       color: $blue-dark;

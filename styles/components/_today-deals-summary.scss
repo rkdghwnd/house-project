@@ -1,14 +1,13 @@
-.today-deals {
+.today-deals-summary {
   &-header {
     @include flexbox;
     margin-top: 50px;
-
+    margin-bottom: 15px;
     h3 {
       flex: 1 1 auto;
     }
 
     a {
-      margin-right: 7px;
       color: $red;
       font-weight: 700;
       font-size: $font-size-14;
@@ -20,21 +19,11 @@
   }
 
   @include responsive(T) {
-    &-header {
-      margin-left: -10px;
-    }
-
     &-items {
-      display: flex;
+      @include flexbox;
 
-      & > a {
-        margin: 0 5px;
-        &:first-child {
-          margin-left: 0;
-        }
-        &:last-child {
-          margin-right: 0;
-        }
+      & > a:not(:last-child) {
+        margin-right: 10px;
       }
 
       .store-item {

@@ -30,7 +30,7 @@ const UserGalleryDesktop = () => {
               >
                 <div className="gallery-card">
                   <figure className="gallery-card-image">
-                    <img src="./assets/images/img-review-01.jpg" alt="" />
+                    <img src="/assets/images/img-review-01.jpg" alt="" />
                     <figcaption className="visually-hidden">
                       김버그 님의 스타일링샷
                     </figcaption>
@@ -38,7 +38,7 @@ const UserGalleryDesktop = () => {
 
                   <div className="gallery-card-detail">
                     <a className="avatar-32" href="/">
-                      <img src="./assets/images/img-user-02.jpg" alt="김버그" />
+                      <img src="/assets/images/img-user-02.jpg" alt="김버그" />
                     </a>
                     <a className="username" href="/">
                       김버그
@@ -54,7 +54,7 @@ const UserGalleryDesktop = () => {
               >
                 <div className="gallery-card">
                   <figure className="gallery-card-image">
-                    <img src="./assets/images/img-review-02.jpg" alt="" />
+                    <img src="/assets/images/img-review-02.jpg" alt="" />
                     <figcaption className="visually-hidden">
                       샤먼 님의 스타일링샷
                     </figcaption>
@@ -62,7 +62,7 @@ const UserGalleryDesktop = () => {
 
                   <div className="gallery-card-detail">
                     <a className="avatar-32" href="/">
-                      <img src="./assets/images/img-user-03.jpg" alt="샤먼" />
+                      <img src="/assets/images/img-user-03.jpg" alt="샤먼" />
                     </a>
                     <a className="username" href="/">
                       샤먼
@@ -78,7 +78,7 @@ const UserGalleryDesktop = () => {
               >
                 <div className="gallery-card">
                   <figure className="gallery-card-image">
-                    <img src="./assets/images/img-review-03.jpg" alt="" />
+                    <img src="/assets/images/img-review-03.jpg" alt="" />
                     <figcaption className="visually-hidden">
                       마샬 님의 스타일링샷
                     </figcaption>
@@ -86,7 +86,7 @@ const UserGalleryDesktop = () => {
 
                   <div className="gallery-card-detail">
                     <a className="avatar-32" href="/">
-                      <img src="./assets/images/img-user-05.jpg" alt="마샬" />
+                      <img src="/assets/images/img-user-05.jpg" alt="마샬" />
                     </a>
                     <a className="username" href="/">
                       마샬
@@ -102,7 +102,7 @@ const UserGalleryDesktop = () => {
               >
                 <div className="gallery-card">
                   <figure className="gallery-card-image">
-                    <img src="./assets/images/img-review-04.jpg" alt="" />
+                    <img src="/assets/images/img-review-04.jpg" alt="" />
                     <figcaption className="visually-hidden">
                       사달라 님의 스타일링샷
                     </figcaption>
@@ -110,7 +110,7 @@ const UserGalleryDesktop = () => {
 
                   <div className="gallery-card-detail">
                     <a className="avatar-32" href="/">
-                      <img src="./assets/images/img-user-01.jpg" alt="사달라" />
+                      <img src="/assets/images/img-user-01.jpg" alt="사달라" />
                     </a>
                     <a className="username" href="/">
                       사달라
@@ -126,7 +126,7 @@ const UserGalleryDesktop = () => {
               >
                 <div className="gallery-card">
                   <figure className="gallery-card-image">
-                    <img src="./assets/images/img-review-05.jpg" alt="" />
+                    <img src="/assets/images/img-review-05.jpg" alt="" />
                     <figcaption className="visually-hidden">
                       초코송이 님의 스타일링샷
                     </figcaption>
@@ -135,7 +135,7 @@ const UserGalleryDesktop = () => {
                   <div className="gallery-card-detail">
                     <a className="avatar-32" href="/">
                       <img
-                        src="./assets/images/img-user-06.jpg"
+                        src="/assets/images/img-user-06.jpg"
                         alt="초코송이"
                       />
                     </a>
@@ -171,7 +171,7 @@ const UserGalleryDesktop = () => {
               <li className="thumbnail-item" id="user-gallery-tab-1" role="tab">
                 <button type="button">
                   <img
-                    src="./assets/images/img-review-01.jpg"
+                    src="/assets/images/img-review-01.jpg"
                     alt="
                         1번 스타일링샷"
                   />
@@ -180,7 +180,7 @@ const UserGalleryDesktop = () => {
               <li className="thumbnail-item" id="user-gallery-tab-2" role="tab">
                 <button type="button">
                   <img
-                    src="./assets/images/img-review-02.jpg"
+                    src="/assets/images/img-review-02.jpg"
                     alt="
                         2번 스타일링샷"
                   />
@@ -189,7 +189,7 @@ const UserGalleryDesktop = () => {
               <li className="thumbnail-item" id="user-gallery-tab-3" role="tab">
                 <button type="button">
                   <img
-                    src="./assets/images/img-review-03.jpg"
+                    src="/assets/images/img-review-03.jpg"
                     alt="
                         3번 스타일링샷"
                   />
@@ -198,7 +198,7 @@ const UserGalleryDesktop = () => {
               <li className="thumbnail-item" id="user-gallery-tab-4" role="tab">
                 <button type="button">
                   <img
-                    src="./assets/images/img-review-04.jpg"
+                    src="/assets/images/img-review-04.jpg"
                     alt="
                         4번 스타일링샷"
                   />
@@ -207,7 +207,7 @@ const UserGalleryDesktop = () => {
               <li className="thumbnail-item" id="user-gallery-tab-5" role="tab">
                 <button type="button">
                   <img
-                    src="./assets/images/img-review-05.jpg"
+                    src="/assets/images/img-review-05.jpg"
                     alt="
                         5번 스타일링샷"
                   />

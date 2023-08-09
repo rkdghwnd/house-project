@@ -2,13 +2,13 @@ import Link from 'next/link';
 import React from 'react';
 import StoreItems from './StoreItem';
 
-const TodayDeals = () => {
+const TodayDealsSummary = () => {
   return (
-    <section className="today-deals">
-      <div className="today-deals-header">
+    <section className="today-deals-summary">
+      <div className="today-deals-summary-header">
         <h3>오늘의 딜</h3> <Link href="/">더보기</Link>
       </div>
-      <div className="today-deals-items">
+      <div className="today-deals-summary-items">
         <StoreItems />
         <StoreItems />
         <StoreItems />
@@ -19,4 +19,4 @@ const TodayDeals = () => {
   );
 };
 
-export default TodayDeals;
+export default TodayDealsSummary;

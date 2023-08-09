@@ -1,24 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React, { forwardRef } from 'react';
 import ProductCard from './ProductCard';
-import scrollSlice from '../../reducers/scrollSlice';
-import { useDispatch } from 'react-redux';
 
-const ProductRecommendation = () => {
-  const dispatch = useDispatch();
-  const productRecommendation = useRef();
-
-  useEffect(() => {
-    const scrollY = productRecommendation.current.offsetTop + 360;
-    dispatch(scrollSlice.actions.updateProductRecommendationScrollY(scrollY));
-  }, [productRecommendation]);
-
+const ProductRecommendation = (props, ref) => {
   return (
     <>
       <section
         className="product-section product-recommendation"
         id="product-recommendation"
         role="tabpanel"
-        ref={productRecommendation}
+        ref={ref}
       >
         <header className="product-section-header">
           <h1 className="title">비슷한 상품</h1>
@@ -37,7 +27,7 @@ const ProductRecommendation = () => {
                 <div className="product-card">
                   <div className="product-card-image">
                     <img
-                      src="./assets/images/img-recommendation-03.jpg"
+                      src="/assets/images/img-recommendation-03.jpg"
                       alt=""
                     />
                   </div>
@@ -77,7 +67,7 @@ const ProductRecommendation = () => {
                 <div className="product-card">
                   <div className="product-card-image">
                     <img
-                      src="./assets/images/img-recommendation-02.jpg"
+                      src="/assets/images/img-recommendation-02.jpg"
                       alt=""
                     />
                   </div>
@@ -117,7 +107,7 @@ const ProductRecommendation = () => {
                 <div className="product-card">
                   <div className="product-card-image">
                     <img
-                      src="./assets/images/img-recommendation-04.jpg"
+                      src="/assets/images/img-recommendation-04.jpg"
                       alt=""
                     />
                   </div>
@@ -159,4 +149,4 @@ const ProductRecommendation = () => {
   );
 };
 
-export default ProductRecommendation;
+export default forwardRef(ProductRecommendation);

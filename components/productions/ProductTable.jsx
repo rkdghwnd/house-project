@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 const ProductTable = () => {
   return (
     <>
-      {' '}
       <table className="product-table">
         <tbody>
           <tr>
@@ -61,4 +60,4 @@ const ProductTable = () => {
   );
 };
 
-export default ProductTable;
+export default forwardRef(ProductTable);

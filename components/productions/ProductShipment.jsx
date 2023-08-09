@@ -1,16 +1,6 @@
-import React, { useCallback, useEffect, useRef } from 'react';
-import scrollSlice from '../../reducers/scrollSlice';
-import { useDispatch } from 'react-redux';
+import React, { useCallback, forwardRef } from 'react';
 
-const ProductShipment = () => {
-  const dispatch = useDispatch();
-  const productShipment = useRef();
-
-  useEffect(() => {
-    const scrollY = productShipment.current.offsetTop + 360;
-    dispatch(scrollSlice.actions.updateProductShipmentScrollY(scrollY));
-  }, [productShipment]);
-
+const ProductShipment = (props, ref) => {
   const openShipment = useCallback((e) => {
     e.currentTarget.parentNode.parentNode.classList.add('is-open');
   }, []);
@@ -20,7 +10,7 @@ const ProductShipment = () => {
       className="product-shipment"
       id="product-shipment"
       role="tabpanel"
-      ref={productShipment}
+      ref={ref}
     >
       <header className="product-section-header sm-only">
         <h1 className="title">배송/교환/환불</h1>
@@ -90,4 +80,4 @@ const ProductShipment = () => {
   );
 };
 
-export default ProductShipment;
+export default forwardRef(ProductShipment);

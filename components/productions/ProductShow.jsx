@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import BreadCrumb from './BreadCrumb';
 import ProductCarousel from './ProductCarousel';
 import ProductInfo from './ProductInfo';
@@ -15,6 +15,12 @@ import ProductTable from './ProductTable';
 import OrderCTA from './OrderCTA';
 
 const ProductShow = () => {
+  const productSpecRef = useRef();
+  const productReviewRef = useRef();
+  const productInquiryRef = useRef();
+  const productShipmentRef = useRef();
+  const productRecommendationRef = useRef();
+
   return (
     <main className="product-show">
       <div className="container">
@@ -38,17 +44,23 @@ const ProductShow = () => {
           </div>
         </div>
       </div>
-      <ProductTab />
+      <ProductTab
+        productSpecRef={productSpecRef}
+        productReviewRef={productReviewRef}
+        productInquiryRef={productInquiryRef}
+        productShipmentRef={productShipmentRef}
+        productRecommendationRef={productRecommendationRef}
+      />
       <div className="container">
         <div className="row">
           <div className="col-sm-4 col-lg-8">
             <UserGalleryDesktop />
-            <ProductSpec />
+            <ProductSpec ref={productSpecRef} />
             <ProductTable />
-            <ProductReview />
-            <ProductInquiry />
-            <ProductShipment />
-            <ProductRecommendation />
+            <ProductReview ref={productReviewRef} />
+            <ProductInquiry ref={productInquiryRef} />
+            <ProductShipment ref={productShipmentRef} />
+            <ProductRecommendation ref={productRecommendationRef} />
           </div>
           <div className="col-lg-4 lg-only">
             <OrderForm float={true} />
