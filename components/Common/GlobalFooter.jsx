@@ -28,12 +28,11 @@ const GlobalFooter = () => {
                   <address>
                     <a href="mailto:kimbugx@gmail.com">ghwnd6448@gmail.com</a>
                   </address>
-                  (제휴문의)
                 </dd>
               </div>
               <div className="global-footer-detail-item">
                 <dt>대표이사</dt>
-                <dd>김버그</dd>
+                <dd>강호중</dd>
               </div>
               <div className="global-footer-detail-item">
                 <dt>주소</dt>
