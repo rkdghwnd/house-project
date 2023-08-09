@@ -1,22 +1,12 @@
-import React, { useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
-import scrollSlice from '../../reducers/scrollSlice';
+import React, { forwardRef } from 'react';
 
-const ProductSpec = () => {
-  const dispatch = useDispatch();
-  const productSpec = useRef();
-
-  useEffect(() => {
-    const scrollY = productSpec.current.offsetTop + 360;
-    dispatch(scrollSlice.actions.updateProductSpecScrollY(scrollY));
-  }, [productSpec]);
-
+const ProductSpec = (props, ref) => {
   return (
     <section
       className="product-section product-spec is-open"
       id="product-spec"
       role="tabpanel"
-      ref={productSpec}
+      ref={ref}
     >
       <header className="product-section-header sm-hidden">
         <h1 className="title">상품 정보</h1>
@@ -30,37 +20,37 @@ const ProductSpec = () => {
         </div>
 
         <figure>
-          <img src="./assets/images/img-detail-01.jpg" alt="" />
+          <img src="/assets/images/img-detail-01.jpg" alt="" />
           <figcaption className="visually-hidden">
             보아르 전기 히터 상세 이미지 01
           </figcaption>
         </figure>
         <figure>
-          <img src="./assets/images/img-detail-02.jpg" alt="" />
+          <img src="/assets/images/img-detail-02.jpg" alt="" />
           <figcaption className="visually-hidden">
             보아르 전기 히터 상세 이미지 02
           </figcaption>
         </figure>
         <figure>
-          <img src="./assets/images/img-detail-03.jpg" alt="" />
+          <img src="/assets/images/img-detail-03.jpg" alt="" />
           <figcaption className="visually-hidden">
             보아르 전기 히터 상세 이미지 03
           </figcaption>
         </figure>
         <figure>
-          <img src="./assets/images/img-detail-04.jpg" alt="" />
+          <img src="/assets/images/img-detail-04.jpg" alt="" />
           <figcaption className="visually-hidden">
             보아르 전기 히터 상세 이미지 04
           </figcaption>
         </figure>
         <figure>
-          <img src="./assets/images/img-detail-05.jpg" alt="" />
+          <img src="/assets/images/img-detail-05.jpg" alt="" />
           <figcaption className="visually-hidden">
             보아르 전기 히터 상세 이미지 05
           </figcaption>
         </figure>
         <figure>
-          <img src="./assets/images/img-detail-06.jpg" alt="" />
+          <img src="/assets/images/img-detail-06.jpg" alt="" />
           <figcaption className="visually-hidden">
             보아르 전기 히터 상세 이미지 06
           </figcaption>
@@ -70,4 +60,4 @@ const ProductSpec = () => {
   );
 };
 
-export default ProductSpec;
+export default forwardRef(ProductSpec);

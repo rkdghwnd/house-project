@@ -29,7 +29,7 @@ const MyMenu = () => {
         aria-label="마이메뉴 열기 버튼"
         ref={myMenuButton}
       >
-        <img src="./assets/images/img-user-01.jpg" alt="사달라 아저씨" />
+        <img src="/assets/images/img-user-01.jpg" alt="사달라 아저씨" />
       </button>
 
       <div className="my-menu-content">
