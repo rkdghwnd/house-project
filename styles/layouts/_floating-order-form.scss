@@ -10,7 +10,7 @@
   min-height: calc(100vh - #{$global-header-height + $global-footer-height});
   padding: 24px 0;
 
-  > * {
+  & > * {
     width: 100%;
   }
 

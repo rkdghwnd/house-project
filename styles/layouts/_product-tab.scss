@@ -1,6 +1,6 @@
 .product-tab {
   position: sticky;
-  top: $gnb-height-sm + $lnb-height-sm;
+  top: $gnb-height-sm + $lnb-height-sm - 1px;
   z-index: $product-tab-level;
   width: 100%;
   height: $product-tab-height-sm;
