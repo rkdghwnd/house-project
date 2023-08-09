@@ -3,8 +3,8 @@ import React from 'react';
 import AppLayout from '../components/Common/AppLayout';
 import StoreBanner from '../components/store/StoreBanner';
 import StoreMenu from '../components/store/StoreMenu';
-import TodayDeals from '../components/store/TodayDeals';
-import PopularProducts from '../components/store/PopularProducts';
+import PopularProducts from '../components/store/popularProducts';
+import TodayDealsSummary from '../components/store/TodayDealsSummary';
 
 const store = () => {
   return (
@@ -24,7 +24,7 @@ const store = () => {
             <div className="row">
               <div className="col-sm-4">
                 <StoreMenu />
-                <TodayDeals />
+                <TodayDealsSummary />
                 <PopularProducts />
               </div>
             </div>
