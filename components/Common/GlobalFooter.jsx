@@ -1,8 +1,14 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 
 const GlobalFooter = () => {
+  const router = useRouter();
+  const isProductions = router.pathname.includes('/productions');
+  console.log(isProductions, router.pathname);
   return (
-    <footer className="global-footer">
+    <footer
+      className={`global-footer ${isProductions ? 'is-productions' : ''}`}
+    >
       <div className="container">
         <div className="row">
           <div className="col-sm-4">
@@ -39,7 +45,7 @@ const GlobalFooter = () => {
                 <dd>
                   <address>
                     <a
-                      href="https://www.youtube.com/c/kimbug"
+                      href="https://github.com/rkdghwnd"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

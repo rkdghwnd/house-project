@@ -69,12 +69,21 @@
 @import './layouts/floating-order-form';
 @import './layouts/cart-modal';
 @import './layouts/bookmark-toast';
+
 @import './components/store-banner';
 @import './components/store-menu';
 @import './components/today-deals-summary';
 @import './components/store-item';
 @import './components/popular-products';
+
 @import './components/product-ranks';
+
 @import './components/today-deal-banner';
 @import './components/today-deals-main';
-@import './components/refur-market';
+
+@import './components/exhibitions-layout';
+@import './components/exhibitions-menu';
+@import './components/exhibition-grid-4-items';
+@import './components/exhibition-grid-3-items';
+@import './components/exhibitions_tags';
+@import './components/exhibitions_tags_items';

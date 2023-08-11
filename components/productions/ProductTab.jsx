@@ -62,21 +62,35 @@ const ProductTab = ({
   );
 
   useEffect(() => {
+    setCurrentActiveTab(productShipmentRef.current);
+  }, []);
+
+  useEffect(() => {
     const detectTabPanelPosition = () => {
       const productTabPanelPositionMap = {};
-      productTabPanelPositionMap['product-spec'] =
-        window.scrollY + productSpecRef.current.getBoundingClientRect().top;
-      productTabPanelPositionMap['product-review'] =
-        window.scrollY + productReviewRef.current.getBoundingClientRect().top;
-      productTabPanelPositionMap['product-inquiry'] =
-        window.scrollY + productInquiryRef.current.getBoundingClientRect().top;
-      productTabPanelPositionMap['product-shipment'] =
-        window.scrollY + productShipmentRef.current.getBoundingClientRect().top;
-      productTabPanelPositionMap['product-recommendation'] =
-        window.scrollY +
-        productRecommendationRef.current.getBoundingClientRect().top;
+      if (
+        productSpecRef.current &&
+        productReviewRef.current &&
+        productInquiryRef.current &&
+        productShipmentRef.current &&
+        productRecommendationRef.current
+      ) {
+        productTabPanelPositionMap['product-spec'] =
+          window.scrollY + productSpecRef.current.getBoundingClientRect().top;
+        productTabPanelPositionMap['product-review'] =
+          window.scrollY + productReviewRef.current.getBoundingClientRect().top;
+        productTabPanelPositionMap['product-inquiry'] =
+          window.scrollY +
+          productInquiryRef.current.getBoundingClientRect().top;
+        productTabPanelPositionMap['product-shipment'] =
+          window.scrollY +
+          productShipmentRef.current.getBoundingClientRect().top;
+        productTabPanelPositionMap['product-recommendation'] =
+          window.scrollY +
+          productRecommendationRef.current.getBoundingClientRect().top;
 
-      updateActiveTabOnScroll(productTabPanelPositionMap);
+        updateActiveTabOnScroll(productTabPanelPositionMap);
+      }
     };
 
     const updateActiveTabOnScroll = (productTabPanelPositionMap) => {
@@ -93,31 +107,29 @@ const ProductTab = ({
         scrolledAmount >= productTabPanelPositionMap['product-recommendation']
       ) {
         newActiveTab = recommendationTab.current;
-        setCurrentActiveTab(recommendationTab.current);
-        // recommendationTab.current.classList.add('is-active');
       } else if (
         scrolledAmount >= productTabPanelPositionMap['product-shipment']
       ) {
         newActiveTab = shipmentTab.current;
-        setCurrentActiveTab(shipmentTab.current);
-        // shipmentTab.current.classList.add('is-active');
       } else if (
         scrolledAmount >= productTabPanelPositionMap['product-inquiry']
       ) {
         newActiveTab = inquiryTab.current;
-        setCurrentActiveTab(inquiryTab.current);
-        // inquiryTab.current.classList.add('is-active');
       } else if (
         scrolledAmount >= productTabPanelPositionMap['product-review']
       ) {
         newActiveTab = reviewTab.current;
-        setCurrentActiveTab(reviewTab.current);
-        // reviewTab.current.classList.add('is-active');
       } else {
         newActiveTab = specTab.current;
-        setCurrentActiveTab(specTab.current);
-        // specTab.current.classList.add('is-active');
       }
+
+      // const bodyHeight =
+      //   document.body.offsetHeight + (window.innerWidth < 1200 ? 56 : 0);
+      // console.log(window.scrollY + window.innerHeight - bodyHeight);
+
+      // if (window.scrollY + window.innerHeight === bodyHeight) {
+      //   newActiveTab = recommendationTab.current;
+      // }
 
       if (newActiveTab) {
         if (newActiveTab !== currentActiveTab) {

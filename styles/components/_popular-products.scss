@@ -54,6 +54,9 @@
   &-list {
     &-col {
       @include flexbox;
+      a:not(:last-child) {
+        margin-right: 10px;
+      }
     }
 
     .store-item {
@@ -70,11 +73,11 @@
       }
 
       &-col {
-        &:not(:last-child) {
-          margin-right: 10px;
+        a:not(:last-child) {
+          margin-right: 20px;
         }
-        & > a:not(:last-child) {
-          margin-right: 10px;
+        &:not(:last-child) {
+          margin-right: 20px;
         }
       }
     }

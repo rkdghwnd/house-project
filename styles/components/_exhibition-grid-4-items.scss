@@ -1,0 +1,27 @@
+.exhibition-grid-4-items {
+  & > .col {
+    display: flex;
+    & > a:not(:last-child) {
+      margin-right: 15px;
+    }
+    .store-item {
+      flex-direction: column;
+      &-info {
+        padding: 0;
+      }
+    }
+  }
+
+  @include responsive(T) {
+    display: flex;
+    & > .col {
+      width: 50%;
+      & > a:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+    & > .col:first-child {
+      margin-right: 20px;
+    }
+  }
+}
