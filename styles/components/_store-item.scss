@@ -1,5 +1,6 @@
 .store-item {
   @include flexbox;
+  display: flex;
   padding-bottom: 7px;
   border-bottom: 1px solid $border;
 
@@ -11,7 +12,7 @@
       width: 100%;
       height: auto;
       object-fit: cover;
-      border-radius: 5px;
+      border-radius: 10px;
     }
   }
 
@@ -65,11 +66,23 @@
         font-weight: 700;
       }
     }
+
+    &-tag {
+      margin-top: 7px;
+      button {
+        font-weight: 500;
+      }
+      button:not(:last-child) {
+        margin-right: 4px;
+      }
+    }
   }
 
   &:hover {
     .store-item-image {
       overflow: hidden;
+      border-radius: 10px;
+
       img {
         transform: scale(1.1);
         transition: 200ms transform ease-in-out;
@@ -85,6 +98,7 @@
   @include responsive(T) {
     border-bottom: none;
     &-info {
+      padding: 0;
       height: 200px;
     }
   }
