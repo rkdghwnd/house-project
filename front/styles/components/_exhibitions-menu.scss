@@ -1,0 +1,21 @@
+.exhibitions-menu {
+  position: relative;
+  line-height: 0;
+
+  a {
+    width: 33.3%;
+    height: 100%;
+    position: absolute;
+
+    &:nth-child(2) {
+      left: 0;
+    }
+    &:nth-child(3) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &:nth-child(4) {
+      right: 0;
+    }
+  }
+}

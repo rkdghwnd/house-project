@@ -1,0 +1,28 @@
+.today-deals-main {
+  &-header {
+    margin: 50px 0 30px 0;
+
+    h3 {
+      font-size: 30px;
+      margin: 15px 0;
+    }
+    span {
+      @include text-style-16;
+      color: $secondary;
+    }
+  }
+
+  @include responsive(T) {
+    &-items {
+      &-col {
+        display: flex;
+        & > a:not(:last-child) {
+          margin-right: 20px;
+        }
+        .store-item {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
