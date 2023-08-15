@@ -1,13 +1,14 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import _ from 'underscore';
+import {
+  activeTabOnClick,
+  createDetectPositionFunc,
+  createtabList,
+  scrollByProductPosition,
+} from '../../hooks/productTabPanel';
+import shortid from 'shortid';
 
-const ProductTab = ({
-  productSpecRef,
-  productReviewRef,
-  productInquiryRef,
-  productShipmentRef,
-  productRecommendationRef,
-}) => {
+const ProductTab = (props) => {
   const [currentActiveTab, setCurrentActiveTab] = useState(null);
 
   const specTab = useRef();
@@ -16,131 +17,37 @@ const ProductTab = ({
   const shipmentTab = useRef();
   const recommendationTab = useRef();
 
-  const TOP_HEADER_DESKTOP = 80 + 50 + 54;
-  const TOP_HEADER_MOBILE = 50 + 40 + 40;
+  const panelRefs = {
+    ...props,
+  };
+
+  const tabRefs = {
+    specTab,
+    reviewTab,
+    inquiryTab,
+    shipmentTab,
+    recommendationTab,
+  };
 
   const onClickTab = useCallback(
     (e) => {
-      // active
-      // if (currentActiveTab !== e.currentTarget.parentNode) {
-      //   if (currentActiveTab) {
-      //     e.currentTarget.parentNode.classList.add('is-active');
-      //     currentActiveTab.classList.remove('is-active');
-      //   }
-      //   setCurrentActiveTab(e.currentTarget.parentNode);
-      // }
-
-      // scrollTo
-      const tabPanelId =
-        e.currentTarget.parentNode.getAttribute('aria-labelledby');
-      const option = { top: 0, behavior: 'smooth' };
-
-      const headerHeight =
-        window.innerWidth >= 768 ? TOP_HEADER_DESKTOP : TOP_HEADER_MOBILE;
-
-      if (tabPanelId === 'product-spec') {
-        option.top =
-          productSpecRef.current.getBoundingClientRect().top - headerHeight;
-      } else if (tabPanelId === 'product-review') {
-        option.top =
-          productReviewRef.current.getBoundingClientRect().top - headerHeight;
-      } else if (tabPanelId === 'product-inquiry') {
-        option.top =
-          productInquiryRef.current.getBoundingClientRect().top - headerHeight;
-      } else if (tabPanelId === 'product-shipment') {
-        option.top =
-          productShipmentRef.current.getBoundingClientRect().top - headerHeight;
-      } else if (tabPanelId === 'product-recommendation') {
-        option.top =
-          productRecommendationRef.current.getBoundingClientRect().top -
-          headerHeight;
-      }
-
-      window.scrollBy(option);
+      activeTabOnClick(currentActiveTab, e, setCurrentActiveTab);
+      scrollByProductPosition(e, panelRefs);
     },
-    [currentActiveTab]
+    [currentActiveTab, panelRefs]
   );
 
   useEffect(() => {
-    setCurrentActiveTab(productShipmentRef.current);
-  }, []);
+    setCurrentActiveTab(panelRefs.productShipmentRef.current);
+  }, [panelRefs.productShipmentRef]);
 
   useEffect(() => {
-    const detectTabPanelPosition = () => {
-      const productTabPanelPositionMap = {};
-      if (
-        productSpecRef.current &&
-        productReviewRef.current &&
-        productInquiryRef.current &&
-        productShipmentRef.current &&
-        productRecommendationRef.current
-      ) {
-        productTabPanelPositionMap['product-spec'] =
-          window.scrollY + productSpecRef.current.getBoundingClientRect().top;
-        productTabPanelPositionMap['product-review'] =
-          window.scrollY + productReviewRef.current.getBoundingClientRect().top;
-        productTabPanelPositionMap['product-inquiry'] =
-          window.scrollY +
-          productInquiryRef.current.getBoundingClientRect().top;
-        productTabPanelPositionMap['product-shipment'] =
-          window.scrollY +
-          productShipmentRef.current.getBoundingClientRect().top;
-        productTabPanelPositionMap['product-recommendation'] =
-          window.scrollY +
-          productRecommendationRef.current.getBoundingClientRect().top;
-
-        updateActiveTabOnScroll(productTabPanelPositionMap);
-      }
-    };
-
-    const updateActiveTabOnScroll = (productTabPanelPositionMap) => {
-      // 현재 뷰포트의 Y축 위치
-      const scrolledAmount =
-        window.scrollY +
-        (window.innerWidth >= 768
-          ? TOP_HEADER_DESKTOP + 80
-          : TOP_HEADER_MOBILE + 8);
-
-      let newActiveTab;
-
-      if (
-        scrolledAmount >= productTabPanelPositionMap['product-recommendation']
-      ) {
-        newActiveTab = recommendationTab.current;
-      } else if (
-        scrolledAmount >= productTabPanelPositionMap['product-shipment']
-      ) {
-        newActiveTab = shipmentTab.current;
-      } else if (
-        scrolledAmount >= productTabPanelPositionMap['product-inquiry']
-      ) {
-        newActiveTab = inquiryTab.current;
-      } else if (
-        scrolledAmount >= productTabPanelPositionMap['product-review']
-      ) {
-        newActiveTab = reviewTab.current;
-      } else {
-        newActiveTab = specTab.current;
-      }
-
-      // const bodyHeight =
-      //   document.body.offsetHeight + (window.innerWidth < 1200 ? 56 : 0);
-      // console.log(window.scrollY + window.innerHeight - bodyHeight);
-
-      // if (window.scrollY + window.innerHeight === bodyHeight) {
-      //   newActiveTab = recommendationTab.current;
-      // }
-
-      if (newActiveTab) {
-        if (newActiveTab !== currentActiveTab) {
-          newActiveTab.classList.add('is-active');
-          if (currentActiveTab) {
-            currentActiveTab.classList.remove('is-active');
-          }
-          setCurrentActiveTab(newActiveTab);
-        }
-      }
-    };
+    const detectTabPanelPosition = createDetectPositionFunc(
+      panelRefs,
+      tabRefs,
+      currentActiveTab,
+      setCurrentActiveTab
+    );
 
     window.addEventListener('load', detectTabPanelPosition);
     window.addEventListener('resize', _.throttle(detectTabPanelPosition, 1000));
@@ -151,14 +58,9 @@ const ProductTab = ({
       window.removeEventListener('resize', detectTabPanelPosition);
       window.removeEventListener('scroll', detectTabPanelPosition);
     };
-  }, [
-    currentActiveTab,
-    recommendationTab,
-    shipmentTab,
-    inquiryTab,
-    reviewTab,
-    specTab,
-  ]);
+  }, [panelRefs, tabRefs, currentActiveTab]);
+
+  const tabList = createtabList(tabRefs);
 
   return (
     <div className="product-tab">
@@ -166,7 +68,23 @@ const ProductTab = ({
         <div className="row">
           <div className="col-sm-4 col-lg-8">
             <ul className="product-tab-list" role="tablist">
-              <li
+              {tabList.map(({ ref, ariaLabelledBy, title, isCount, count }) => {
+                return (
+                  <li
+                    key={shortid.generate()}
+                    role="tab"
+                    className="product-tab-item"
+                    aria-labelledby={ariaLabelledBy}
+                    ref={ref}
+                  >
+                    <button type="button" onClick={onClickTab}>
+                      {title}
+                      {isCount && <strong className="badge">{count}</strong>}
+                    </button>
+                  </li>
+                );
+              })}
+              {/* <li
                 className="product-tab-item"
                 role="tab"
                 aria-labelledby="product-spec"
@@ -221,7 +139,7 @@ const ProductTab = ({
                 <button type="button" onClick={onClickTab}>
                   추천
                 </button>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
