@@ -1,0 +1,30 @@
+.fast-delivery-market {
+  &-category {
+    &-row {
+      position: relative;
+      display: flex;
+      img {
+        width: 25%;
+        height: auto;
+      }
+      a {
+        position: absolute;
+        width: 21%;
+        height: 100%;
+
+        &:nth-child(5) {
+          left: 4%;
+        }
+        &:nth-child(6) {
+          left: 28%;
+        }
+        &:nth-child(7) {
+          left: 52%;
+        }
+        &:nth-child(8) {
+          right: 4%;
+        }
+      }
+    }
+  }
+}

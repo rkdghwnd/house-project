@@ -1,7 +1,7 @@
 import React from 'react';
 import { productCarouselOption } from '../../hooks/carousels';
-import 'tiny-slider/dist/tiny-slider.css';
 import TinySlider from 'tiny-slider-react';
+import 'tiny-slider/dist/tiny-slider.css';
 
 const ProductCarousel = () => {
   return (

@@ -2,6 +2,7 @@ import React, { useCallback, useRef } from 'react';
 import GnbNav from './GnbNav';
 import { useDispatch } from 'react-redux';
 import modalSlice from '../../reducers/modalSlice';
+import { Link } from 'react-router-dom';
 
 const GnbLeft = () => {
   const sidebarMenuButton = useRef();
@@ -14,9 +15,9 @@ const GnbLeft = () => {
   return (
     <div className="gnb-left">
       <h1 className="logo">
-        <a href="javscript:void();">
+        <Link to="/">
           <img src="/assets/images/logo.svg" alt="내일의 집" />
-        </a>
+        </Link>
       </h1>
       <GnbNav />
 

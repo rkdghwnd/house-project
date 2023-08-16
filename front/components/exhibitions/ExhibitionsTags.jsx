@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import shortid from 'shortid';
 
-const ExhibitionsTags = ({ tags }) => {
+const ExhibitionsTags = ({ tags }, ref) => {
   return (
-    <div className="exhibitions-tags">
+    <div className="exhibitions-tags" ref={ref}>
       {tags.map((tag) => (
         <button key={shortid.generate()} className="tag">
           {tag}
@@ -13,4 +13,4 @@ const ExhibitionsTags = ({ tags }) => {
   );
 };
 
-export default ExhibitionsTags;
+export default forwardRef(ExhibitionsTags);

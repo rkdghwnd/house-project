@@ -3,7 +3,6 @@ import { useLocation } from 'react-router';
 
 const GlobalFooter = () => {
   const location = useLocation();
-  console.log(location);
   const isProductions = location.pathname.includes('/productions');
 
   return (

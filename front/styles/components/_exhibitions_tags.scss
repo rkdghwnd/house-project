@@ -4,18 +4,18 @@
   border-bottom: 1px solid $border;
   background-color: white;
   position: sticky;
-  top: $gnb-height-sm + $lnb-height-sm - 1px;
+  top: $gnb-height-sm + $lnb-height-sm;
   z-index: $exhibition-tags-level;
   padding: 10px 0;
 
   .tag {
+    @include flexbox;
+    @include text-style-14;
+    padding: 15px;
+    margin: 5px;
     height: 20px;
     border-radius: 25px;
     background-color: $background;
-    @include text-style-14;
-    padding: 15px;
-    @include flexbox;
-    margin: 5px;
   }
 
   @include responsive(T) {

@@ -25,6 +25,7 @@
     top: $global-header-height + 25px;
     display: flex;
     flex-direction: column;
+    white-space: nowrap;
 
     p {
       @include text-style-16;
@@ -40,6 +41,15 @@
       margin-bottom: 20px;
       button {
         flex: 1 1 auto;
+
+        i,
+        .ic-share {
+          font-size: 18px;
+          margin-right: 3px;
+        }
+        i {
+          transform: translateY(1px);
+        }
       }
       button:first-child {
         margin-right: 10px;

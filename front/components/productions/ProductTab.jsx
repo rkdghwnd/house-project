@@ -3,10 +3,8 @@ import _ from 'underscore';
 import {
   activeTabOnClick,
   createDetectPositionFunc,
-  createtabList,
   scrollByProductPosition,
 } from '../../hooks/productTabPanel';
-import shortid from 'shortid';
 
 const ProductTab = (props) => {
   const [currentActiveTab, setCurrentActiveTab] = useState(null);
@@ -21,13 +19,16 @@ const ProductTab = (props) => {
     ...props,
   };
 
-  const tabRefs = {
-    specTab,
-    reviewTab,
-    inquiryTab,
-    shipmentTab,
-    recommendationTab,
-  };
+  const tabRefs = useMemo(
+    () => ({
+      specTab,
+      reviewTab,
+      inquiryTab,
+      shipmentTab,
+      recommendationTab,
+    }),
+    [specTab, reviewTab, inquiryTab, shipmentTab, recommendationTab]
+  );
 
   const onClickTab = useCallback(
     (e) => {
@@ -60,31 +61,13 @@ const ProductTab = (props) => {
     };
   }, [panelRefs, tabRefs, currentActiveTab]);
 
-  const tabList = createtabList(tabRefs);
-
   return (
     <div className="product-tab">
       <div className="container">
         <div className="row">
           <div className="col-sm-4 col-lg-8">
             <ul className="product-tab-list" role="tablist">
-              {tabList.map(({ ref, ariaLabelledBy, title, isCount, count }) => {
-                return (
-                  <li
-                    key={shortid.generate()}
-                    role="tab"
-                    className="product-tab-item"
-                    aria-labelledby={ariaLabelledBy}
-                    ref={ref}
-                  >
-                    <button type="button" onClick={onClickTab}>
-                      {title}
-                      {isCount && <strong className="badge">{count}</strong>}
-                    </button>
-                  </li>
-                );
-              })}
-              {/* <li
+              <li
                 className="product-tab-item"
                 role="tab"
                 aria-labelledby="product-spec"
@@ -139,7 +122,7 @@ const ProductTab = (props) => {
                 <button type="button" onClick={onClickTab}>
                   추천
                 </button>
-              </li> */}
+              </li>
             </ul>
           </div>
         </div>
