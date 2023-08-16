@@ -95,7 +95,7 @@ const ProductReview = (props, ref) => {
 
                 <a className="avatar-24" href="/">
                   <img
-                    src="./assets/images/img-user-03.jpg"
+                    src="/assets/images/img-user-03.jpg"
                     alt="고영희님이좋아합니다"
                   />
                 </a>
@@ -125,7 +125,7 @@ const ProductReview = (props, ref) => {
               <div className="review-card-body">
                 <div className="review-image">
                   <img
-                    src="./assets/images/img-review-01.jpg"
+                    src="/assets/images/img-review-01.jpg"
                     alt="고영희님이좋아합니다 님의 리뷰 사진"
                   />
                 </div>
@@ -157,7 +157,7 @@ const ProductReview = (props, ref) => {
                 <h3 className="visually-hidden">쿠쿠 님이 작성한 리뷰</h3>
 
                 <a className="avatar-24" href="/">
-                  <img src="./assets/images/img-user-04.jpg" alt="쿠쿠" />
+                  <img src="/assets/images/img-user-04.jpg" alt="쿠쿠" />
                 </a>
 
                 <div className="info">
@@ -217,7 +217,7 @@ const ProductReview = (props, ref) => {
                 <h3 className="visually-hidden">빅토리아 님이 작성한 리뷰</h3>
 
                 <a className="avatar-24" href="/">
-                  <img src="./assets/images/img-user-05.jpg" alt="빅토리아" />
+                  <img src="/assets/images/img-user-05.jpg" alt="빅토리아" />
                 </a>
 
                 <div className="info">

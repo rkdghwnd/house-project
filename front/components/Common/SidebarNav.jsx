@@ -8,7 +8,7 @@ const SidebarNav = () => {
   return (
     <nav className="sidebar-nav">
       <h2 className="visually-hidden">메뉴</h2>
-      <CommunityDrawerMenu />
+      {/* <CommunityDrawerMenu /> */}
       <StoreDrawerMenu />
       <ExpertDrawerMenu />
 

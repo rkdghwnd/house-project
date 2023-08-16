@@ -7,7 +7,7 @@ const ReviewCard = () => {
         <h3 className="visually-hidden">김버그 님이 작성한 리뷰</h3>
 
         <a className="avatar-24" href="/">
-          <img src="./assets/images/img-user-02.jpg" alt="김버그" />
+          <img src="/assets/images/img-user-02.jpg" alt="김버그" />
         </a>
 
         <div className="info">

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const StoreItem = () => {
   return (
-    <Link to="/">
+    <Link to="/productions/1">
       <div className="store-item">
         <div className="store-item-image">
           <img src="/assets/images/product/product-thumnail-2.avif" />

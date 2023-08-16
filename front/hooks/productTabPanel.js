@@ -132,38 +132,3 @@ export const createDetectPositionFunc =
       setCurrentActiveTab
     );
   };
-
-export const createtabList = (tabRefs) => [
-  {
-    ref: tabRefs.specTab,
-    ariaLabelledBy: 'product-spec',
-    title: '상품정보',
-    isCount: false,
-  },
-  {
-    ref: tabRefs.reviewTab,
-    ariaLabelledBy: 'product-review',
-    title: '리뷰',
-    isCount: true,
-    count: 566,
-  },
-  {
-    ref: tabRefs.inquiryTab,
-    ariaLabelledBy: 'product-inquiry',
-    title: '문의',
-    isCount: true,
-    count: 96,
-  },
-  {
-    ref: tabRefs.shipmentTab,
-    ariaLabelledBy: 'product-shipment',
-    title: '배송/환불',
-    isCount: false,
-  },
-  {
-    ref: tabRefs.recommendationTab,
-    ariaLabelledBy: 'product-recommendation',
-    title: '추천',
-    isCount: false,
-  },
-];

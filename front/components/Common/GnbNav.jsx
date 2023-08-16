@@ -10,15 +10,12 @@ const GnbNav = () => {
     <nav className="gnb-nav sm-hidden">
       <h2 className="visually-hidden">메뉴</h2>
       <ul className="gnb-nav-list">
-        <li className="gnb-nav-item">
-          <Link to="/">커뮤니티</Link>
-        </li>
         <li
           className={`gnb-nav-item ${
             storePaths.includes(location.pathname) ? 'is-active' : ''
           }`}
         >
-          <Link href="/store">스토어</Link>
+          <Link to="/store">스토어</Link>
         </li>
         <li className="gnb-nav-item">
           <a href="javascript:void(0);">인테리어시공</a>
