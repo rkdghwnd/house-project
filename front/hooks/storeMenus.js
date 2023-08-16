@@ -1,55 +1,45 @@
 export const storeMenus1 = [
   {
-    href: '/',
-    src: '/assets/images/storeIcon/store-menu-icon-1.avif',
-    title: '시즌오프',
-  },
-  {
-    href: '/',
-    src: '/assets/images/storeIcon/store-menu-icon-2.avif',
+    href: '/ranks',
+    src: '/assets/images/storeIcon/store-icon-best.png',
     title: 'BEST',
   },
   {
-    href: '/',
-    src: '/assets/images/storeIcon/store-menu-icon-3.avif',
+    href: '/today_deals',
+    src: '/assets/images/storeIcon/store-icon-clock.png',
     title: '오늘의딜',
   },
   {
-    href: '/',
-    src: '/assets/images/storeIcon/store-menu-icon-4.avif',
+    href: '/exhibitions/1',
+    src: '/assets/images/storeIcon/store-icon-smart-microwave.png',
     title: '리퍼마켓',
   },
   {
-    href: '/',
-    src: '/assets/images/storeIcon/store-menu-icon-5.avif',
-    title: '선착순특가',
+    href: '/exhibitions/2',
+    src: '/assets/images/storeIcon/store-icon-delivery.png',
+    title: '빠른배송',
   },
 ];
 
 export const storeMenus2 = [
   {
     href: '/',
-    src: '/assets/images/storeIcon/store-menu-icon-6.webp',
+    src: '/assets/images/storeIcon/store-icon-premium.png',
     title: '프리미엄',
   },
   {
     href: '/',
-    src: '/assets/images/storeIcon/store-menu-icon-7.avif',
-    title: '인기가전',
+    src: '/assets/images/storeIcon/store-icon-sale.png',
+    title: '초특가모음',
   },
   {
     href: '/',
-    src: '/assets/images/storeIcon/store-menu-icon-8.avif',
-    title: '삼성전자',
+    src: '/assets/images/storeIcon/store-icon-hand-pointer.png',
+    title: '하루특가',
   },
   {
     href: '/',
-    src: '/assets/images/storeIcon/store-menu-icon-9.avif',
-    title: '오!쇼룸',
-  },
-  {
-    href: '/',
-    src: '/assets/images/storeIcon/store-menu-icon-10.avif',
+    src: '/assets/images/storeIcon/store-icon-discount.png',
     title: '기획전',
   },
 ];
