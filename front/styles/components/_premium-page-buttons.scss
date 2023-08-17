@@ -1,0 +1,18 @@
+.premium-page-buttons {
+  @include flexbox;
+  position: sticky;
+  top: $gnb-height-sm + $lnb-height-sm;
+  margin: 0 -20px;
+  padding: 20px 0;
+  background-color: white;
+  z-index: $exhibition-tags-level;
+
+  button {
+    width: 200px;
+  }
+
+  @include responsive(T) {
+    top: $gnb-height-md + $lnb-height-md;
+    margin-bottom: 30px;
+  }
+}
