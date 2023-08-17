@@ -5,7 +5,6 @@ import TinySlider from 'tiny-slider-react';
 const UserGalleryMobile = () => {
   return (
     <>
-      {' '}
       <div className="product-section-divider" aria-hidden></div>
       <section className="product-section product-user-gallery">
         <header className="product-section-header">

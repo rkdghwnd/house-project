@@ -1,5 +1,5 @@
 import React from 'react';
-import AppLayout from '../components/Common/AppLayout';
+import AppLayout from '../components/common/AppLayout';
 import TodayDealsBanner from '../components/today_deals/TodayDealsBanner';
 import TodayDealsMain from '../components/today_deals/TodayDealsMain';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import StoreItem from '../store/StoreItem';
+import StoreItem from '../home/StoreItem';
 
 const TodayDealsMain = () => {
   return (

@@ -7,18 +7,18 @@ const GnbRight = () => {
   const gnbSearchHistory = useRef(); // 필수(윈도우 이벤트 삽입/삭제하기 위해)
   const gnbSearchHistoryList = useRef(); // 대체 가능(데이터로 대체)
 
-  const closeGnbSearchHistoryOnClickingOutside = useCallback(
+  const clickingOutside = useCallback(
     (e) => {
       if (!gnbSearch.current.contains(e.target)) {
         closeGnbSearchHistory();
       }
     },
-    [gnbSearch.current]
+    [gnbSearch]
   );
 
   const closeGnbSearchHistory = useCallback(() => {
     gnbSearchHistory.current.classList.remove('is-active');
-    window.removeEventListener('click', closeGnbSearchHistoryOnClickingOutside);
+    window.removeEventListener('click', clickingOutside);
   }, [gnbSearchHistory]);
 
   const openGnbSearchHistory = useCallback(() => {
@@ -27,7 +27,7 @@ const GnbRight = () => {
     }
 
     if (!gnbSearchHistory.current.classList.contains('is-active')) {
-      window.addEventListener('click', closeGnbSearchHistoryOnClickingOutside); // 활성화가 되었을때만 이벤트가 적용되도록
+      window.addEventListener('click', clickingOutside); // 활성화가 되었을때만 이벤트가 적용되도록
     }
     gnbSearchHistory.current.classList.add('is-active');
   }, [gnbSearchHistory, gnbSearchHistoryList]);

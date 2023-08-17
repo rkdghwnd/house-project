@@ -50,8 +50,6 @@
     }
 
     &-discount {
-      @include inline-flexbox(start);
-
       .rate {
         font-family: $font-price;
         font-size: 18px;

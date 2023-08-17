@@ -63,6 +63,8 @@ const FastDeliveryMarket = () => {
       </div>
       <ExhibitionsTags tags={fastDeliveryTags} ref={exhibitionstags} />
       <ExhibitionsGrid3Items />
+      <ExhibitionsGrid3Items />
+      <ExhibitionsGrid3Items />
     </div>
   );
 };
