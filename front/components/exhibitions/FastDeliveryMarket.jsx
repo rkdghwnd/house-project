@@ -3,17 +3,18 @@ import { fastDeliveryTags } from '../../hooks/exhibitions';
 import ExhibitionsTags from './ExhibitionsTags';
 import ExhibitionsGrid3Items from './ExhibitionsGrid3Items';
 import { TOP_HEADER_DESKTOP, TOP_HEADER_MOBILE } from '../../hooks/constant';
+import ExhibitionsTagsItems from './ExhibitionsTagsItems';
 
-const FastDeliveryMarket = () => {
-  const exhibitionstags = useRef();
+const FastDeliveryMarket = ({ productsRef }) => {
+  const exhibitionsTagsRef = useRef();
   const moveToTags = useCallback(() => {
     // 카테고리 위치로 이동
     const top =
-      exhibitionstags.current.getBoundingClientRect().top -
+      exhibitionsTagsRef.current.getBoundingClientRect().top -
       (window.innerWidth >= 768 ? TOP_HEADER_DESKTOP : TOP_HEADER_MOBILE);
     window.scrollBy({ top });
     // 비동기로 받아오기(보류)
-  }, [exhibitionstags]);
+  }, [exhibitionsTagsRef]);
 
   return (
     <div className="fast-delivery-market">
@@ -30,16 +31,16 @@ const FastDeliveryMarket = () => {
           <img src="/assets/images/fastdelivery/category2.avif" alt="sofa" />
           <img
             src="/assets/images/fastdelivery/category3.avif"
-            alt="storage furniture"
+            alt="storage_furniture"
           />
           <img
             src="/assets/images/fastdelivery/category4.avif"
-            alt="home office"
+            alt="home_office"
           />
-          <a href="javascript:;" onClick={moveToTags}></a>
-          <a href="javascript:;" onClick={moveToTags}></a>
-          <a href="javascript:;" onClick={moveToTags}></a>
-          <a href="javascript:;" onClick={moveToTags}></a>
+          <a onClick={moveToTags}></a>
+          <a onClick={moveToTags}></a>
+          <a onClick={moveToTags}></a>
+          <a onClick={moveToTags}></a>
         </div>
         <div className="fast-delivery-market-category-row">
           <img src="/assets/images/fastdelivery/category5.avif" alt="table" />
@@ -49,22 +50,20 @@ const FastDeliveryMarket = () => {
           />
           <img
             src="/assets/images/fastdelivery/category7.avif"
-            alt="overseas brand"
+            alt="overseas_brand"
           />
           <img
             src="/assets/images/fastdelivery/category8.avif"
-            alt="home appliances"
+            alt="home_appliances"
           />
-          <a href="javascript:;" onClick={moveToTags}></a>
-          <a href="javascript:;" onClick={moveToTags}></a>
-          <a href="javascript:;" onClick={moveToTags}></a>
-          <a href="javascript:;" onClick={moveToTags}></a>
+          <a onClick={moveToTags}></a>
+          <a onClick={moveToTags}></a>
+          <a onClick={moveToTags}></a>
+          <a onClick={moveToTags}></a>
         </div>
       </div>
-      <ExhibitionsTags tags={fastDeliveryTags} ref={exhibitionstags} />
-      <ExhibitionsGrid3Items />
-      <ExhibitionsGrid3Items />
-      <ExhibitionsGrid3Items />
+      <ExhibitionsTags tags={fastDeliveryTags} ref={exhibitionsTagsRef} />
+      <ExhibitionsTagsItems ref={productsRef} />
     </div>
   );
 };

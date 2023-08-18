@@ -6,7 +6,7 @@ const TodayDealsSummary = () => {
   return (
     <section className="today-deals-summary">
       <div className="today-deals-summary-header">
-        <h3>오늘의 딜</h3> <Link to="/">더보기</Link>
+        <h3>오늘의 딜</h3> <Link to="/today_deals">더보기</Link>
       </div>
       <div className="today-deals-summary-items">
         <StoreItems />

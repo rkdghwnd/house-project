@@ -6,7 +6,7 @@ import { refurTags } from '../../hooks/exhibitions';
 import ExhibitionsTags from './ExhibitionsTags';
 import RefurMenu from './RefurMenu';
 
-const RefurMarket = () => {
+const RefurMarket = ({ productsRef }) => {
   const popularProductTab = useRef();
   const brandProductTab = useRef();
   const catagoryProductTab = useRef();
@@ -57,7 +57,7 @@ const RefurMarket = () => {
         ref={catagoryProductTab}
       />
       <ExhibitionsTags tags={refurTags} />
-      <ExhibitionsTagsItems />
+      <ExhibitionsTagsItems ref={productsRef} />
     </>
   );
 };

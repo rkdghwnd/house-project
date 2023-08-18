@@ -24,9 +24,9 @@ const RefurMenu = ({
   return (
     <div className="refur-menu">
       <img src={imagePath} />
-      <a href="javascript:;" onClick={scrollIntoTab(popularProductTab)}></a>
-      <a href="javascript:;" onClick={scrollIntoTab(brandProductTab)}></a>
-      <a href="javascript:;" onClick={scrollIntoTab(catagoryProductTab)}></a>
+      <a onClick={scrollIntoTab(popularProductTab)}></a>
+      <a onClick={scrollIntoTab(brandProductTab)}></a>
+      <a onClick={scrollIntoTab(catagoryProductTab)}></a>
     </div>
   );
 };

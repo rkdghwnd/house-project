@@ -7,11 +7,12 @@
   top: $gnb-height-sm + $lnb-height-sm;
   z-index: $exhibition-tags-level;
   padding: 10px 0;
-  margin-bottom: 20px;
+  margin: 20px 0;
 
   .tag {
     @include flexbox;
     @include text-style-14;
+    font-weight: 700;
     padding: 15px;
     margin: 5px;
     height: 20px;

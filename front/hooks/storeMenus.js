@@ -33,13 +33,13 @@ export const storeMenus2 = [
     title: '초특가모음',
   },
   {
-    href: '/',
+    href: '/productions/0',
     src: '/assets/images/storeIcon/store-icon-hand-pointer.png',
     title: '하루특가',
   },
   {
-    href: '/special_exhibitions',
+    href: '/exhibitions/3',
     src: '/assets/images/storeIcon/store-icon-discount.png',
-    title: '기획전',
+    title: '일주일특가',
   },
 ];
