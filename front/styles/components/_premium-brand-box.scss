@@ -1,0 +1,56 @@
+.premium-brand-box {
+  padding: 10px;
+  border-radius: 10px;
+  &-title {
+    display: flex;
+    align-items: center;
+    img {
+      border-radius: 50%;
+      border: 1px solid $border;
+      width: 40px;
+      margin-right: 10px;
+    }
+    span {
+      font-size: 14px;
+      font-weight: 700;
+    }
+    margin-bottom: 8px;
+  }
+
+  &-contents {
+    @include flexbox(center);
+    flex-wrap: nowrap;
+
+    img {
+      width: calc((100% / 3) - 8px);
+      border: 1px solid $border;
+    }
+    img:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+
+  &:hover {
+    background-color: $background;
+  }
+
+  @include responsive(T) {
+    display: inline-block;
+    width: 50%;
+
+    &-title {
+      img {
+        width: 50px;
+      }
+      span {
+        font-size: 18px;
+      }
+      margin-bottom: 8px;
+    }
+  }
+
+  @include responsive(D) {
+    display: inline-block;
+    width: calc(100% / 3);
+  }
+}

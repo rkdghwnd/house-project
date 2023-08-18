@@ -1,11 +1,11 @@
 .refur-menu {
   position: relative;
-  line-height: 0;
 
   a {
     width: 33.3%;
     height: 100%;
     position: absolute;
+    top: 0;
 
     &:nth-child(2) {
       left: 0;

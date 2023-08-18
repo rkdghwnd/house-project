@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import AppLayout from '../components/Common/AppLayout';
+import AppLayout from '../components/common/AppLayout';
 import ExhibitionsLayout from '../components/exhibitions/ExhibitionsLayout';
 import { useParams } from 'react-router-dom';
 import RefurMarket from '../components/exhibitions/RefurMarket';

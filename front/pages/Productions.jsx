@@ -1,5 +1,5 @@
 import React from 'react';
-import AppLayout from '../components/Common/AppLayout';
+import AppLayout from '../components/common/AppLayout';
 import ProductShow from '../components/productions/ProductShow';
 import OrderFormModal from '../components/productions/OrderFormModal';
 import CartModal from '../components/productions/CartModal';

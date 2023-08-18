@@ -23,12 +23,12 @@ export const storeMenus1 = [
 
 export const storeMenus2 = [
   {
-    href: '/',
+    href: '/premium/category',
     src: '/assets/images/storeIcon/store-icon-premium.png',
     title: '프리미엄',
   },
   {
-    href: '/',
+    href: '/sale',
     src: '/assets/images/storeIcon/store-icon-sale.png',
     title: '초특가모음',
   },
@@ -38,7 +38,7 @@ export const storeMenus2 = [
     title: '하루특가',
   },
   {
-    href: '/',
+    href: '/special_exhibitions',
     src: '/assets/images/storeIcon/store-icon-discount.png',
     title: '기획전',
   },

@@ -1,9 +1,9 @@
 import React from 'react';
-import AppLayout from '../components/Common/AppLayout';
-import StoreBanner from '../components/store/StoreBanner';
-import StoreMenu from '../components/store/StoreMenu';
-import TodayDealsSummary from '../components/store/TodayDealsSummary';
-import PopularProducts from '../components/store/PopularProducts';
+import AppLayout from '../components/common/AppLayout';
+import StoreBanner from '../components/home/StoreBanner';
+import StoreMenu from '../components/home/StoreMenu';
+import TodayDealsSummary from '../components/home/TodayDealsSummary';
+import PopularProducts from '../components/home/PopularProducts';
 
 const Store = () => {
   return (

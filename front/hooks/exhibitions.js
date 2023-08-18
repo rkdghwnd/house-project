@@ -1,17 +1,3 @@
-export const refurMarketImages = [
-  '/assets/images/refur/refur_market_banner.gif',
-  '/assets/images/refur/menu-popular.avif',
-  '/assets/images/refur/refur_market_1.avif',
-  '/assets/images/refur/refur_market_2.avif',
-  '/assets/images/refur/refur_market_3.avif',
-  '/assets/images/refur/refur_market_4.avif',
-  '/assets/images/refur/refur_market_more.avif',
-  '/assets/images/refur/menu-brand.avif',
-  '/assets/images/refur/refur_market_5.avif',
-  '/assets/images/refur/menu-category.avif',
-  '/assets/images/refur/refur_market_6.avif',
-];
-
 export const refurTags = [
   '전체',
   '추천',

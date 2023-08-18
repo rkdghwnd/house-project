@@ -11,24 +11,7 @@
   &-slider-list {
     position: relative;
 
-    .swiper-button-prev {
-      display: none;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background-color: black;
-      opacity: 0.3;
-
-      &::after {
-        position: absolute;
-        right: 19px;
-        bottom: 14px;
-        font-size: 20px;
-        color: white;
-        font-weight: 700;
-      }
-    }
-
+    .swiper-button-prev,
     .swiper-button-next {
       display: none;
       width: 48px;

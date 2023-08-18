@@ -1,12 +1,13 @@
 .exhibitions-tags {
   display: flex;
   flex-wrap: wrap;
-  border-bottom: 1px solid $border;
+
   background-color: white;
   position: sticky;
   top: $gnb-height-sm + $lnb-height-sm;
   z-index: $exhibition-tags-level;
   padding: 10px 0;
+  margin-bottom: 20px;
 
   .tag {
     @include flexbox;
@@ -16,6 +17,7 @@
     height: 20px;
     border-radius: 25px;
     background-color: $background;
+    border-bottom: 1px solid $border;
   }
 
   @include responsive(T) {

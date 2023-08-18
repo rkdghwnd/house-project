@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import ExhibitionsGrid4Items from './ExhibitionsGrid4Items';
 import ExhibitionsGrid3Items from './ExhibitionsGrid3Items';
 import ExhibitionsTagsItems from './ExhibitionsTagsItems';
-import { refurMarketImages, refurTags } from '../../hooks/exhibitions';
+import { refurTags } from '../../hooks/exhibitions';
 import ExhibitionsTags from './ExhibitionsTags';
 import RefurMenu from './RefurMenu';
 
@@ -13,40 +13,49 @@ const RefurMarket = () => {
 
   return (
     <>
-      <img src={refurMarketImages[0]} />
+      <img src="/assets/images/refur/refur_market_banner.gif" />
       <RefurMenu
-        imagePath={refurMarketImages[1]}
+        imagePath="/assets/images/refur/menu-popular.avif"
         popularProductTab={popularProductTab}
         brandProductTab={brandProductTab}
         catagoryProductTab={catagoryProductTab}
       />
-      <img src={refurMarketImages[2]} ref={popularProductTab} />
+      <img
+        src="/assets/images/refur/refur_market_1.avif"
+        ref={popularProductTab}
+      />
       <ExhibitionsGrid4Items />
-      <img src={refurMarketImages[3]} />
+      <img src="/assets/images/refur/refur_market_2.avif" />
       <ExhibitionsGrid4Items />
-      <img src={refurMarketImages[4]} />
+      <img src="/assets/images/refur/refur_market_3.avif" />
       <ExhibitionsGrid4Items />
-      <img src={refurMarketImages[5]} />
+      <img src="/assets/images/refur/refur_market_4.avif" />
       <ExhibitionsGrid4Items /> {/* 아이템 2개만 */}
       <div className="more-product-button">
-        <img src={refurMarketImages[6]} />
+        <img src="/assets/images/refur/refur_market_more.avif" />
         <a href="javscript:;"></a>
       </div>
       <RefurMenu
-        imagePath={refurMarketImages[7]}
+        imagePath="/assets/images/refur/menu-brand.avif"
         popularProductTab={popularProductTab}
         brandProductTab={brandProductTab}
         catagoryProductTab={catagoryProductTab}
       />
-      <img src={refurMarketImages[8]} ref={brandProductTab} />
+      <img
+        src="/assets/images/refur/refur_market_5.avif"
+        ref={brandProductTab}
+      />
       <ExhibitionsGrid3Items />
       <RefurMenu
-        imagePath={refurMarketImages[9]}
+        imagePath="/assets/images/refur/menu-category.avif"
         popularProductTab={popularProductTab}
         brandProductTab={brandProductTab}
         catagoryProductTab={catagoryProductTab}
       />
-      <img src={refurMarketImages[10]} ref={catagoryProductTab} />
+      <img
+        src="/assets/images/refur/refur_market_6.avif"
+        ref={catagoryProductTab}
+      />
       <ExhibitionsTags tags={refurTags} />
       <ExhibitionsTagsItems />
     </>

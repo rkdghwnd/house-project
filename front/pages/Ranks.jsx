@@ -1,6 +1,6 @@
 import React from 'react';
-import AppLayout from '../components/Common/AppLayout';
-import StoreItem from '../components/store/StoreItem';
+import AppLayout from '../components/common/AppLayout';
+import StoreItem from '../components/home/StoreItem';
 
 const Ranks = () => {
   return (
