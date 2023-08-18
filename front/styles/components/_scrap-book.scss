@@ -7,7 +7,7 @@
     display: flex;
     justify-content: space-between;
     h2 {
-      font-size: 24px;
+      font-size: 20px;
     }
 
     button {
@@ -95,6 +95,9 @@
 
     &-header {
       height: 32px;
+      h2 {
+        font-size: 24px;
+      }
     }
 
     .profile-image {

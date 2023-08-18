@@ -8,6 +8,7 @@ import Premium from '../pages/Premium';
 import PremiumCategoryMain from '../pages/PremiumCategoryMain';
 import PremiumBrand from '../pages/PremiumBrand';
 import MyBookmark from '../pages/MyBookmark';
+import Notification from '../pages/Notification';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="brand" element={<PremiumBrand />} />
         </Route>
         <Route path="/users/:userId/bookmark" element={<MyBookmark />} />
+        <Route path="/notification" element={<Notification />} />
       </Routes>
     </>
   );

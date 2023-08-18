@@ -26,19 +26,19 @@ const ButtonGroup = () => {
         <>
           <Link
             className="gnb-icon-button sm-hidden"
-            href="/users/1/bookmark"
+            to="/users/1/bookmark"
             aria-label="스크랩북 페이지로 이동"
           >
             <i className="ic-bookmark"></i>
           </Link>
 
-          <a
+          <Link
             className="gnb-icon-button sm-hidden"
-            href="/"
+            to="/notification"
             aria-label="내 소식 페이지로 이동"
           >
             <i className="ic-bell"></i>
-          </a>
+          </Link>
         </>
       )}
 
