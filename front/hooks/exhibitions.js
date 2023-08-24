@@ -26,3 +26,30 @@ export const fastDeliveryTags = [
   '가전',
   '프리미엄',
 ];
+
+export const selfInteriorTags = [
+  '전체',
+  'BEST',
+  '공구',
+  '바닥재',
+  '벽지/시트지',
+  '안전,접착용품',
+  '스위치/콘센트/손잡이',
+  '멀티탭',
+  '페인트',
+];
+
+export const RefurFloatingInfo = {
+  desc: '전시, 반품, 스크래치 득템의 기회1',
+  title: '빠른 품절! 리퍼마켓 90%',
+};
+
+export const fastDeliveryFloatingInfo = {
+  desc: '오늘 주문하면, 내일 도착',
+  title: '가구&가전 빠른배송 ~76%',
+};
+
+export const selfInteriorFlotingInfo = {
+  desc: '오직! 딱 일주일 특가',
+  title: '셀프인테리어 필수템 SALE',
+};

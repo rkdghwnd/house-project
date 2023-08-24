@@ -8,9 +8,6 @@ const Productions = () => {
   return (
     <AppLayout>
       <ProductShow />
-      <OrderFormModal />
-      {/* 상품을 장바구니에 추가했을때 나오는 모달   */}
-      <CartModal />;
     </AppLayout>
   );
 };

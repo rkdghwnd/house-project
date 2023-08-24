@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import MyMenu from './MyMenu';
 import { useDispatch } from 'react-redux';
 import modalSlice from '../../reducers/modalSlice';
+import { Link } from 'react-router-dom';
 
 const ButtonGroup = () => {
   const dispatch = useDispatch();
@@ -23,32 +24,32 @@ const ButtonGroup = () => {
 
       {me && (
         <>
-          <a
+          <Link
             className="gnb-icon-button sm-hidden"
-            href="/"
+            to="/users/1/bookmark"
             aria-label="스크랩북 페이지로 이동"
           >
             <i className="ic-bookmark"></i>
-          </a>
+          </Link>
 
-          <a
+          <Link
             className="gnb-icon-button sm-hidden"
-            href="/"
+            to="/notification"
             aria-label="내 소식 페이지로 이동"
           >
             <i className="ic-bell"></i>
-          </a>
+          </Link>
         </>
       )}
 
-      <a
+      <Link
         className="gnb-icon-button is-cart"
-        href="/"
+        to="/cart"
         aria-label="장바구니 페이지로 이동"
       >
         <i className="ic-cart"></i>
         <strong className="badge">5</strong>
-      </a>
+      </Link>
 
       {me ? (
         <MyMenu />

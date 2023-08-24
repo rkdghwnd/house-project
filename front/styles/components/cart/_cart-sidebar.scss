@@ -1,0 +1,33 @@
+.cart-sidebar {
+  position: sticky;
+  top: $gnb-height-md + $lnb-height-md + 50px;
+  margin-top: 60px;
+
+  &-summary {
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 15px;
+    border: 1px solid $border;
+    & > div {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+      & > dd {
+        font-weight: 700;
+      }
+    }
+    .payment-cost {
+      dt {
+        font-weight: 700;
+      }
+      dd {
+        font-size: 24px;
+      }
+    }
+  }
+  button {
+    width: 100%;
+    margin-top: 20px;
+  }
+}

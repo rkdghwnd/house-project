@@ -15,10 +15,10 @@ const GnbNav = () => {
             storePaths.includes(location.pathname) ? 'is-active' : ''
           }`}
         >
-          <Link to="/store">스토어</Link>
+          <Link to="/">스토어</Link>
         </li>
         <li className="gnb-nav-item">
-          <a href="javascript:void(0);">인테리어시공</a>
+          <a>인테리어시공</a>
         </li>
       </ul>
     </nav>

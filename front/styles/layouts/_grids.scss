@@ -14,7 +14,7 @@
 
   @for $i from 1 through $sm-columns {
     .col-sm-#{$i} {
-      width: percentage($i / $sm-columns);
+      width: calc(($i * 100%) / $sm-columns);
     }
   }
 
@@ -24,7 +24,7 @@
 
     @for $i from 1 through $md-columns {
       .col-md-#{$i} {
-        width: percentage($i / $md-columns);
+        width: calc(($i * 100%) / $md-columns);
       }
     }
   }
