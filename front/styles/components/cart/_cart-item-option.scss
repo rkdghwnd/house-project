@@ -1,0 +1,81 @@
+.cart-item-option {
+  background-color: $background;
+  padding: 12px;
+  margin-top: 10px;
+
+  &-title {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    h2 {
+      font-size: 13px;
+      font-weight: 400;
+    }
+    button {
+      width: 16px;
+      height: 16px;
+      padding: 10px;
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      .ic-close {
+        font-size: 18px;
+      }
+    }
+  }
+
+  &-cost {
+    position: relative;
+    margin-top: 20px;
+
+    .item-quantity {
+      @include flexbox;
+      border: 1px solid $border;
+      background-color: white;
+      border-radius: 5px;
+      width: 90px;
+      button {
+        span {
+          font-size: 15px;
+        }
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+      }
+      button:first-child {
+        position: relative;
+        span {
+          position: absolute;
+          top: 6px;
+          right: 7px;
+          font-weight: 700;
+        }
+      }
+      button:nth-child(2) {
+        position: relative;
+        span {
+          position: absolute;
+          top: 6px;
+          right: 10px;
+        }
+      }
+      button:last-child {
+        position: relative;
+        span {
+          position: absolute;
+          font-size: 25px;
+          top: -2px;
+          right: 5px;
+        }
+      }
+    }
+    .item-price {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+    .item-price > span {
+      font-weight: 700;
+    }
+  }
+}
