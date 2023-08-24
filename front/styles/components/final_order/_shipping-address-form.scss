@@ -1,0 +1,135 @@
+.shipping-address-form {
+  ul {
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px 15px;
+
+      h2 {
+        font-size: 17px;
+      }
+
+      input {
+        flex: 1 1 auto;
+        border: 1px solid $border;
+        border-radius: 5px;
+        padding: 10px;
+        &:hover {
+          background-color: $background;
+          transition: background-color 100ms ease-in-out;
+        }
+      }
+
+      input:disabled {
+        background-color: rgb(250, 250, 250);
+      }
+
+      span {
+        display: block;
+        width: 40px;
+        text-align: center;
+      }
+
+      label {
+        width: 72px;
+        font-size: 14px;
+      }
+
+      select {
+        flex: 1 1 auto;
+        padding: 7px 12px;
+        border: 1px solid $border;
+        border-radius: 5px;
+        &:hover {
+          background-color: $background;
+          transition: background-color 100ms ease-in-out;
+        }
+      }
+    }
+
+    li:first-child {
+      padding: 18px 0;
+      justify-content: space-between;
+      button {
+        color: $blue;
+      }
+      button:hover {
+        color: $blue-dark;
+      }
+    }
+
+    li:nth-child(5) {
+      justify-content: flex-start;
+
+      button {
+        width: 85px;
+        margin-right: 8px;
+      }
+      input {
+        flex: 0 1 auto;
+      }
+    }
+    li:nth-child(8) {
+      justify-content: flex-start;
+      margin-bottom: 20px;
+      input {
+        flex: 0 1 auto;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+    li:nth-child(9) {
+      position: relative;
+      textarea {
+        all: unset;
+        flex: 1 1 auto;
+        height: auto;
+        border: 1px solid $border;
+        border-radius: 5px;
+        padding: 10px;
+        word-wrap: break-word;
+        word-break: break-all;
+      }
+      span {
+        position: absolute;
+        right: 10px;
+        bottom: 5px;
+        font-size: 12px;
+      }
+    }
+
+    li:last-child {
+      padding: 0 0 20px 0;
+    }
+
+    .phone-number-select {
+      margin-right: 8px;
+      flex: 0 1 auto;
+      width: 85px;
+    }
+  }
+
+  @include responsive(D) {
+    ul {
+      li {
+        justify-content: flex-start;
+      }
+
+      li:first-child {
+        border-bottom: 1px solid $border;
+      }
+
+      li:nth-child(2),
+      li:nth-child(3),
+      li:nth-child(4),
+      li:nth-child(5) {
+        width: 50%;
+      }
+    }
+  }
+}

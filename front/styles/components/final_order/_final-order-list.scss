@@ -1,0 +1,38 @@
+.final-order-list {
+  padding-bottom: 25px;
+  overflow: hidden;
+
+  &.short {
+    height: 70px;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    margin: 10px 15px;
+    cursor: pointer;
+
+    .list-left {
+      display: flex;
+      align-items: center;
+      h2 {
+        font-size: 17px;
+      }
+      span {
+        padding-left: 11px;
+        font-size: 13px;
+      }
+    }
+
+    .ic-chevron {
+      font-size: 18px;
+      transform: rotate(180deg);
+      &.short {
+        transform: rotate(0);
+      }
+      transition: transform 200ms ease-in-out;
+    }
+  }
+}

@@ -42,14 +42,14 @@ const ButtonGroup = () => {
         </>
       )}
 
-      <a
+      <Link
         className="gnb-icon-button is-cart"
-        href="/"
+        to="/cart"
         aria-label="장바구니 페이지로 이동"
       >
         <i className="ic-cart"></i>
         <strong className="badge">5</strong>
-      </a>
+      </Link>
 
       {me ? (
         <MyMenu />

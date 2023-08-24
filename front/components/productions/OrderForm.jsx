@@ -12,6 +12,7 @@ const OrderForm = ({ float }) => {
   const addInCart = useCallback(() => {
     dispatch(modalSlice.actions.openCartModal('hi'));
   }, []);
+
   return (
     <form
       className={`${float ? 'floating-order-form' : ''} order-form lg-only `}
