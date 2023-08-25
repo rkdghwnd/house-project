@@ -1,0 +1,137 @@
+.final-order-sidebar {
+  margin-top: 40px;
+
+  &.lg-hidden {
+    padding: 0 15px;
+    .pay-button {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background-color: white;
+      padding: 0 30px 5px 30px;
+    }
+  }
+
+  &.sm-hidden {
+    position: sticky;
+    top: $gnb-height-md + $lnb-height-md + 40px;
+  }
+
+  &-bill {
+    padding: 20px 24px 10px 24px;
+    border: 1px solid $border;
+    border-radius: 5px;
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    & > div {
+      display: flex;
+      font-size: 15px;
+      margin-bottom: 10px;
+
+      dd {
+        width: 100px;
+        color: $secondary;
+      }
+
+      dt {
+        flex: 1 0 0px;
+        text-align: right;
+      }
+    }
+
+    & > div:nth-child(2) {
+      dt {
+        font-weight: 700;
+      }
+    }
+
+    .total-cost {
+      padding-top: 20px;
+      margin-top: 20px;
+      border-top: 1px solid $border;
+
+      &-left {
+        width: 150px;
+        h4 {
+          font-size: 18px;
+          line-height: 1.5;
+        }
+      }
+
+      &-right {
+        flex: 1 0 0px;
+        text-align: right;
+        strong {
+          font-size: 22px;
+          span {
+            color: $blue;
+          }
+        }
+        & > div {
+          margin-top: 6px;
+          font-size: 13px;
+          span {
+            font-weight: 700;
+          }
+        }
+      }
+    }
+
+    .full-agreement {
+      display: flex;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid $border;
+
+      .check-box {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 9px;
+        margin: -9px;
+
+        input {
+          width: 20px;
+          height: 20px;
+        }
+        span {
+          position: absolute;
+          display: block;
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      .check-box.not-agree {
+        input {
+          visibility: hidden;
+        }
+        span {
+          border: 1px solid $red;
+          border-radius: 2px;
+        }
+      }
+      &-description {
+        font-size: 15px;
+        margin-left: 10px;
+      }
+    }
+
+    .not-agreement-description {
+      font-size: 12px;
+      padding-top: 15px;
+      color: $red;
+      font-weight: 700;
+    }
+  }
+
+  button.btn-primary.btn-48 {
+    margin-top: 10px;
+    width: 100%;
+  }
+}

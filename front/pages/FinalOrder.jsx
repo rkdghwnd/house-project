@@ -20,9 +20,10 @@ const FinalOrder = () => {
             <FinalOrderList />
             <div className="product-section-divider lg-hidden"></div>
             <PaymentMethod />
+            <FinalOrderSideBar mobileVisible={true} />
           </div>
           <div className="col-lg-4">
-            <FinalOrderSideBar />
+            <FinalOrderSideBar mobileVisible={false} />
           </div>
         </div>
       </div>

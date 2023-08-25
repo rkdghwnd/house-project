@@ -11,12 +11,14 @@ import MyBookmark from '../pages/MyBookmark';
 import Notification from '../pages/Notification';
 import Cart from '../pages/Cart';
 import FinalOrder from '../pages/FinalOrder';
+import Category from '../pages/Category';
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Store />} />
+        <Route path="category" element={<Category />} />
         <Route path="/ranks" element={<Ranks />} />
         <Route path="/today_deals" element={<TodayDeals />} />
         <Route path="/exhibitions/:id" element={<Exhibitions />} />
