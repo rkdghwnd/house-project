@@ -7,11 +7,16 @@ import Productions from '../pages/Productions';
 import Premium from '../pages/Premium';
 import PremiumCategoryMain from '../pages/PremiumCategoryMain';
 import PremiumBrand from '../pages/PremiumBrand';
-import MyBookmark from '../pages/MyBookmark';
 import Notification from '../pages/Notification';
 import Cart from '../pages/Cart';
 import FinalOrder from '../pages/FinalOrder';
 import Category from '../pages/Category';
+import Users from '../pages/Users';
+import UsersHome from '../pages/UsersHome';
+import UserBookmark from '../pages/UserBookmark';
+import UserLike from '../pages/UserLike';
+import MyShopping from '../pages/MyShopping';
+import OrderResult from '../pages/OrderResult';
 
 function App() {
   return (
@@ -27,10 +32,16 @@ function App() {
           <Route path="category" element={<PremiumCategoryMain />} />
           <Route path="brand" element={<PremiumBrand />} />
         </Route>
-        <Route path="/users/:userId/bookmark" element={<MyBookmark />} />
+        <Route path="/users/:userId/bookmark" element={<UserBookmark />} />
         <Route path="/notification" element={<Notification />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/final_order" element={<FinalOrder />} />
+        <Route path="/users/:userId" element={<Users />}>
+          <Route path="" element={<UsersHome />} />
+          <Route path="like" element={<UserLike />} />
+        </Route>
+        <Route path="/my_shopping" element={<MyShopping />} />
+        <Route path="/order_result" element={<OrderResult />} />
       </Routes>
     </>
   );

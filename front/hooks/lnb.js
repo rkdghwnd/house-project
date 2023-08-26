@@ -7,3 +7,25 @@ export const storeLnb = [
   { href: '/exhibitions/2', title: '빠른배송', isNew: false },
   { href: '/premium/category', title: '프리미엄', isNew: true },
 ];
+
+export const userProfileLnbBar = [
+  {
+    name: '프로필',
+    href: '/users/1',
+  },
+  {
+    name: '스크랩북',
+    href: '/users/1/bookmark',
+  },
+  {
+    name: '좋아요',
+    href: '/users/1/like',
+  },
+];
+
+export const myShoppingLnbBar = [
+  {
+    name: '주문배송내역 조회',
+    href: '/my_shopping',
+  },
+];

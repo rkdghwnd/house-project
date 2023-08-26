@@ -1,6 +1,9 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import sideBarMenuSlice from '../../reducers/sideBarMenuSlice';
+import { storeLnb } from '../../hooks/lnb';
+import shortid from 'shortid';
+import { Link } from 'react-router-dom';
 
 const StoreDrawerMenu = () => {
   const dispatch = useDispatch();
@@ -28,36 +31,18 @@ const StoreDrawerMenu = () => {
 
       <div className="drawer-menu-content">
         <ul className="drawer-menu-list">
-          <li className="drawer-menu-item">
-            <a href="/">스토어</a>
-          </li>
-          <li className="drawer-menu-item">
-            <a href="/">카테고리</a>
-          </li>
-          <li className="drawer-menu-item">
-            <a href="/">신혼가구</a>
-          </li>
-          <li className="drawer-menu-item">
-            <a href="/">베스트</a>
-          </li>
-          <li className="drawer-menu-item">
-            <a href="/">오늘의딜</a>
-          </li>
-          <li className="drawer-menu-item">
-            <a href="/">연휴특가</a>
-          </li>
-          <li className="drawer-menu-item">
-            <a href="/">월동준비</a>
-          </li>
-          <li className="drawer-menu-item">
-            <a href="/">리퍼마켓</a>
-          </li>
-          <li className="drawer-menu-item is-active">
-            <a href="/">
-              기획전
-              <i className="ic-new" lang="en" aria-label="New"></i>
-            </a>
-          </li>
+          {storeLnb.map(({ href, title, isNew }) => {
+            return (
+              <li key={shortid.generate()} className="drawer-menu-item">
+                <Link to={href}>
+                  {title}{' '}
+                  {isNew && (
+                    <i className="ic-new" lang="en" aria-label="New"></i>
+                  )}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>

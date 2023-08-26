@@ -1,23 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SideBarUserMenu = () => {
   return (
     <div className="sidebar-user-menu">
       <ul className="user-menu-list">
         <li className="user-menu-item">
-          <a href="/">마이페이지</a>
+          <Link to="/users">마이페이지</Link>
         </li>
         <li className="user-menu-item">
-          <a href="/">나의 쇼핑</a>
+          <Link to="/">나의 쇼핑</Link>
         </li>
         <li className="user-menu-item">
-          <a href="/">스크랩북</a>
+          <Link to="/users/1/bookmark">스크랩북</Link>
         </li>
         <li className="user-menu-item">
-          <a href="/">알림</a>
-        </li>
-        <li className="user-menu-item">
-          <a href="/">이벤트</a>
+          <Link to="/notification">알림</Link>
         </li>
       </ul>
     </div>
