@@ -31,7 +31,7 @@ const UsersGnbBar = () => {
             <li
               key={shortid.generate()}
               className={`users-navbar-link${
-                location.pathname.includes(href) ? ' is-active' : ''
+                href.includes(location.pathname) ? ' is-active' : ''
               }`}
             >
               <NavLink to={href}>{name}</NavLink>

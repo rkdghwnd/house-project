@@ -1,5 +1,6 @@
 import React from 'react';
 import AppLayout from '../components/common/AppLayout';
+import { Link } from 'react-router-dom';
 
 const OrderResult = () => {
   return (
@@ -55,8 +56,12 @@ const OrderResult = () => {
               </table>
             </div>
             <div className="order-result-buttons">
-              <button className="btn-outlined btn-48">쇼핑 계속하기</button>
-              <button className="btn-primary btn-48">주문현황 보기</button>
+              <button className="btn-outlined btn-48">
+                <Link to="/">쇼핑 계속하기</Link>
+              </button>
+              <button className="btn-primary btn-48">
+                <Link to="/my_shopping">주문현황 보기</Link>
+              </button>
             </div>
           </section>
         </div>

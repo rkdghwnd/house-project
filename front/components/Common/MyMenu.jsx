@@ -39,7 +39,7 @@ const MyMenu = () => {
             <Link to="/users/1">마이페이지</Link>
           </li>
           <li className="my-menu-item">
-            <Link to="/cart">나의 쇼핑</Link>
+            <Link to="/my_shopping">나의 쇼핑</Link>
           </li>
           <li className="my-menu-item">
             <button type="button">로그아웃</button>

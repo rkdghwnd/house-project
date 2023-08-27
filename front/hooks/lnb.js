@@ -29,3 +29,21 @@ export const myShoppingLnbBar = [
     href: '/my_shopping',
   },
 ];
+
+export const productionReviewsLnbBar = [
+  {
+    name: '내가 작성한 리뷰',
+    href: '/production_reviews',
+  },
+];
+
+export const usersSettingsLnbBar = [
+  {
+    name: '회원정보수정',
+    href: '/users/1/edit',
+  },
+  {
+    name: '비밀번호 변경',
+    href: '/users/1/edit_password',
+  },
+];
