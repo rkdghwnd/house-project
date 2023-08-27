@@ -17,6 +17,9 @@ import UserBookmark from '../pages/UserBookmark';
 import UserLike from '../pages/UserLike';
 import MyShopping from '../pages/MyShopping';
 import OrderResult from '../pages/OrderResult';
+import ProductionReviews from '../pages/ProductionReviews';
+import UsersEdit from '../pages/UsersEdit';
+import UsersEditPassword from '../pages/UsersEditPassword';
 
 function App() {
   return (
@@ -39,8 +42,11 @@ function App() {
         <Route path="/users/:userId" element={<Users />}>
           <Route path="" element={<UsersHome />} />
           <Route path="like" element={<UserLike />} />
+          <Route path="edit" element={<UsersEdit />} />
+          <Route path="edit_password" element={<UsersEditPassword />} />
         </Route>
         <Route path="/my_shopping" element={<MyShopping />} />
+        <Route path="/production_reviews" element={<ProductionReviews />} />
         <Route path="/order_result" element={<OrderResult />} />
       </Routes>
     </>
