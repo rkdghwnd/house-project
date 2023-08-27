@@ -1,0 +1,40 @@
+.user-followings {
+  margin: 40px 0;
+
+  &-header {
+    h2 {
+      font-size: 18px;
+      margin: 0 0 30px;
+    }
+  }
+
+  &-list {
+    max-height: 300px;
+    overflow: auto;
+    ul {
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        .user-followings-list-title {
+          @include flexbox;
+
+          img {
+            width: 40px;
+            height: 40px;
+          }
+          span {
+            font-size: 14px;
+            font-weight: 700;
+            margin-left: 10px;
+          }
+        }
+
+        button.btn-outlined.btn-32 {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}

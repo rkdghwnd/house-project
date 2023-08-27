@@ -1,0 +1,113 @@
+.delivery-list {
+  box-shadow: 0 1px 3px 0 #dbdbdb;
+  padding: 15px;
+  margin: 30px 0;
+
+  &-product {
+    margin: 20px 0;
+    &-header {
+      padding-bottom: 12px;
+      border-bottom: 1px solid $border;
+      span {
+        font-weight: 700;
+        font-size: 14px;
+      }
+    }
+
+    &-status {
+      padding: 20px 0;
+      span {
+        padding: 8px 4px;
+        font-size: 16px;
+        font-weight: 700;
+        background-color: $background;
+        color: $blue;
+        border-radius: 5px;
+      }
+    }
+
+    &-main {
+      display: flex;
+      .product-image {
+        margin-right: 10px;
+        img {
+          width: 75px;
+          height: 75px;
+        }
+      }
+      .product-description {
+        .product-description-row-1 {
+          h4 {
+            font-size: 14px;
+            margin-top: 5px;
+          }
+          span:nth-child(2) {
+            font-size: 14px;
+            color: $secondary;
+          }
+        }
+
+        .product-description-row-2 {
+          .product-description-price {
+            font-size: 14px;
+            margin: 5px 0;
+            span:first-child {
+              font-weight: 700;
+            }
+            span:nth-child(2) {
+              color: $background;
+            }
+            span:last-child {
+              color: $dark;
+              font-size: 13px;
+            }
+          }
+
+          & > span:first-child {
+            font-size: 14px;
+            color: $dark;
+          }
+
+          & > span {
+            display: block;
+            margin-top: 10px;
+            font-size: 13px;
+            color: $blue;
+          }
+        }
+      }
+    }
+  }
+
+  @include responsive(T) {
+    &-product {
+      &-header {
+        span {
+          font-size: 18px;
+        }
+      }
+
+      &-main {
+        width: 100%;
+        .product-image {
+          img {
+            width: 100px;
+            height: 100px;
+          }
+        }
+        .product-description {
+          flex: 1 1 auto;
+          display: flex;
+          & > div:last-child {
+            flex: 0 0 150px;
+          }
+          &-row-1 {
+            margin-right: 100px;
+          }
+          &-row-2 {
+          }
+        }
+      }
+    }
+  }
+}

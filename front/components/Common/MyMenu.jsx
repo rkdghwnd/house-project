@@ -1,4 +1,5 @@
 import React, { useCallback, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 const MyMenu = () => {
   const myMenuRef = useRef();
@@ -35,13 +36,10 @@ const MyMenu = () => {
       <div className="my-menu-content">
         <ul className="my-menu-list">
           <li className="my-menu-item">
-            <a href="/">마이페이지</a>
+            <Link to="/users/1">마이페이지</Link>
           </li>
           <li className="my-menu-item">
-            <a href="/">나의 쇼핑</a>
-          </li>
-          <li className="my-menu-item">
-            <a href="/">이벤트</a>
+            <Link to="/my_shopping">나의 쇼핑</Link>
           </li>
           <li className="my-menu-item">
             <button type="button">로그아웃</button>

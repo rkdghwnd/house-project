@@ -1,0 +1,130 @@
+.users-edit {
+  padding: 80px 30px;
+
+  input,
+  select {
+    padding: 0 15px;
+    border: 1px solid $border;
+    border-radius: 5px;
+    height: 40px;
+  }
+
+  &-header {
+    display: flex;
+    margin-bottom: 60px;
+    h2 {
+      font-size: 24px;
+      flex: 1 1 auto;
+    }
+
+    button {
+      font-size: 13px;
+      color: $red;
+      font-weight: 400;
+      text-decoration: underline;
+    }
+  }
+
+  &-main {
+    & > div:not(.users-edit-main-profile-image) {
+      height: 80px;
+      display: flex;
+      align-items: center;
+    }
+    input,
+    select {
+      width: 100%;
+    }
+
+    .edit-input {
+      width: 100%;
+    }
+
+    .edit-label {
+      flex: 0 0 100px;
+      font-size: 13px;
+
+      span {
+        display: block;
+        color: $secondary;
+      }
+    }
+
+    &-email {
+      .edit-input {
+        flex: 1 1 auto;
+        display: flex;
+        align-items: center;
+        span {
+          color: $border;
+        }
+
+        input {
+          flex: 1 1 auto;
+        }
+        select {
+          flex: 1 1 auto;
+        }
+      }
+    }
+
+    &-nickname {
+      .edit-input {
+        width: 100%;
+        input {
+          width: 100%;
+        }
+      }
+    }
+
+    &-gender {
+      .edit-checkbox {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        input {
+          width: 20px;
+          color: $border;
+        }
+        label {
+          margin-left: 8px;
+        }
+        label:nth-child(2) {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    &-profile-image {
+      display: flex;
+      align-items: center;
+      height: 200px;
+      .edit-input {
+        width: 200px;
+        height: 200px;
+        img {
+          width: 100%;
+          height: auto;
+          cursor: pointer;
+        }
+      }
+    }
+
+    &-update-button {
+      button {
+        width: 100%;
+      }
+    }
+  }
+
+  @include responsive(T) {
+    margin: 50px auto;
+    padding: 50px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    &-main {
+      & > div {
+        width: 500px;
+      }
+    }
+  }
+}

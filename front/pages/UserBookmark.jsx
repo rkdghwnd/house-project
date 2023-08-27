@@ -4,7 +4,7 @@ import AppLayout from '../components/common/AppLayout';
 import ScrapBook from '../components/users/ScrapBook';
 import { Link } from 'react-router-dom';
 
-const MyBookmark = () => {
+const UserBookmark = () => {
   return (
     <AppLayout>
       <div className="container">
@@ -18,4 +18,4 @@ const MyBookmark = () => {
   );
 };
 
-export default MyBookmark;
+export default UserBookmark;
