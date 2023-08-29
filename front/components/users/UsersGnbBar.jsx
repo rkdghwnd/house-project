@@ -15,7 +15,7 @@ const UsersGnbBar = () => {
     },
     {
       name: '나의 리뷰',
-      href: '/production_reviews',
+      href: '/production_reviews/write',
     },
     {
       name: '설정',

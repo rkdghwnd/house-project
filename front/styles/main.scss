@@ -34,6 +34,8 @@
 @import './components/common/my-menu';
 @import './components/common/drawer-menu';
 @import './components/common/search-history';
+@import './components/common/products-filter';
+@import './components/common/log-in-modal';
 
 @import './components/productions/breadcrumb';
 @import './components/productions/product-carousel';
@@ -125,3 +127,10 @@
 @import './components/final_order/final-order-sidebar';
 
 @import './components/order_result/order-result';
+
+@import './components/category/subcategory-menu';
+@import './components/category/category-list';
+@import './components/category/category-list-menu';
+@import './components/category/category-products-list';
+
+@import './components/search/search-products-list';

@@ -1,0 +1,24 @@
+.category-products-list {
+  &-header {
+    font-size: 13px;
+    margin: 23px 0 4px 0;
+  }
+
+  &-main {
+    display: flex;
+    flex-wrap: wrap;
+    a {
+      width: 50%;
+      padding: 5px;
+      .store-item {
+        flex-direction: column;
+      }
+    }
+  }
+
+  @include responsive(D) {
+    a {
+      width: calc(100% / 3);
+    }
+  }
+}

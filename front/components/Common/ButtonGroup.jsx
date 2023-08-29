@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const ButtonGroup = () => {
   const dispatch = useDispatch();
-  const me = true;
+  const me = false;
   const onClickSearchButton = useCallback(() => {
     dispatch(modalSlice.actions.openSearchModal());
   }, []);
@@ -55,8 +55,13 @@ const ButtonGroup = () => {
         <MyMenu />
       ) : (
         <div className="gnb-auth sm-hidden">
-          <a href="/">로그인</a>
-          <a href="/">회원가입</a>
+          <button
+            onClick={() => {
+              dispatch(modalSlice.actions.openLogInModal());
+            }}
+          >
+            로그인
+          </button>
         </div>
       )}
     </div>
