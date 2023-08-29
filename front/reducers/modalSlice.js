@@ -6,6 +6,7 @@ const initialState = {
   searchModalVisible: false,
   orderFormModalVisible: false,
   cartModalVisible: false,
+  logInModalVisibile: false,
   overlay: false,
 };
 
@@ -49,11 +50,16 @@ const modalSlice = createSlice({
       state.cartModalVisible = true;
       state.overlay = true;
     },
+    openLogInModal(state, action) {
+      state.logInModalVisibile = true;
+      state.overlay = true;
+    },
     closeModal(state, action) {
       state.sideBarVisible = false;
       state.searchModalVisible = false;
       state.orderFormModalVisible = false;
       state.cartModalVisible = false;
+      state.logInModalVisibile = false;
       state.overlay = false;
     },
   },

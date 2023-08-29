@@ -1,0 +1,23 @@
+.search-products-list {
+  display: flex;
+  flex-wrap: wrap;
+  a {
+    width: 50%;
+    .store-item {
+      flex-direction: column;
+      padding: 5px;
+    }
+  }
+
+  @include responsive(T) {
+    a {
+      width: calc(100% / 3);
+    }
+  }
+
+  @include responsive(D) {
+    a {
+      width: 25%;
+    }
+  }
+}

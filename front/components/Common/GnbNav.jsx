@@ -18,7 +18,7 @@ const GnbNav = () => {
           <Link to="/">스토어</Link>
         </li>
         <li className="gnb-nav-item">
-          <a>인테리어시공</a>
+          <Link to="/expert">인테리어시공</Link>
         </li>
       </ul>
     </nav>
