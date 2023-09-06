@@ -41,10 +41,10 @@ export const productionReviewsLnbBar = [
 export const usersSettingsLnbBar = [
   {
     name: '회원정보수정',
-    href: '/users/1/edit',
+    href: '/users/edit',
   },
   {
     name: '비밀번호 변경',
-    href: '/users/1/edit_password',
+    href: '/users/edit_password',
   },
 ];

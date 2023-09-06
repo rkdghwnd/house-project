@@ -23,6 +23,7 @@ import UsersEditPassword from '../pages/UsersEditPassword';
 import MyReviews from '../pages/MyReviews';
 import ProductionReviewsWrite from '../pages/ProductionReviewsWrite';
 import SearchResult from '../pages/SearchResult';
+import UsersUserId from '../pages/UsersUserId';
 
 function App() {
   return (
@@ -38,20 +39,24 @@ function App() {
           <Route path="category" element={<PremiumCategoryMain />} />
           <Route path="brand" element={<PremiumBrand />} />
         </Route>
-        <Route path="/users/:userId/bookmark" element={<UserBookmark />} />
+
         <Route path="/notification" element={<Notification />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/final_order" element={<FinalOrder />} />
-        <Route path="/users/:userId" element={<Users />}>
-          <Route path="" element={<UsersHome />} />
-          <Route path="like" element={<UserLike />} />
+
+        <Route path="/users" element={<Users />}>
+          <Route path=":userId" element={<UsersUserId />}>
+            <Route path="" element={<UsersHome />} />
+            <Route path="like" element={<UserLike />} />
+          </Route>
           <Route path="edit" element={<UsersEdit />} />
           <Route path="edit_password" element={<UsersEditPassword />} />
         </Route>
+        <Route path="/users/:userId/bookmark" element={<UserBookmark />} />
         <Route path="/my_shopping" element={<MyShopping />} />
         <Route path="/production_reviews" element={<ProductionReviews />}>
-          <Route path="" element={<MyReviews />} />
           <Route path="write" element={<ProductionReviewsWrite />} />
+          <Route path="" element={<MyReviews />} />
         </Route>
         <Route path="/order_result" element={<OrderResult />} />
         <Route path="/search_result" element={<SearchResult />} />
