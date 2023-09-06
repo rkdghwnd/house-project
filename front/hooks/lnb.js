@@ -31,6 +31,7 @@ export const myShoppingLnbBar = [
 ];
 
 export const productionReviewsLnbBar = [
+  { name: '리뷰쓰기', href: '/production_reviews/write' },
   {
     name: '내가 작성한 리뷰',
     href: '/production_reviews',

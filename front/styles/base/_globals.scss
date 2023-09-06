@@ -33,7 +33,7 @@
 }
 
 .sm-hidden {
-  @media screen and (max-width: ($md-breakpoint - 1px)) {
+  @media screen and (max-width: ($md-breakpoint)) {
     display: none !important;
   }
 }

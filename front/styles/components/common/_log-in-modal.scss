@@ -1,0 +1,49 @@
+.log-in-modal {
+  @include no-scrollbar;
+  position: fixed;
+  top: calc(50% - 100px);
+  left: calc(50% - 150px);
+  z-index: 700;
+  overscroll-behavior: contain;
+  visibility: hidden;
+  transition: visibility 100ms ease-in-out;
+
+  &.is-active {
+    visibility: visible;
+  }
+
+  &-form {
+    border: 1px solid $border;
+    width: 300px;
+    height: 200px;
+    padding: 40px 0;
+    border-radius: 25px;
+    background-color: white;
+
+    &-header {
+      @include flexbox;
+
+      img:first-child {
+        margin-right: 10px;
+        width: 35px;
+      }
+
+      img:last-child {
+        width: 90px;
+      }
+    }
+
+    &-buttons {
+      padding-top: 20px;
+      @include flexbox;
+
+      a:not(:last-child) {
+        margin-right: 20px;
+      }
+
+      img {
+        width: 50px;
+      }
+    }
+  }
+}

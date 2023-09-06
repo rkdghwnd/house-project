@@ -7,6 +7,7 @@ import Overlay from './Overlay';
 import OrderFormModal from '../productions/OrderFormModal';
 import CartModal from '../productions/CartModal';
 import { useLocation } from 'react-router-dom';
+import LogInModal from './LogInModal';
 
 const AppLayout = ({ children }) => {
   const location = useLocation();
@@ -28,6 +29,7 @@ const AppLayout = ({ children }) => {
       <CartModal />
       <Sidebar />
       <SearchModal />
+      <LogInModal />
       <Overlay />
       {/* 북마크 추가/제거 했을때의 메시지
 <BookmarkToast /> */}
