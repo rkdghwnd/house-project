@@ -1,0 +1,28 @@
+.my-reviews {
+  &-main {
+    margin: 40px 15px;
+    &-sort {
+      button {
+        width: 90px;
+        color: $secondary;
+        border: 1px solid $border;
+        font-weight: 400;
+      }
+      button.is-active {
+        border-color: $blue;
+        font-weight: 700;
+        color: $blue;
+      }
+      button:last-child {
+        margin-left: 6px;
+      }
+    }
+  }
+
+  @include responsive(D) {
+    &-main {
+      width: 1200px;
+      margin: 40px auto;
+    }
+  }
+}

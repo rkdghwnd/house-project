@@ -1,5 +1,5 @@
 export const storeLnb = [
-  { href: '/', title: '스토어', isNew: false },
+  { href: '/', title: '쇼핑홈', isNew: false },
   { href: '/category', title: '카테고리', inNew: false },
   { href: '/ranks', title: '베스트', isNew: false },
   { href: '/today_deals', title: '오늘의딜', isNew: false },
@@ -41,10 +41,10 @@ export const productionReviewsLnbBar = [
 export const usersSettingsLnbBar = [
   {
     name: '회원정보수정',
-    href: '/users/1/edit',
+    href: '/users/edit',
   },
   {
     name: '비밀번호 변경',
-    href: '/users/1/edit_password',
+    href: '/users/edit_password',
   },
 ];

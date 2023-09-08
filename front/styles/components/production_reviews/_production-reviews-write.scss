@@ -1,0 +1,56 @@
+.production-reviews-write {
+  &-main {
+    margin: 30px 15px;
+    h4 {
+      font-size: 18px;
+    }
+    .search-reviews-input {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      margin-top: 15px;
+
+      input {
+        flex: 1 1 auto;
+        height: 40px;
+        border: 1px solid $border;
+        border-radius: 5px;
+        padding: 0 15px;
+        transition: background-color 200ms ease-in-out;
+        transition: border 200ms ease-in-out;
+      }
+      // input:hover {
+      //   background-color: $background;
+      // }
+      // input:focus {
+      //   border: 3px solid $blue;
+      //   padding: -2px 13px;
+      // }
+
+      button {
+        width: 70px;
+        margin-left: 8px;
+      }
+    }
+  }
+
+  @include responsive(T) {
+    &-main {
+      margin: 30px;
+      .search-reviews-input {
+        input {
+        }
+        button {
+          width: 120px;
+        }
+      }
+    }
+  }
+
+  @include responsive(D) {
+    &-main {
+      width: 1200px;
+      margin: 30px auto;
+    }
+  }
+}

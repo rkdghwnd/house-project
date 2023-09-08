@@ -15,11 +15,11 @@ const UsersGnbBar = () => {
     },
     {
       name: '나의 리뷰',
-      href: '/production_reviews/write',
+      href: '/production_reviews',
     },
     {
       name: '설정',
-      href: '/users/1/edit',
+      href: '/users/edit',
     },
   ];
 
@@ -31,7 +31,7 @@ const UsersGnbBar = () => {
             <li
               key={shortid.generate()}
               className={`users-navbar-link${
-                href.includes(location.pathname) ? ' is-active' : ''
+                location.pathname.includes(href) ? ' is-active' : ''
               }`}
             >
               <NavLink to={href}>{name}</NavLink>
