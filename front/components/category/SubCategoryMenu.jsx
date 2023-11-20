@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, useLocation, useParams } from 'react-router-dom';
-import { subCategoryMenus } from '../../hooks/category';
+import { subCategoryMenus } from '../../datas/category';
 import shortid from 'shortid';
 
 const SubCategoryMenu = () => {
