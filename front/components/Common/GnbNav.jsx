@@ -1,5 +1,5 @@
 import React from 'react';
-import { storeLnb } from '../../hooks/lnb';
+import { storeLnb } from '../../datas/lnb';
 import { Link, useLocation } from 'react-router-dom';
 
 const GnbNav = () => {
