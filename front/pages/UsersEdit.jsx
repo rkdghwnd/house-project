@@ -9,7 +9,7 @@ import UsersEditMainImage from '../components/users/UsersEditMainImage';
 import UsersEditMainIntroduce from '../components/users/UsersEditMainIntroduce';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { SUCCEEDED } from '../hooks/statusConstants';
+import { SUCCEEDED } from '../datas/statusConstants';
 import useInput from '../hooks/useInput';
 import { updateUserProfile } from '../actions/user';
 
