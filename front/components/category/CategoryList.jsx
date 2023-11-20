@@ -1,7 +1,7 @@
 import React from 'react';
 import CategoryListMenu from './CategoryListMenu';
 import shortid from 'shortid';
-import { categoryListDatas } from '../../hooks/category';
+import { categoryListDatas } from '../../datas/category';
 
 const CategoryList = () => {
   return (
