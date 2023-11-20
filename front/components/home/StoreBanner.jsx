@@ -39,14 +39,12 @@ const StoreBanner = () => {
                   role="tabpanel"
                   aria-labelledby="store-carousel-carousel-tab-1"
                 >
-                  <Link to="/store">
-                    <figure>
-                      <img src={src} alt="store-banner-1" loading="lazy" />
-                      <figcaption className="visually-hidden">
-                        스토어 배너 1
-                      </figcaption>
-                    </figure>
-                  </Link>
+                  <figure>
+                    <img src={src} alt="store-banner-1" />
+                    <figcaption className="visually-hidden">
+                      스토어 배너 1
+                    </figcaption>
+                  </figure>
                 </li>
               </SwiperSlide>
             );
