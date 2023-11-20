@@ -1,15 +1,20 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { categoryListDatas } from '../../datas/category';
 
 const BreadCrumb = () => {
+  const { productions } = useSelector((state) => state.productions);
+  const categoryInfo = categoryListDatas.find(
+    (el) => el.indexUnit === parseInt(productions.category_index / 10)
+  );
+
   return (
     <div className="breadcrumb">
-      <a href="/">가전</a>
+      <a href="/">{categoryInfo?.title}</a>
       <i className="ic-chevron" aria-hidden></i>
-      <a href="/">계절가전</a>
-      <i className="ic-chevron" aria-hidden></i>
-      <a href="/">전기히터/온풍기</a>
-      <i className="ic-chevron" aria-hidden></i>
-      <a href="/">전기히터</a>
+      <a href="/">
+        {categoryInfo?.subCategories[productions?.category_index % 10]}
+      </a>
     </div>
   );
 };
