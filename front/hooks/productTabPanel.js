@@ -1,4 +1,4 @@
-import { TOP_HEADER_DESKTOP, TOP_HEADER_MOBILE } from './constant';
+import { TOP_HEADER_DESKTOP, TOP_HEADER_MOBILE } from '../datas/constant';
 
 export let disableUpdating = false;
 
