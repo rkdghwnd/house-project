@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getTOSSPayment } from '../actions/payment';
-import { LOADING, REJECTED, SUCCEEDED } from '../hooks/statusConstants';
+import { LOADING, REJECTED, SUCCEEDED } from '../datas/statusConstants';
 
 const initialState = {
   getTOSSPaymentStatus: 'idle',

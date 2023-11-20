@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { LOADING, REJECTED, SUCCEEDED } from '../hooks/statusConstants';
+import { LOADING, REJECTED, SUCCEEDED } from '../datas/statusConstants';
 import { addFinalOrder, getFinalOrder } from '../actions/finalorder';
 
 const initialState = {
