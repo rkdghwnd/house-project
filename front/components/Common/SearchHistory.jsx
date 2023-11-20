@@ -1,16 +1,38 @@
-import React, { forwardRef, useRef } from 'react';
+import React, { forwardRef, useCallback, useRef } from 'react';
 import DeleteButton from './DeleteButton';
+import shortid from 'shortid';
+import { useDispatch, useSelector } from 'react-redux';
+import searchSlice from '../../reducers/searchSlice';
+import { useNavigate } from 'react-router-dom';
 
-const SearchHistory = (
-  { gnbSearchHistoryList, closeGnbSearchHistory },
-  ref
-) => {
+const SearchHistory = ({ closeGnbSearchHistory }, ref) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { gnbSearchHistoryList } = useSelector((state) => state.search);
   const deleteAllButton = useRef();
 
   const onClickRemoveAll = () => {
-    gnbSearchHistoryList.current.innerHTML = '';
+    dispatch(
+      searchSlice.actions.updateGnbSearchHistoryList({
+        historyList: [],
+      })
+    );
+    localStorage.setItem('history', JSON.stringify([]));
     closeGnbSearchHistory();
   };
+
+  const onClickHistoryItem = useCallback((e) => {
+    dispatch(
+      searchSlice.actions.updateGnbSearchHistoryList({
+        historyList: [
+          ...new Set([...gnbSearchHistoryList, e.currentTarget.textContent]),
+        ],
+      })
+    );
+    const query = `?keyword=${e.currentTarget.textContent}`;
+    navigate(`/search_result${query}`);
+    e.stopPropagation();
+  }, []);
 
   return (
     <section className="search-history" ref={ref}>
@@ -22,34 +44,24 @@ const SearchHistory = (
       </header>
 
       <div className="search-history-content">
-        <ol className="search-history-list" ref={gnbSearchHistoryList}>
-          <li className="search-history-item">
-            <button className="word-button" type="button">
-              김버그
-            </button>
-            <DeleteButton
-              gnbSearchHistoryList={gnbSearchHistoryList}
-              closeGnbSearchHistory={closeGnbSearchHistory}
-            />
-          </li>
-          <li className="search-history-item">
-            <button className="word-button" type="button">
-              버그
-            </button>
-            <DeleteButton
-              gnbSearchHistoryList={gnbSearchHistoryList}
-              closeGnbSearchHistory={closeGnbSearchHistory}
-            />
-          </li>
-          <li className="search-history-item">
-            <button className="word-button" type="button">
-              튕김버그
-            </button>
-            <DeleteButton
-              gnbSearchHistoryList={gnbSearchHistoryList}
-              closeGnbSearchHistory={closeGnbSearchHistory}
-            />
-          </li>
+        <ol className="search-history-list">
+          {gnbSearchHistoryList?.map((history, index) => {
+            return (
+              <li className="search-history-item" key={shortid.generate()}>
+                <button
+                  className="word-button"
+                  type="button"
+                  onClick={onClickHistoryItem}
+                >
+                  {history}
+                </button>
+                <DeleteButton
+                  closeGnbSearchHistory={closeGnbSearchHistory}
+                  index={index}
+                />
+              </li>
+            );
+          })}
         </ol>
       </div>
     </section>
