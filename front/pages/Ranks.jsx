@@ -6,7 +6,7 @@ import { getRanksProducts } from '../actions/product';
 import { useLocation } from 'react-router-dom';
 import shortid from 'shortid';
 import { createInfiniteScrollObserver } from '../hooks/createInfiniteScrollObserver';
-import { LOADING } from '../hooks/statusConstants';
+import { LOADING } from '../datas/statusConstants';
 import Spinner from '../loading/spinner';
 import RanksMenu from '../components/ranks/RanksMenu';
 import RanksCategory from '../components/ranks/RanksCategory';
