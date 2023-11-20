@@ -3,7 +3,7 @@ import AppLayout from '../components/common/AppLayout';
 import UsersGnbBar from '../components/users/UsersGnbBar';
 import UsersLnbBar from '../components/users/UsersLnbBar';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { SUCCEEDED } from '../hooks/statusConstants';
+import { SUCCEEDED } from '../datas/statusConstants';
 import { useSelector } from 'react-redux';
 
 const UsersReviews = () => {
