@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import ExhibitionsGrid4Items from './ExhibitionsGrid4Items';
 import ExhibitionsTags from './ExhibitionsTags';
-import { selfInteriorTags } from '../../hooks/exhibitions';
+import { selfInteriorTags } from '../../datas/exhibitions';
 import ExhibitionsTagsItems from './ExhibitionsTagsItems';
 import { useDispatch, useSelector } from 'react-redux';
 import {
