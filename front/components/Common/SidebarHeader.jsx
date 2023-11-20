@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import modalSlice from '../../reducers/modalSlice';
 
 const SidebarHeader = () => {
+  const dispatch = useDispatch();
+  const { me } = useSelector((state) => state.user);
+
+  const openLogInModal = useCallback(() => {
+    dispatch(modalSlice.actions.openLogInModal());
+  }, []);
+
   return (
     <header className="sidebar-header">
       <h1 className="logo">
@@ -9,21 +19,29 @@ const SidebarHeader = () => {
         </a>
       </h1>
 
-      {/* <!-- NOTE: 로그인을 한 경우  --> */}
-      <div className="sidebar-user">
-        <a href="/">
-          <div className="avatar-24">
-            <img src="/assets/images/img-user-01.jpg" alt="사달라 아저씨" />
-          </div>
-          <strong className="username">사달라</strong>
-        </a>
-      </div>
-
-      {/* <!-- NOTE: 로그인을 하지 않은 경우  --> */}
-      {/* <!-- <div className="sidebar-auth">
-        <a className="btn-outlined btn-40" href="/">로그인</a>
-        <a className="btn-primary btn-40" href="/">회원가입</a>
-      </div> --> */}
+      {me ? (
+        <div className="sidebar-user">
+          {/* <!-- NOTE: 로그인을 한 경우  --> */}
+          <Link href={`/users/${me.id}`}>
+            <div className="avatar-24">
+              <img
+                src={`${import.meta.env.VITE_BACK_END_DOMAIN}/${
+                  me.profile_img
+                }`}
+                alt="프로필 이미지"
+              />
+            </div>
+            <strong className="username">{me.nickname}</strong>
+          </Link>
+        </div>
+      ) : (
+        <div className="sidebar-auth">
+          {/* <!-- NOTE: 로그인을 하지 않은 경우  --> */}
+          <button className="btn-outlined btn-40" onClick={openLogInModal}>
+            로그인
+          </button>
+        </div>
+      )}
     </header>
   );
 };
