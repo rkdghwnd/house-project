@@ -1,6 +1,11 @@
 import React, { forwardRef } from 'react';
+import { useSelector } from 'react-redux';
+import shortid from 'shortid';
 
 const ProductSpec = (props, ref) => {
+  const { productDescriptionImages } = useSelector(
+    (state) => state.productions
+  );
   return (
     <section
       className="product-section product-spec is-open"
@@ -18,43 +23,16 @@ const ProductSpec = (props, ref) => {
             펼치기
           </button>
         </div>
-
-        <figure>
-          <img src="/assets/images/img-detail-01.jpg" alt="" />
-          <figcaption className="visually-hidden">
-            보아르 전기 히터 상세 이미지 01
-          </figcaption>
-        </figure>
-        <figure>
-          <img src="/assets/images/img-detail-02.jpg" alt="" />
-          <figcaption className="visually-hidden">
-            보아르 전기 히터 상세 이미지 02
-          </figcaption>
-        </figure>
-        <figure>
-          <img src="/assets/images/img-detail-03.jpg" alt="" />
-          <figcaption className="visually-hidden">
-            보아르 전기 히터 상세 이미지 03
-          </figcaption>
-        </figure>
-        <figure>
-          <img src="/assets/images/img-detail-04.jpg" alt="" />
-          <figcaption className="visually-hidden">
-            보아르 전기 히터 상세 이미지 04
-          </figcaption>
-        </figure>
-        <figure>
-          <img src="/assets/images/img-detail-05.jpg" alt="" />
-          <figcaption className="visually-hidden">
-            보아르 전기 히터 상세 이미지 05
-          </figcaption>
-        </figure>
-        <figure>
-          <img src="/assets/images/img-detail-06.jpg" alt="" />
-          <figcaption className="visually-hidden">
-            보아르 전기 히터 상세 이미지 06
-          </figcaption>
-        </figure>
+        {productDescriptionImages.map((src, index) => {
+          return (
+            <figure key={shortid.generate()}>
+              <img src={src} alt="상품 상세 이미지" />
+              <figcaption className="visually-hidden">
+                상품 상세 이미지 {index + 1}
+              </figcaption>
+            </figure>
+          );
+        })}
       </div>
     </section>
   );
