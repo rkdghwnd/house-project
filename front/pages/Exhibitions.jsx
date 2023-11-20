@@ -1,7 +1,7 @@
-import { useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import AppLayout from '../components/common/AppLayout';
 import ExhibitionsLayout from '../components/exhibitions/ExhibitionsLayout';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import RefurMarket from '../components/exhibitions/RefurMarket';
 import FastDeliveryMarket from '../components/exhibitions/FastDeliveryMarket';
 import SelfInteriorMarket from '../components/exhibitions/SelfInteriorMarket';
@@ -9,6 +9,15 @@ import SelfInteriorMarket from '../components/exhibitions/SelfInteriorMarket';
 const Exhibitions = () => {
   const params = useParams();
   const productsRef = useRef();
+  const navigate = useNavigate();
+  const paramsIds = [1, 2, 3];
+
+  useEffect(() => {
+    if (!paramsIds.includes(parseInt(params.id))) {
+      navigate('/');
+    }
+  }, [paramsIds, params]);
+
   const content = useMemo(() => {
     if (params.id === '1') {
       return <RefurMarket productsRef={productsRef} />;
