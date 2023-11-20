@@ -2,7 +2,7 @@ import React, { useDebugValue, useEffect, useRef, useState } from 'react';
 import ExhibitionsGrid4Items from './ExhibitionsGrid4Items';
 import ExhibitionsGrid3Items from './ExhibitionsGrid3Items';
 import ExhibitionsTagsItems from './ExhibitionsTagsItems';
-import { refurTags } from '../../hooks/exhibitions';
+import { refurTags } from '../../datas/exhibitions';
 import ExhibitionsTags from './ExhibitionsTags';
 import RefurMenu from './RefurMenu';
 import { useDispatch, useSelector } from 'react-redux';
