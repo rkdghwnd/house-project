@@ -23,7 +23,7 @@ const RefurMenu = ({
 
   return (
     <div className="refur-menu">
-      <img src={imagePath} />
+      <img src={imagePath} alt="refur-menu-image" />
       <a onClick={scrollIntoTab(popularProductTab)}></a>
       <a onClick={scrollIntoTab(brandProductTab)}></a>
       <a onClick={scrollIntoTab(catagoryProductTab)}></a>
