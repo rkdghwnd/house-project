@@ -4,6 +4,7 @@ import StoreBanner from '../components/home/StoreBanner';
 import StoreMenu from '../components/home/StoreMenu';
 import TodayDealsSummary from '../components/home/TodayDealsSummary';
 import PopularProducts from '../components/home/PopularProducts';
+import StoreCategoryMenu from '../components/home/StoreCategoryMenu';
 
 const Store = () => {
   return (
@@ -15,6 +16,7 @@ const Store = () => {
             <div className="col-sm-4">
               <StoreMenu />
               <TodayDealsSummary />
+              <StoreCategoryMenu />
               <PopularProducts />
             </div>
           </div>

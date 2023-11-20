@@ -1,54 +1,75 @@
-import React from 'react';
-import { RiFilter2Fill } from 'react-icons/ri';
+import React, { useEffect, useRef } from 'react';
 import StoreItem from './StoreItem';
+import { useDispatch, useSelector } from 'react-redux';
+import { createInfiniteScrollObserver } from '../../hooks/createInfiniteScrollObserver';
+import shortid from 'shortid';
+import { getStorePopularProducts } from '../../actions/product';
+import { LOADING } from '../../datas/statusConstants';
+import { makeQuery } from '../../hooks/query';
+import PopularProductsHeader from './PopularProductsHeader';
+import Loading from '../common/Loading';
 
 const PopularProducts = () => {
+  const dispatch = useDispatch();
+  const viewport = useRef(null);
+  const scrollTarget = useRef(null);
+
+  const {
+    hasMorePopularProducts,
+    loadPopularProductsStatus,
+    popularProducts,
+    popularProductsFilter,
+    popularProductsSortFilter,
+  } = useSelector((state) => state.product);
+
+  useEffect(() => {
+    // 페이지 + 배송필터 + 정렬필더
+    const page = Math.floor(popularProducts.length / 12) + 1;
+
+    const query = makeQuery(
+      page,
+      popularProductsFilter,
+      popularProductsSortFilter
+    );
+
+    const io = createInfiniteScrollObserver(
+      viewport,
+      hasMorePopularProducts,
+      loadPopularProductsStatus,
+      scrollTarget,
+      dispatch,
+      getStorePopularProducts,
+      query
+    );
+
+    return () => io && io.disconnect(); // 모든 요소의 관찰을 중지
+  }, [
+    popularProducts,
+    viewport,
+    scrollTarget,
+    loadPopularProductsStatus,
+    hasMorePopularProducts,
+    popularProductsFilter,
+    popularProductsSortFilter,
+  ]);
+
   return (
     <section className="popular-products">
       <h3>인기 상품</h3>
-      <div className="popular-products-header">
-        <button className="btn-filter sm-only">
-          <RiFilter2Fill className="ri-filter" />
-        </button>
-        <button className="btn-delivery btn-32 btn-secondary">
-          배송<i className="ic-chevron"></i>
-        </button>
-        <button className="btn-arrange">
-          인기순<i className="ic-caret"></i>
-        </button>
-      </div>
+      <PopularProductsHeader />
       <div className="popular-products-list">
-        <div className="popular-products-list-row">
-          <div className="popular-products-list-col">
-            <StoreItem />
-            <StoreItem />
-          </div>
-          <div className="popular-products-list-col">
-            <StoreItem />
-            <StoreItem />
-          </div>
-        </div>
-        <div className="popular-products-list-row">
-          <div className="popular-products-list-col">
-            <StoreItem />
-            <StoreItem />
-          </div>
-          <div className="popular-products-list-col">
-            <StoreItem />
-            <StoreItem />
-          </div>
-        </div>
-        <div className="popular-products-list-row">
-          <div className="popular-products-list-col">
-            <StoreItem />
-            <StoreItem />
-          </div>
-          <div className="popular-products-list-col">
-            <StoreItem />
-            <StoreItem />
-          </div>
-        </div>
+        {popularProducts.map((product) => {
+          return <StoreItem key={shortid.generate()} {...product} />;
+        })}
       </div>
+      <Loading loadProductsStatus={loadPopularProductsStatus} />
+      <div
+        ref={
+          hasMorePopularProducts && !(loadPopularProductsStatus === LOADING)
+            ? scrollTarget
+            : undefined
+        }
+      />
     </section>
   );
 };

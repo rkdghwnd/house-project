@@ -6,17 +6,12 @@
 
   ul {
     li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 10px 15px;
-
+      margin-bottom: 15px;
       h2 {
         font-size: 17px;
       }
 
       input {
-        flex: 1 1 auto;
         border: 1px solid $border;
         border-radius: 5px;
         padding: 10px;
@@ -40,8 +35,9 @@
       }
 
       label {
-        width: 72px;
         font-size: 14px;
+        white-space: nowrap;
+        width: 72px;
       }
 
       select {
@@ -54,9 +50,18 @@
           transition: background-color 100ms ease-in-out;
         }
       }
+
+      .input-error {
+        font-size: 12px;
+        color: $red;
+        margin-top: 5px;
+        margin-left: 72px;
+      }
     }
 
     li:first-child {
+      display: flex;
+      justify-content: space-between;
       padding: 18px 0;
       cursor: pointer;
       border-bottom: 1px solid $border;
@@ -64,65 +69,90 @@
     }
 
     li:nth-child(2) {
-      margin-bottom: 15px;
+      .orderer-input {
+        display: flex;
+        align-items: center;
+
+        input {
+          flex: 1 1 auto;
+        }
+      }
     }
 
     li:nth-child(3) {
-      display: block;
-      .phone-row-1,
-      .phone-row-2 {
-        width: 100%;
-      }
-      .phone-row-1 {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-      }
-      .phone-row-2 {
-        flex-direction: column;
-        .custom-domain {
-          margin-bottom: 10px;
-        }
-        & > div {
+      .email-input {
+        &-row-1 {
           display: flex;
+          align-items: center;
+
+          input {
+            flex: 1 1 auto;
+          }
         }
-      }
-    }
-    li:last-child {
-      button {
-        flex: 1 1 auto;
-        margin-bottom: 20px;
+        &-row-2 {
+          margin-top: 10px;
+          .custom-domain {
+            margin-left: 72px;
+            input {
+              width: 100%;
+            }
+          }
+          .select-domain {
+            display: flex;
+            align-items: center;
+          }
+        }
       }
     }
 
-    .phone-number-select {
-      margin-right: 8px;
-      flex: 0 1 auto;
-      width: 85px;
+    li:nth-child(4) {
+      .phone-input {
+        display: flex;
+        align-items: center;
+
+        .phone-number-select {
+          flex: 0 0 50px;
+          margin-right: 10px;
+        }
+        input {
+          flex: 1 1 auto;
+        }
+      }
     }
   }
 
   @include responsive(D) {
     ul {
-      li {
-        justify-content: flex-start;
-      }
-      li:not(:first-child) {
-        width: 50%;
-      }
-      li:first-child {
-        border-bottom: 1px solid $border;
-      }
-
-      li:nth-child(3) {
-        display: flex;
-        align-items: flex-start;
-        width: 100%;
-        .phone-row-1 {
-          width: calc(50% + 40px);
+      li:nth-child(2) {
+        .orderer-input {
+          width: 350px;
         }
-        .phone-row-2 {
-          width: 30%;
+      }
+      li:nth-child(3) {
+        .email-input {
+          display: flex;
+          align-items: center;
+          &-row-1 {
+            width: 390px;
+          }
+          &-row-2 {
+            .custom-domain {
+              margin-left: 0;
+              width: 250px;
+            }
+            margin-top: 0;
+            .select-domain {
+              width: 250px;
+            }
+          }
+        }
+      }
+      li:nth-child(4) {
+        .phone-input {
+          input {
+            width: 195px;
+            flex: 0 1 auto;
+          }
         }
       }
     }

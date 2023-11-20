@@ -1,0 +1,28 @@
+.message-modal {
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  font-weight: 700;
+  height: 110px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  white-space: nowrap;
+  visibility: hidden;
+  z-index: 200;
+
+  &.is-active {
+    visibility: visible;
+  }
+
+  button {
+    white-space: nowrap;
+    width: 60px;
+    height: 25px;
+  }
+}

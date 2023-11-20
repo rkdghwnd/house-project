@@ -1,19 +1,13 @@
 import React from 'react';
 import StoreItem from '../home/StoreItem';
+import shortid from 'shortid';
 
-const ExhibitionsGrid3Items = () => {
+const ExhibitionsGrid3Items = ({ products }) => {
   return (
     <section className="exhibition-grid-3-items">
-      <div className="col">
-        <StoreItem />
-        <StoreItem />
-        <StoreItem />
-      </div>
-      <div className="col">
-        <StoreItem />
-        <StoreItem />
-        <StoreItem />
-      </div>
+      {products?.map((product) => {
+        return <StoreItem key={shortid.generate()} {...product} />;
+      })}
     </section>
   );
 };

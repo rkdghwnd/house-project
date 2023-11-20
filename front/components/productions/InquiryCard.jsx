@@ -1,40 +1,117 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import productionsSlice from '../../reducers/productionsSlice';
+import modalSlice from '../../reducers/modalSlice';
 
-const InquiryCard = () => {
+const InquiryCard = ({
+  id,
+  question_type,
+  is_buyer,
+  question_nickname,
+  question,
+  is_secret,
+  createdAt,
+  ProductId,
+  UserId,
+  Product_answer,
+}) => {
+  const dispatch = useDispatch();
+  const { me } = useSelector((state) => state.user);
+  const secretQuestionNickname = question_nickname.slice(0, 1);
+  const createdTime = Intl.DateTimeFormat('kr')
+    .format(new Date(createdAt))
+    .slice(0, -1);
+
+  const onClickUpdateButton = useCallback(() => {
+    dispatch(
+      productionsSlice.actions.updateWritingInquiryFormData({
+        inquiryId: id,
+        question_type,
+        question,
+        is_secret,
+        productId: ProductId,
+      })
+    );
+    dispatch(
+      modalSlice.actions.openWritingInquiryForm({
+        mode: 'update',
+      })
+    );
+  }, [id, question_type, question, is_secret]);
+
+  const onClickRemoveButton = useCallback(() => {
+    dispatch(
+      modalSlice.actions.openRemoveInquiryConfirmModal({
+        inquiryId: id,
+        productId: ProductId,
+      })
+    );
+  }, [id, ProductId]);
+
   return (
     <article className="inquiry-card">
       <header className="inquiry-card-header">
-        <h3 className="visually-hidden">지* 님이 남기신 문의</h3>
-
+        <h3 className="visually-hidden">
+          {secretQuestionNickname}* 님이 남기신 문의
+        </h3>
         <dl className="detail">
           <dt className="visually-hidden">구매 여부</dt>
-          <dd>구매</dd>
+          <dd>{is_buyer ? '구매' : '비구매'}</dd>
           <dt className="visually-hidden">문의 유형</dt>
-          <dd>상품</dd>
+          <dd>{question_type}</dd>
           <dt className="visually-hidden">답변 여부</dt>
-          <dd>미답변</dd>
+          <dd>{Product_answer ? '답변' : '미답변'}</dd>
         </dl>
-
         <div className="misc">
-          <strong>지*</strong>
-          <time dateTime="2021-01-02 21:41">2021년 1월 2일 21시 41분</time>
+          <strong>{secretQuestionNickname}*</strong>
+          <time dateTime={createdTime}>{createdTime}</time>
         </div>
+        {UserId === me?.id && (
+          <div className="update-remove-buttons">
+            <button className="btn-32 btn-ghost" onClick={onClickUpdateButton}>
+              수정
+            </button>
+            <button className="btn-32 btn-ghost" onClick={onClickRemoveButton}>
+              삭제
+            </button>
+          </div>
+        )}
       </header>
 
       <div className="inquiry-card-body">
         <div className="inquiry-content">
           <span aria-label="문의 내용">Q</span>
           <p>
-            상품받았는데 <br />
-            사용하면서 보니까 불들어오는곳 옆에
-            <br />
-            하얀 부분이 갈색으로 얼룩져있는데 불량인가요...?
-            <br />
-            위험하지는 않겠죠? 다른분들 후기사진에는 다 깨끗한 것 같아서요!
-            <br />
-            사진첨부가없어서 텍스트로 설명하려 하니 애매하네요ㅠㅠ
+            {is_secret ? (
+              <>
+                <i className="ic-lock" aria-hidden></i>비밀글입니다.
+              </>
+            ) : (
+              question
+            )}
           </p>
         </div>
+        {/* 답변달린경우 */}
+        {Product_answer && (
+          <div className="inquiry-content">
+            <span aria-label="답변 내용">A</span>
+            <div className="seller">
+              <strong>{Product_answer?.answer_nickname}</strong>
+              <time dateTime="2020-12-24 19:30">
+                {/* 2020년 12월 24일 19시 30분 */}
+              </time>
+            </div>
+            <p>
+              {Product_answer?.is_secret ? (
+                <>
+                  <i className="ic-lock" aria-hidden></i>비밀글입니다.
+                </>
+              ) : (
+                Product_answer?.answer
+              )}
+            </p>
+          </div>
+        )}
       </div>
     </article>
   );

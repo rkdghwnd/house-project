@@ -34,16 +34,16 @@
     }
 
     .swiper-button-prev {
-      position: absolute;
       left: 0;
     }
     .swiper-button-next {
-      position: absolute;
       right: 0;
     }
 
     .swiper-button-prev,
     .swiper-button-next {
+      position: absolute;
+      top: calc(50% - 13px);
       display: block;
       box-shadow: 0 2px 5px rgba(63, 71, 77, 0.15);
       width: 48px;

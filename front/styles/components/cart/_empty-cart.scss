@@ -1,8 +1,7 @@
 .empty-cart {
   @include column-flexbox;
-  height: calc(
-    100vh - $gnb-height-sm - $lnb-height-sm - $global-footer-height - 45px
-  );
+  background-color: white;
+  height: 700px;
   img {
     width: 160px;
   }

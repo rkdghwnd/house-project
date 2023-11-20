@@ -7,7 +7,7 @@
   background-color: $white;
   border: 1px solid $border;
   border-radius: 4px;
-  transition: background-color 200ms ease-in-out;
+  transition: background-color 100ms ease-in-out;
   appearance: none;
 
   &::placeholder {
@@ -63,6 +63,9 @@
 
   .form-input {
     padding-left: 40px;
+    &:focus {
+      border: 1px solid $blue;
+    }
   }
 
   .ic-search {

@@ -1,10 +1,17 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import modalSlice from '../../reducers/modalSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Overlay = () => {
   const dispatch = useDispatch();
   const { overlay } = useSelector((state) => state.modal);
+
+  useEffect(() => {
+    if (overlay) {
+      document.body.setAttribute('style', 'overflow: hidden');
+    }
+    return () => document.body.setAttribute('style', 'overflow: auto');
+  }, [overlay]);
 
   const onClickOverlay = useCallback(() => {
     dispatch(modalSlice.actions.closeModal());

@@ -1,0 +1,37 @@
+.withdraw-modal {
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  z-index: 200;
+  width: 300px;
+  height: 100px;
+  background-color: white;
+  border-radius: 20px;
+  visibility: hidden;
+  padding: 10px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+
+  &.is-open {
+    visibility: visible;
+  }
+
+  &-buttons {
+    button {
+      width: 50px;
+      text-decoration: none;
+    }
+    button:nth-child(1) {
+      margin-right: 5px;
+      color: $white;
+    }
+    button:nth-child(2) {
+      margin-left: 5px;
+      color: $blue;
+    }
+  }
+}

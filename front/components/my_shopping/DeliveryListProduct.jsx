@@ -13,7 +13,7 @@ const DeliveryListProduct = () => {
         <div className="product-image">
           <img
             src="https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/166417831665882454.jpg?w=180&h=180&c=c&webp=1"
-            alt=""
+            alt="product-sample"
           />
         </div>
         <div className="product-description">

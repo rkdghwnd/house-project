@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useState } from 'react';
 import shortid from 'shortid';
-import { payments } from '../../hooks/payments';
+import { payments } from '../../datas/paymentsList';
 
 const PaymentMethod = () => {
   const [prevTarget, setPrevTarget] = useState(0);
@@ -33,7 +33,7 @@ const PaymentMethod = () => {
             onClick={toggleActive(i)}
           >
             <span>{name}</span>
-            <img src={src} />
+            <img src={src} alt={`${name}-payment`} />
             <div>
               <p className="discount-blue">{discountBlue}</p>
               <p className="discount-gray">{discountGray}</p>

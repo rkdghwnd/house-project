@@ -1,0 +1,114 @@
+.my-inquiry-item {
+  padding: 16px;
+  .my-inquiry-header {
+    display: flex;
+    align-items: center;
+    .tag-green,
+    .tag-gray {
+      height: 25px;
+      margin-right: 8px;
+    }
+    h3 {
+      font-size: 17px;
+      flex: 1 1 auto;
+    }
+    span {
+      font-size: 14px;
+      color: $secondary;
+    }
+    margin-bottom: 12px;
+  }
+
+  .my-inquiry-product-name {
+    display: flex;
+    font-size: 13px;
+    margin-bottom: 10px;
+    span {
+      color: $secondary;
+    }
+    span:nth-child(2) {
+      margin: 0 4px;
+    }
+    p {
+      color: $blue;
+    }
+  }
+
+  .my-inquiry-question {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    .question-icon {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      box-shadow: rgba(63, 71, 77, 0.25) 0px 2px 5px 0px;
+      span {
+        position: absolute;
+        top: 4px;
+        right: 9px;
+        color: $blue;
+        font-weight: 700;
+      }
+    }
+    p {
+      font-weight: 700;
+      margin-left: 8px;
+    }
+  }
+
+  .my-inquiry-answer {
+    padding: 15px;
+    background-color: $background;
+    p {
+      padding-right: 35px;
+      font-size: 15px;
+      line-height: 1.6;
+
+      // 2줄 이상의 텍스트 말줄임
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+    p.is-open {
+      -webkit-line-clamp: initial;
+    }
+    .view-all-button {
+      margin-top: 5px;
+      text-align: right;
+      button {
+        color: $blue;
+        .ic-chevron {
+          font-weight: 700;
+          font-size: 25px;
+        }
+        .ic-chevron.is-open {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  .remove-button,
+  .update-button {
+    margin-top: 10px;
+    border: 1px solid $border;
+    font-weight: 400;
+    color: $primary;
+    &:hover {
+      background-color: $background;
+    }
+  }
+
+  .remove-button {
+    margin-left: 10px;
+  }
+
+  @include responsive(D) {
+    margin: 0 auto;
+    width: 800px;
+  }
+}

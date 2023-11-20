@@ -1,100 +1,24 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useParams } from 'react-router-dom';
+import { subCategoryMenus } from '../../datas/category';
+import shortid from 'shortid';
 
 const SubCategoryMenu = () => {
+  const location = useLocation();
+  const categoryIndex = Math.floor(
+    parseInt(location.search.split('?category_id=')[1]) / 10
+  );
+
   return (
     <nav className="subcategory-menu sm-only">
-      <NavLink to="/category">
-        <img
-          src="	https://bucketplace-v2-development.s3.amazonaws.com/uploads/product_category/163669796522673863.png"
-          alt=""
-        />
-        <span>침대</span>
-      </NavLink>{' '}
-      <NavLink to="/category">
-        <img
-          src="	https://bucketplace-v2-development.s3.amazonaws.com/uploads/product_category/163669796522673863.png"
-          alt=""
-        />
-        <span>침대</span>
-      </NavLink>{' '}
-      <NavLink to="/category">
-        <img
-          src="	https://bucketplace-v2-development.s3.amazonaws.com/uploads/product_category/163669796522673863.png"
-          alt=""
-        />
-        <span>침대</span>
-      </NavLink>{' '}
-      <NavLink to="/category">
-        <img
-          src="	https://bucketplace-v2-development.s3.amazonaws.com/uploads/product_category/163669796522673863.png"
-          alt=""
-        />
-        <span>침대</span>
-      </NavLink>{' '}
-      <NavLink to="/category">
-        <img
-          src="	https://bucketplace-v2-development.s3.amazonaws.com/uploads/product_category/163669796522673863.png"
-          alt=""
-        />
-        <span>침대</span>
-      </NavLink>{' '}
-      <NavLink to="/category">
-        <img
-          src="	https://bucketplace-v2-development.s3.amazonaws.com/uploads/product_category/163669796522673863.png"
-          alt=""
-        />
-        <span>침대</span>
-      </NavLink>{' '}
-      <NavLink to="/category">
-        <img
-          src="	https://bucketplace-v2-development.s3.amazonaws.com/uploads/product_category/163669796522673863.png"
-          alt=""
-        />
-        <span>침대</span>
-      </NavLink>{' '}
-      <NavLink to="/category">
-        <img
-          src="	https://bucketplace-v2-development.s3.amazonaws.com/uploads/product_category/163669796522673863.png"
-          alt=""
-        />
-        <span>침대</span>
-      </NavLink>{' '}
-      <NavLink to="/category">
-        <img
-          src="	https://bucketplace-v2-development.s3.amazonaws.com/uploads/product_category/163669796522673863.png"
-          alt=""
-        />
-        <span>침대</span>
-      </NavLink>{' '}
-      <NavLink to="/category">
-        <img
-          src="	https://bucketplace-v2-development.s3.amazonaws.com/uploads/product_category/163669796522673863.png"
-          alt=""
-        />
-        <span>침대</span>
-      </NavLink>{' '}
-      <NavLink to="/category">
-        <img
-          src="	https://bucketplace-v2-development.s3.amazonaws.com/uploads/product_category/163669796522673863.png"
-          alt=""
-        />
-        <span>침대</span>
-      </NavLink>{' '}
-      <NavLink to="/category">
-        <img
-          src="	https://bucketplace-v2-development.s3.amazonaws.com/uploads/product_category/163669796522673863.png"
-          alt=""
-        />
-        <span>침대</span>
-      </NavLink>{' '}
-      <NavLink to="/category">
-        <img
-          src="	https://bucketplace-v2-development.s3.amazonaws.com/uploads/product_category/163669796522673863.png"
-          alt=""
-        />
-        <span>침대</span>
-      </NavLink>
+      {subCategoryMenus[categoryIndex]?.map((menu) => {
+        return (
+          <NavLink to={menu.href} key={shortid.generate()}>
+            <img src={menu.src} alt={menu.title} />
+            <span>{menu.title}</span>
+          </NavLink>
+        );
+      })}
     </nav>
   );
 };

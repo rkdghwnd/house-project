@@ -1,6 +1,6 @@
 import React from 'react';
 import shortid from 'shortid';
-import { storeLnb } from '../../hooks/lnb';
+import { storeLnb } from '../../datas/lnb';
 import { Link, useLocation } from 'react-router-dom';
 const Lnb = () => {
   const location = useLocation();

@@ -22,6 +22,9 @@
 
     .input-group {
       flex-grow: 1;
+      .ic-search {
+        cursor: pointer;
+      }
     }
 
     .btn-ghost {

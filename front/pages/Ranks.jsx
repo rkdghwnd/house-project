@@ -1,57 +1,89 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import AppLayout from '../components/common/AppLayout';
 import StoreItem from '../components/home/StoreItem';
+import { useDispatch, useSelector } from 'react-redux';
+import { getRanksProducts } from '../actions/product';
+import { useLocation } from 'react-router-dom';
+import shortid from 'shortid';
+import { createInfiniteScrollObserver } from '../hooks/createInfiniteScrollObserver';
+import { LOADING } from '../datas/statusConstants';
+import Spinner from '../loading/spinner';
+import RanksMenu from '../components/ranks/RanksMenu';
+import RanksCategory from '../components/ranks/RanksCategory';
+import Loading from '../components/common/Loading';
 
 const Ranks = () => {
+  const dispatch = useDispatch();
+  const viewport = useRef(null);
+  const scrollTarget = useRef(null);
+
+  const {
+    ranksProducts,
+    ranksTime,
+    hasMoreRanksProducts,
+    getRanksProductsStatus,
+  } = useSelector((state) => state.product);
+  const location = useLocation();
+
+  const isActive = location.search.includes('?alltime=true');
+
+  useEffect(() => {
+    const prefix = location.search.includes('?') ? '&' : '?';
+    const query = `${location.search}${prefix}page=1`;
+    dispatch(
+      getRanksProducts({
+        query,
+      })
+    );
+  }, [location.search]);
+
+  useEffect(() => {
+    // 페이지 + 배송필터 + 정렬필터
+    const page = Math.floor(ranksProducts.length / 12) + 1;
+    const prefix = location.search.includes('?') ? '&' : '?';
+    const query = `${location.search.split('page=')[0]}${prefix}page=${page}`;
+
+    const io = createInfiniteScrollObserver(
+      viewport,
+      hasMoreRanksProducts,
+      getRanksProductsStatus,
+      scrollTarget,
+      dispatch,
+      getRanksProducts,
+      query
+    );
+
+    return () => io && io.disconnect(); // 모든 요소의 관찰을 중지
+  }, [
+    viewport,
+    scrollTarget,
+    getRanksProductsStatus,
+    hasMoreRanksProducts,
+    ranksProducts,
+  ]);
+
   return (
     <AppLayout>
       <main className="ranks">
         <div className="container">
           <div className="row">
             <div className="col-sm-4">
-              <div className="ranks-menu">
-                <button className="btn-48 btn-primary">실시간 베스트</button>
-                <button className="btn-48 btn-outlined">역대 베스트</button>
-              </div>
-              <ul className="ranks-category">
-                <li>전체</li>
-                <li>가구</li>
-                <li>패브릭</li>
-                <li>가전·디지털</li>
-                <li>주방용품</li>
-                <li>식품</li>
-                <li>데코·식물</li>
-                <li>조명</li>
-                <li>수납·정리</li>
-                <li>생활용품</li>
-              </ul>
-              <div className="ranks-header">2023.08.08 13:07 기준</div>
+              <RanksMenu />
+              {isActive && <RanksCategory />}
+              <div className="ranks-header">{ranksTime} 기준</div>
               <section className="ranks-products">
-                <div className="ranks-products-col">
-                  <StoreItem />
-                  <StoreItem />
-                  <StoreItem />
-                  <StoreItem />
-                </div>
-                <div className="ranks-products-col">
-                  <StoreItem />
-                  <StoreItem />
-                  <StoreItem />
-                  <StoreItem />
-                </div>
-                <div className="ranks-products-col">
-                  <StoreItem />
-                  <StoreItem />
-                  <StoreItem />
-                  <StoreItem />
-                </div>
-                <div className="ranks-products-col">
-                  <StoreItem />
-                  <StoreItem />
-                  <StoreItem />
-                  <StoreItem />
-                </div>
+                {ranksProducts.map((product) => {
+                  return <StoreItem key={shortid.generate()} {...product} />;
+                })}
               </section>
+              <Loading loadProductsStatus={getRanksProductsStatus} />
+              <div
+                ref={
+                  hasMoreRanksProducts && !(getRanksProductsStatus === LOADING)
+                    ? scrollTarget
+                    : undefined
+                }
+              />
             </div>
           </div>
         </div>

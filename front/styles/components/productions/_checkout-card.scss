@@ -3,6 +3,7 @@
   padding: 8px 10px 8px 12px;
   background-color: $background;
   border-radius: 4px;
+  margin-bottom: 10px;
 
   .checkout-header {
     margin-bottom: 8px;
@@ -68,7 +69,34 @@
   }
 
   .checkout-footer {
-    @include flexbox(between);
+    position: relative;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    .checkout-select {
+      display: flex;
+      & > * {
+        width: 30px;
+        height: 30px;
+        background-color: white;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      & > *:hover {
+        color: $tertiary;
+      }
+      &-count {
+        font-weight: 700;
+      }
+    }
+
+    .checkout-output {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
   }
 
   @include responsive(D) {

@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import sideBarMenuSlice from '../../reducers/sideBarMenuSlice';
-import { storeLnb } from '../../hooks/lnb';
+import { storeLnb } from '../../datas/lnb';
 import shortid from 'shortid';
 import { Link } from 'react-router-dom';
 

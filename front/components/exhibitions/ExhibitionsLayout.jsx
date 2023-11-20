@@ -1,16 +1,29 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { AiOutlineShareAlt } from 'react-icons/ai';
-import { TOP_HEADER_DESKTOP, TOP_HEADER_MOBILE } from '../../hooks/constant';
+import { TOP_HEADER_DESKTOP, TOP_HEADER_MOBILE } from '../../datas/constant';
 import { useParams } from 'react-router-dom';
 import {
   RefurFloatingInfo,
   fastDeliveryFloatingInfo,
   selfInteriorFlotingInfo,
-} from '../../hooks/exhibitions';
+} from '../../datas/exhibitions';
+import useScript from '../../hooks/useScript';
+import { useDispatch, useSelector } from 'react-redux';
+import modalSlice from '../../reducers/modalSlice';
+import {
+  addExhibitionsBookmark,
+  removeExhibitionsBookmark,
+} from '../../actions/exhibitions';
 
 const ExhibitionsLayout = ({ children, productsRef }) => {
+  const dispatch = useDispatch();
   const params = useParams();
+  const { me } = useSelector((state) => state.user);
   const [floatingInfo, setFloatingInfo] = useState({});
+  const isBookmarked = me?.ExhibitionBookmarked?.find(
+    ({ id }) => id === parseInt(params.id)
+  );
+
   const scrollToTags = useCallback(() => {
     const top =
       productsRef.current.getBoundingClientRect().top -
@@ -30,6 +43,30 @@ const ExhibitionsLayout = ({ children, productsRef }) => {
     // 비동기로 북마크 개수 받아오기
   }, [params.id]);
 
+  const onClickShareButton = useCallback(() => {
+    dispatch(modalSlice.actions.openShareModal());
+  }, []);
+
+  const onClickExhibitionBookmark = useCallback(() => {
+    if (me) {
+      if (isBookmarked) {
+        dispatch(
+          removeExhibitionsBookmark({
+            exhibitionsId: params.id,
+          })
+        );
+      } else {
+        dispatch(
+          addExhibitionsBookmark({
+            exhibitionsId: params.id,
+          })
+        );
+      }
+    } else {
+      dispatch(modalSlice.actions.openLogInModal());
+    }
+  }, [me, params.id]);
+
   return (
     <main className="exhibitions-layout">
       <div className="container">
@@ -42,11 +79,21 @@ const ExhibitionsLayout = ({ children, productsRef }) => {
               <p>{floatingInfo.desc}</p>
               <h3>{floatingInfo.title}</h3>
               <div className="exhibitions-layout-floating-selection">
-                <button className="btn-48 btn-outlined">
-                  <i className="ic-bookmark" />
-                  <span>127,339</span>
+                <button
+                  className={`btn-48 btn-${
+                    isBookmarked ? 'outlined' : 'secondary'
+                  }`}
+                  onClick={onClickExhibitionBookmark}
+                >
+                  <i
+                    className={`ic-bookmark${isBookmarked ? '-filled' : ''}`}
+                  />
+                  <span>북마크</span>
                 </button>
-                <button className="btn-48 btn-outlined">
+                <button
+                  className="btn-48 btn-secondary"
+                  onClick={onClickShareButton}
+                >
                   <AiOutlineShareAlt className="ic-share" />
                   <span>공유하기</span>
                 </button>

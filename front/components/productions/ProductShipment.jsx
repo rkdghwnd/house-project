@@ -1,9 +1,18 @@
 import React, { useCallback, forwardRef } from 'react';
+import { useSelector } from 'react-redux';
 
 const ProductShipment = (props, ref) => {
+  const { productions } = useSelector((state) => state.productions);
   const openShipment = useCallback((e) => {
     e.currentTarget.parentNode.parentNode.classList.add('is-open');
   }, []);
+  const {
+    free_delivery,
+    delivery_restrict,
+    refund_fee,
+    exchange_fee,
+    refund_address,
+  } = productions;
 
   return (
     <div
@@ -39,11 +48,11 @@ const ProductShipment = (props, ref) => {
               </tr>
               <tr>
                 <th scope="row">배송비</th>
-                <td>무료 배송</td>
+                <td>{free_delivery ? '무료 배송' : '3,000원'}</td>
               </tr>
               <tr>
                 <th scope="row">배송불가 지역</th>
-                <td>배송불가 지역이 없습니다</td>
+                <td>{delivery_restrict || '배송불가 지역이 없습니다'}</td>
               </tr>
             </tbody>
           </table>
@@ -61,15 +70,15 @@ const ProductShipment = (props, ref) => {
             <tbody>
               <tr>
                 <th scope="row">반품배송비</th>
-                <td>2,500원 (최초 배송비가 무료인 경우 5,000원 부과)</td>
+                <td>{refund_fee?.toLocaleString()}원</td>
               </tr>
               <tr>
                 <th scope="row">교환배송비</th>
-                <td>5,000원</td>
+                <td>{exchange_fee?.toLocaleString()}원</td>
               </tr>
               <tr>
                 <th scope="row">보내실 곳</th>
-                <td>(00000) 서울 종로구 누하동</td>
+                <td>{refund_address}</td>
               </tr>
             </tbody>
           </table>

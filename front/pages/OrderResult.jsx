@@ -10,7 +10,10 @@ const OrderResult = () => {
         <div className="col-sm-4">
           <section className="order-result">
             <div className="order-result-image">
-              <img src="/assets/images/order/order_result.webp" alt="" />
+              <img
+                src="/assets/images/order/order_result.webp"
+                alt="주문결과"
+              />
             </div>
             <div className="order-result-product">
               <table>

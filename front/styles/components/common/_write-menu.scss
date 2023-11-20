@@ -1,0 +1,65 @@
+.write-menu {
+  $button-size: 32px;
+  $tooltip-size: 12px;
+
+  display: none;
+  @include responsive(D) {
+    display: block;
+    position: relative;
+    padding: 8px;
+
+    &.is-active {
+      .write-menu-button {
+        border-color: $blue;
+      }
+
+      .write-menu-content {
+        opacity: 1;
+        visibility: visible;
+        transform: translate3d(-23%, 10px, 0);
+      }
+    }
+
+    .btn-primary {
+      width: 88px;
+      .ic-chevron {
+        margin-left: 4px;
+      }
+    }
+
+    .write-menu-content {
+      @include pos-center-x;
+      background-color: white;
+      border-radius: 4px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translate3d(-23%, -10px, 0);
+      border: 1px solid $border;
+      box-shadow: $dropdown-shadow;
+      transition:
+        opacity 200ms ease-in-out,
+        transform 200ms ease-in-out,
+        visibility 200ms ease-in-out;
+
+      .write-menu-item {
+        padding: 0 8px;
+        button {
+          width: 170px;
+          height: 60px;
+
+          img {
+            width: 30px;
+            margin-right: 5px;
+          }
+          span {
+            vertical-align: super;
+          }
+
+          &:hover {
+            background-color: $background;
+          }
+        }
+      }
+    }
+  }
+}

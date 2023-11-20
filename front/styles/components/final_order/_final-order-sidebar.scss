@@ -1,6 +1,5 @@
 .final-order-sidebar {
-  margin-top: 40px;
-
+  margin-bottom: 40px;
   &.lg-hidden {
     padding: 0 15px;
     .pay-button {
@@ -133,5 +132,9 @@
   button.btn-primary.btn-48 {
     margin-top: 10px;
     width: 100%;
+  }
+
+  @include responsive(D) {
+    margin-top: 40px;
   }
 }

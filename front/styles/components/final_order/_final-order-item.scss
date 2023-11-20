@@ -1,6 +1,7 @@
 .final-order-item {
   border-radius: 5px;
   border: 1px solid $border;
+  border-bottom: none;
   margin-top: 10px;
 
   .item-header {
@@ -20,6 +21,7 @@
   .item-content {
     display: flex;
     padding: 16px;
+    border-bottom: 1px solid $border;
 
     img {
       width: 64px;
@@ -37,7 +39,7 @@
       }
       p {
         margin-bottom: 8px;
-        color: $tertiary;
+        color: $secondary;
       }
       &-price {
         span:first-child {
@@ -50,6 +52,7 @@
         }
         span:last-child {
           font-size: 12px;
+          color: $secondary;
         }
       }
     }

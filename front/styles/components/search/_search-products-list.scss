@@ -1,23 +1,44 @@
 .search-products-list {
   display: flex;
   flex-wrap: wrap;
+
   a {
-    width: 50%;
+    width: calc(50% - 10px);
     .store-item {
       flex-direction: column;
-      padding: 5px;
+      &-image {
+        width: 100%;
+      }
+      &-info {
+        width: 100%;
+      }
     }
+  }
+  a:nth-child(2n + 1) {
+    margin-right: 10px;
   }
 
   @include responsive(T) {
     a {
-      width: calc(100% / 3);
+      width: calc(33.3% - 20px);
+    }
+    a:nth-child(2n + 1) {
+      margin-right: 0;
+    }
+    a:not(:nth-child(3n)) {
+      margin-right: 10px;
     }
   }
 
   @include responsive(D) {
     a {
-      width: 25%;
+      width: calc(25% - 60px);
+    }
+    a:not(:nth-child(3n)) {
+      margin-right: 0;
+    }
+    a:not(:nth-child(4n)) {
+      margin-right: 20px;
     }
   }
 }

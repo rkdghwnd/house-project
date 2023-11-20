@@ -1,86 +1,79 @@
-import React from 'react';
-import { productCarouselOption } from '../../hooks/carousels';
-import TinySlider from 'tiny-slider-react';
-import 'tiny-slider/dist/tiny-slider.css';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import shortid from 'shortid';
+import { Thumbs, FreeMode, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
 
 const ProductCarousel = () => {
+  const { carouselImages } = useSelector((state) => state.productions);
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
     <div className="product-carousel" role="region">
       <div className="product-carousel-slider">
-        <TinySlider className="slider-list" settings={productCarouselOption}>
-          <li
-            className="slider-item"
-            role="tabpanel"
-            aria-labelledby="product-carousel-tab-1"
-          >
-            <figure>
-              <img src="/assets/images/img-product-01.jpg" alt="" />
-              <figcaption className="visually-hidden">
-                보아르 전기히터 상세 이미지 1
-              </figcaption>
-            </figure>
-          </li>
-          <li
-            className="slider-item"
-            role="tabpanel"
-            aria-labelledby="product-carousel-tab-2"
-          >
-            <figure>
-              <img src="/assets/images/img-product-02.jpg" alt="" />
-              <figcaption className="visually-hidden">
-                보아르 전기히터 상세 이미지 2
-              </figcaption>
-            </figure>
-          </li>
-          <li
-            className="slider-item"
-            role="tabpanel"
-            aria-labelledby="product-carousel-tab-3"
-          >
-            <figure>
-              <img src="/assets/images/img-product-03.jpg" alt="" />
-              <figcaption className="visually-hidden">
-                보아르 전기히터 상세 이미지 3
-              </figcaption>
-            </figure>
-          </li>
-          <li
-            className="slider-item"
-            role="tabpanel"
-            aria-labelledby="product-carousel-tab-4"
-          >
-            <figure>
-              <img src="/assets/images/img-product-04.jpg" alt="" />
-              <figcaption className="visually-hidden">
-                보아르 전기히터 상세 이미지 4
-              </figcaption>
-            </figure>
-          </li>
-        </TinySlider>
+        <Swiper
+          slidePerView={1}
+          spaceBetween={10}
+          thumbs={{ swiper: thumbsSwiper }}
+          modules={[FreeMode, Thumbs, Pagination]}
+          pagination={{
+            clickable: true,
+          }}
+          loop={true}
+          className="slider-list"
+        >
+          {carouselImages.map((src, id) => {
+            return (
+              <SwiperSlide key={shortid.generate()}>
+                <li
+                  className="slider-item"
+                  role="tabpanel"
+                  aria-labelledby={`product-carousel-tab-${id + 1}`}
+                >
+                  <figure>
+                    <img src={src} alt={`${id + 1}번 이미지`} />
+                    <figcaption className="visually-hidden">
+                      상품 상세 이미지 {id + 1}
+                    </figcaption>
+                  </figure>
+                </li>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
       </div>
-
       <div className="product-carousel-thumbnail">
         <ol className="thumbnail-list" role="tablist">
-          <li className="thumbnail-item" id="product-carousel-tab-1" role="tab">
-            <button type="button">
-              <img src="/assets/images/img-product-01.jpg" alt="1번 이미지" />
-            </button>
-          </li>
-          <li className="thumbnail-item" id="product-carousel-tab-2" role="tab">
-            <button type="button">
-              <img src="/assets/images/img-product-02.jpg" alt="2번 이미지" />
-            </button>
-          </li>
-          <li className="thumbnail-item" id="product-carousel-tab-3" role="tab">
-            <button type="button">
-              <img src="/assets/images/img-product-03.jpg" alt="3번 이미지" />
-            </button>
-          </li>
-          <li className="thumbnail-item" id="product-carousel-tab-4" role="tab">
-            <button type="button">
-              <img src="/assets/images/img-product-04.jpg" alt="4번 이미지" />
-            </button>
-          </li>
+          <Swiper
+            onSwiper={setThumbsSwiper}
+            loop={true}
+            spaceBetween={10}
+            slidesPerView={carouselImages.length}
+            freeMode={true}
+            watchSlidesProgress={true}
+            modules={[FreeMode, Thumbs]}
+            className="mySwiper"
+          >
+            {carouselImages.map((src, id) => {
+              return (
+                <SwiperSlide key={shortid.generate()}>
+                  <li
+                    className="thumbnail-item"
+                    id={`product-carousel-tab-${id + 1}`}
+                    role="tab"
+                  >
+                    <button type="button">
+                      <img src={src} alt={`${id + 1}번 이미지`} />
+                    </button>
+                  </li>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
         </ol>
       </div>
     </div>

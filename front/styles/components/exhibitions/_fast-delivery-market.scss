@@ -1,29 +1,47 @@
 .fast-delivery-market {
   &-category {
     &-row {
-      position: relative;
       display: flex;
-      img {
+      .image-tag {
+        position: relative;
         width: 25%;
-        height: auto;
-      }
-      a {
-        position: absolute;
-        width: 21%;
-        height: 100%;
 
-        &:nth-child(5) {
-          left: 4%;
+        a {
+          position: absolute;
+          width: 83%;
+          height: 90%;
+          top: 0;
         }
-        &:nth-child(6) {
-          left: 28%;
+        a:hover {
+          box-shadow: 0 0 0 3px rgba(130, 224, 250, 0.5);
         }
-        &:nth-child(7) {
-          left: 52%;
+
+        &:nth-child(1) {
+          a {
+            right: 2%;
+          }
         }
-        &:nth-child(8) {
-          right: 4%;
+        &:nth-child(2) {
+          a {
+            right: 5%;
+          }
         }
+        &:nth-child(3) {
+          a {
+            right: 10.5%;
+          }
+        }
+        &:nth-child(4) {
+          a {
+            right: 15.5%;
+          }
+        }
+      }
+    }
+
+    &-row:nth-child(2) {
+      a {
+        height: 67%;
       }
     }
   }

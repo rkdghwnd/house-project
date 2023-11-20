@@ -1,6 +1,6 @@
 import React from 'react';
 import PremiumBrandBox from '../components/premium/PremiumBrandBox';
-import { PremiumBrandBoxes } from '../hooks/premium';
+import { PremiumBrandBoxes } from '../datas/premium';
 import shortid from 'shortid';
 
 const PremiumBrand = () => {

@@ -1,18 +1,36 @@
 import React, { useCallback, useRef, useState } from 'react';
+import useInput from '../../hooks/useInput';
+import FinalOrdererEmailInput from './FinalOrdererEmailInput';
+import FinalOrdererPhoneInput from './FinalOrdererPhoneInput';
 
-const FinalOrdererForm = () => {
-  const [domainCustom, setDomainCustom] = useState(false);
+const FinalOrdererForm = ({
+  orderer,
+  setOrderer,
+  emailName,
+  setEmailName,
+  domain,
+  setDomain,
+  ordererFirstPhoneNumber,
+  setOrdererFirstPhoneNumber,
+  ordererLastPhoneNumber,
+  setOrdererLastPhoneNumber,
+  ordererError,
+  setOrdererError,
+  emailNameError,
+  setEmailNameError,
+  domainError,
+  setDomainError,
+  ordererPhoneNumberError,
+  setOrdererPhoneNumberError,
+}) => {
   const [short, setShort] = useState(false);
 
-  const onChangeDomain = useCallback((e) => {
-    const isSelected =
-      e.currentTarget.options[e.currentTarget.options.selectedIndex].value ===
-      '직접입력';
-
-    if (isSelected) {
-      setDomainCustom(true);
+  const onChangeOrderer = useCallback((e) => {
+    setOrderer(e.currentTarget.value);
+    if (e.currentTarget.value) {
+      setOrdererError(false);
     } else {
-      setDomainCustom(false);
+      setOrdererError(true);
     }
   }, []);
 
@@ -28,54 +46,40 @@ const FinalOrdererForm = () => {
           <i className={`ic-chevron lg-hidden ${short ? 'short' : ''}`}></i>
         </li>
         <li>
-          <label htmlFor="name">이름</label>
-          <input type="text" id="name" />
-        </li>
-        <li>
-          <div className="phone-row-1">
-            <label htmlFor="email">이메일</label>
-            <input type="text" placeholder="이메일" />
-            <span>@</span>
+          <div className="orderer-input">
+            <label htmlFor="name">이름</label>
+            <input
+              type="text"
+              id="name"
+              value={orderer}
+              onChange={onChangeOrderer}
+            />
           </div>
-          <div className="phone-row-2">
-            {domainCustom && (
-              <div className="custom-domain">
-                <label className="lg-hidden"></label>
-                <input type="text" />
-              </div>
-            )}
-            <div className="select-domain">
-              <label className="lg-hidden"></label>
-              <select name="domain" onChange={onChangeDomain}>
-                <option value="선택해주세요">선택해주세요</option>
-                <option value="naver.com">naver.com</option>
-                <option value="hanmail.net">hanmail.net</option>
-                <option value="daum.net">daum.net</option>
-                <option value="gmail.com">gmail.com</option>
-                <option value="kakao.com">kakao.com</option>
-                <option value="nate.com">nate.com</option>
-                <option value="hotmail.com">hotmail.com</option>
-                <option value="outlook.com">outlook.com</option>
-                <option value="icloud.com">icloud.com</option>
-                <option value="직접입력">직접입력</option>
-              </select>
-            </div>
-          </div>
+          {ordererError && (
+            <div className="input-error">주문자 이름을 입력하세요</div>
+          )}
         </li>
         <li>
-          <label htmlFor="phone">휴대전화</label>
-          <select name="phone" className="phone-number-select">
-            <option value="010">010</option>
-            <option value="011">011</option>
-            <option value="016">016</option>
-            <option value="017">017</option>
-            <option value="018">018</option>
-          </select>
-          <input type="text" placeholder="입력해주세요" />
+          <FinalOrdererEmailInput
+            emailName={emailName}
+            setEmailName={setEmailName}
+            domain={domain}
+            setDomain={setDomain}
+            emailNameError={emailNameError}
+            setEmailNameError={setEmailNameError}
+            domainError={domainError}
+            setDomainError={setDomainError}
+          />
         </li>
         <li>
-          <label></label>
-          <button className="btn-primary btn-48">인증번호 발송</button>
+          <FinalOrdererPhoneInput
+            ordererFirstPhoneNumber={ordererFirstPhoneNumber}
+            setOrdererFirstPhoneNumber={setOrdererFirstPhoneNumber}
+            ordererLastPhoneNumber={ordererLastPhoneNumber}
+            setOrdererLastPhoneNumber={setOrdererLastPhoneNumber}
+            ordererPhoneNumberError={ordererPhoneNumberError}
+            setOrdererPhoneNumberError={setOrdererPhoneNumberError}
+          />
         </li>
       </ul>
     </section>

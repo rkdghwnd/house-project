@@ -1,0 +1,39 @@
+.scrap-book-edit-menu {
+  border-top: 1px solid $border;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+
+  &-left {
+    span {
+      color: $primary;
+      font-weight: 700;
+      vertical-align: middle;
+    }
+  }
+
+  &-right {
+    button {
+      font-size: 14px;
+      font-weight: 700;
+      padding: 5px;
+      color: $secondary;
+    }
+    button:hover {
+      background-color: $background;
+      border-radius: 5px;
+    }
+    button:disabled {
+      cursor: auto;
+      color: $tertiary;
+      &:hover {
+        background-color: transparent;
+        border-radius: 0;
+      }
+    }
+
+    .blue-button {
+      color: $blue;
+    }
+  }
+}

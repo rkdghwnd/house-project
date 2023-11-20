@@ -1,13 +1,16 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 import shortid from 'shortid';
 
 const UsersGnbBar = () => {
   const location = useLocation();
+  const { me } = useSelector((state) => state.user);
+
   const usersGnbBar = [
     {
       name: '프로필',
-      href: '/users/1',
+      href: `/users/${me?.id}`,
     },
     {
       name: '나의 쇼핑',
@@ -15,7 +18,7 @@ const UsersGnbBar = () => {
     },
     {
       name: '나의 리뷰',
-      href: '/production_reviews',
+      href: '/users_reviews',
     },
     {
       name: '설정',

@@ -17,5 +17,9 @@
     &:nth-child(4) {
       right: 0;
     }
+
+    &:hover {
+      box-shadow: 0 0 0 3px rgba(130, 224, 250, 0.5);
+    }
   }
 }

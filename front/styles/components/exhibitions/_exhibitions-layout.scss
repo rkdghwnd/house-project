@@ -40,6 +40,7 @@
     &-selection {
       display: flex;
       margin-bottom: 20px;
+
       button {
         flex: 1 1 auto;
 
@@ -52,8 +53,20 @@
           transform: translateY(1px);
         }
       }
+
+      button.btn-secondary {
+        border: 1px solid $border;
+        background-color: white;
+        &:hover {
+          background-color: $background;
+        }
+      }
+
       button:first-child {
         margin-right: 10px;
+        .ic-bookmark {
+          margin-right: 3px;
+        }
       }
     }
   }
