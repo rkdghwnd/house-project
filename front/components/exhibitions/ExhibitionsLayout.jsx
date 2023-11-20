@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { AiOutlineShareAlt } from 'react-icons/ai';
-import { TOP_HEADER_DESKTOP, TOP_HEADER_MOBILE } from '../../hooks/constant';
+import { TOP_HEADER_DESKTOP, TOP_HEADER_MOBILE } from '../../datas/constant';
 import { useParams } from 'react-router-dom';
 import {
   RefurFloatingInfo,
   fastDeliveryFloatingInfo,
   selfInteriorFlotingInfo,
-} from '../../hooks/exhibitions';
+} from '../../datas/exhibitions';
 import useScript from '../../hooks/useScript';
 import { useDispatch, useSelector } from 'react-redux';
 import modalSlice from '../../reducers/modalSlice';
