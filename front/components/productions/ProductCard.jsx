@@ -4,7 +4,10 @@ const ProductCard = () => {
   return (
     <div className="product-card">
       <div className="product-card-image">
-        <img src="/assets/images/img-recommendation-01.jpg" alt="" />
+        <img
+          src="/assets/images/img-recommendation-01.jpg"
+          alt="product-card-sample"
+        />
       </div>
 
       <span className="product-card-brand">emk</span>
