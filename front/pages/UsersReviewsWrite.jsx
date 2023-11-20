@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getSearchReviewProducts } from '../actions/search';
 import SearchModal from '../components/common/SearchModal';
 import searchSlice from '../reducers/searchSlice';
-import { SUCCEEDED } from '../hooks/statusConstants';
+import { SUCCEEDED } from '../datas/statusConstants';
 
 const UsersReviewsWrite = () => {
   const dispatch = useDispatch();
