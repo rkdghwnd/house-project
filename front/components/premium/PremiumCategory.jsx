@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { premiumCategorys } from '../../hooks/premium';
+import { premiumCategorys } from '../../datas/premium';
 import shortid from 'shortid';
 
 const PremiumCategory = () => {
