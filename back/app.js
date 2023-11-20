@@ -22,9 +22,6 @@ const morgan = require('morgan');
 const hpp = require('hpp');
 const helmet = require('helmet');
 
-const swaggerFile = require('./swagger-output.json');
-const swaggerUi = require('swagger-ui-express');
-
 const app = express();
 
 // view engine setup
