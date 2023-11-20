@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 import UsersGnbBar from '../components/users/UsersGnbBar';
 import UsersLnbBar from '../components/users/UsersLnbBar';
 import { useSelector } from 'react-redux';
-import { SUCCEEDED } from '../hooks/statusConstants';
+import { SUCCEEDED } from '../datas/statusConstants';
 
 const Users = () => {
   const { me, user } = useSelector((state) => state.user);
