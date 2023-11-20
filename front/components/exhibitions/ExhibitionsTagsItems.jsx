@@ -1,16 +1,15 @@
 import React, { forwardRef } from 'react';
 import ExhibitionsGrid3Items from './ExhibitionsGrid3Items';
+import { useSelector } from 'react-redux';
 
-const ExhibitionsTagsItems = (props, ref) => {
+const ExhibitionsTagsItems = ({ categoryExhibitions }, ref) => {
+  const { currentCategoryTag } = useSelector((state) => state.exhibitions);
   return (
     <section className="exhibitions-tags-items" ref={ref}>
       <div className="exhibitions-tags-items-title-box">
-        <span>추천</span>
+        <span>{currentCategoryTag}</span>
       </div>
-      <ExhibitionsGrid3Items />
-      <ExhibitionsGrid3Items />
-      <ExhibitionsGrid3Items />
-      <ExhibitionsGrid3Items />
+      <ExhibitionsGrid3Items products={categoryExhibitions} />
     </section>
   );
 };
