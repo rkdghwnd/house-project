@@ -5,7 +5,7 @@ import UsersLnbBar from '../components/users/UsersLnbBar';
 import DeliveryStatus from '../components/my_shopping/DeliveryStatus';
 import DeliveryList from '../components/my_shopping/DeliveryList';
 import { useSelector } from 'react-redux';
-import { SUCCEEDED } from '../hooks/statusConstants';
+import { SUCCEEDED } from '../datas/statusConstants';
 import { Outlet, useNavigate } from 'react-router-dom';
 
 const MyShopping = () => {
