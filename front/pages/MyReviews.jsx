@@ -3,7 +3,7 @@ import Pagination from '../components/productions/Pagination';
 import { useDispatch, useSelector } from 'react-redux';
 import shortid from 'shortid';
 import { getMyReviews } from '../actions/user';
-import { LOADING, SUCCEEDED } from '../hooks/statusConstants';
+import { LOADING, SUCCEEDED } from '../datas/statusConstants';
 import MyReviewItem from '../components/users_reviews/MyReviewItem';
 import EmptyBox from '../components/users/EmptyBox';
 
