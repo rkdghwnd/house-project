@@ -1,15 +1,23 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import SearchHistory from './SearchHistory';
 import ButtonGroup from './ButtonGroup';
+import { Link, useNavigate } from 'react-router-dom';
+import useInput from '../../hooks/useInput';
+import { useDispatch, useSelector } from 'react-redux';
+import searchSlice from '../../reducers/searchSlice';
+import WriteMenu from './WriteMenu';
 
 const GnbRight = () => {
+  const dispatch = useDispatch();
   const gnbSearch = useRef(); // 필수 (바깥과 안쪽 구분하기 위해)
   const gnbSearchHistory = useRef(); // 필수(윈도우 이벤트 삽입/삭제하기 위해)
-  const gnbSearchHistoryList = useRef(); // 대체 가능(데이터로 대체)
+  const { gnbSearchHistoryList } = useSelector((state) => state.search);
+  const navigate = useNavigate();
+  const [searchText, onChangeSearchText] = useInput('');
 
   const clickingOutside = useCallback(
     (e) => {
-      if (!gnbSearch.current.contains(e.target)) {
+      if (!gnbSearch.current?.contains(e.target)) {
         closeGnbSearchHistory();
       }
     },
@@ -22,7 +30,7 @@ const GnbRight = () => {
   }, [gnbSearchHistory]);
 
   const openGnbSearchHistory = useCallback(() => {
-    if (gnbSearchHistoryList.current.children.length === 0) {
+    if (gnbSearchHistoryList.length === 0) {
       return;
     }
 
@@ -32,31 +40,69 @@ const GnbRight = () => {
     gnbSearchHistory.current.classList.add('is-active');
   }, [gnbSearchHistory, gnbSearchHistoryList]);
 
+  const onEnterSearchInput = useCallback(
+    (e) => {
+      if (e.key === 'Enter' && e.currentTarget.value) {
+        dispatch(
+          searchSlice.actions.updateGnbSearchHistoryList({
+            historyList: [...new Set([...gnbSearchHistoryList, searchText])],
+          })
+        );
+        localStorage.setItem(
+          'history',
+          JSON.stringify([...new Set([...gnbSearchHistoryList, searchText])])
+        );
+        const query = `?keyword=${e.currentTarget.value}`;
+        navigate(`/search_result${query}`);
+      }
+    },
+    [searchText, gnbSearchHistoryList]
+  );
+
+  const onClickSearchButton = useCallback(() => {
+    if (searchText) {
+      dispatch(
+        searchSlice.actions.updateGnbSearchHistoryList({
+          historyList: [...new Set([...gnbSearchHistoryList, searchText])],
+        })
+      );
+      localStorage.setItem(
+        'history',
+        JSON.stringify([...new Set([...gnbSearchHistoryList, searchText])])
+      );
+      const query = `?keyword=${searchText}`;
+      navigate(`/search_result${query}`);
+    }
+  }, [searchText, gnbSearchHistoryList]);
+
   return (
     <div className="gnb-right">
       <div className="gnb-search lg-only" ref={gnbSearch}>
         <div className="input-group">
-          <i className="ic-search" aria-hidden></i>
+          <i
+            className="ic-search"
+            aria-hidden
+            onClick={onClickSearchButton}
+          ></i>
           <input
             className="form-input"
             type="text"
             placeholder="스토어 검색"
             onFocus={openGnbSearchHistory}
+            onKeyDown={onEnterSearchInput}
+            onChange={onChangeSearchText}
+            value={searchText}
           />
         </div>
         <SearchHistory
           ref={gnbSearchHistory}
-          gnbSearchHistoryList={gnbSearchHistoryList}
           closeGnbSearchHistory={closeGnbSearchHistory}
         />
       </div>
 
       <ButtonGroup />
 
-      <button className="btn-primary btn-40 sm-hidden" type="button">
-        글쓰기
-        <i className="ic-chevron" aria-hidden></i>
-      </button>
+      <WriteMenu />
     </div>
   );
 };
