@@ -3,9 +3,9 @@ import {
   fastDeliveryImageTag1,
   fastDeliveryImageTag2,
   fastDeliveryTags,
-} from '../../hooks/exhibitions';
+} from '../../datas/exhibitions';
 import ExhibitionsTags from './ExhibitionsTags';
-import { TOP_HEADER_DESKTOP, TOP_HEADER_MOBILE } from '../../hooks/constant';
+import { TOP_HEADER_DESKTOP, TOP_HEADER_MOBILE } from '../../datas/constant';
 import ExhibitionsTagsItems from './ExhibitionsTagsItems';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCategoryExhibitions } from '../../actions/exhibitions';
