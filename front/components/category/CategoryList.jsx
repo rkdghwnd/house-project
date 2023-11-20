@@ -1,20 +1,14 @@
-import React, { useCallback, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import CategoryListMenu from './CategoryListMenu';
+import shortid from 'shortid';
+import { categoryListDatas } from '../../hooks/category';
 
 const CategoryList = () => {
   return (
     <section className="category-list">
-      <CategoryListMenu />
-      <CategoryListMenu />
-      <CategoryListMenu />
-      <CategoryListMenu />
-      <CategoryListMenu />
-      <CategoryListMenu />
-      <CategoryListMenu />
-      <CategoryListMenu />
-      <CategoryListMenu />
-      <CategoryListMenu />
+      {categoryListDatas.map((category) => {
+        return <CategoryListMenu key={shortid.generate()} {...category} />;
+      })}
     </section>
   );
 };
