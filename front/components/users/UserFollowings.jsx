@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import shortid from 'shortid';
+import FollowingUserFollowButtons from './FollowingUserFollowButtons';
 
 const UserFollowings = ({ mobileVisible }) => {
+  const { userFollowings } = useSelector((state) => state.user);
+
   return (
     <section
       className={`user-followings${
@@ -12,62 +18,27 @@ const UserFollowings = ({ mobileVisible }) => {
       </div>
       <div className="user-followings-list">
         <ul>
-          <li>
-            <div className="user-followings-list-title">
-              <img src="/assets/images/img-user-default.png" alt="" />
-              <span>고민중80</span>
-            </div>
-            <button className="btn-outlined btn-32">팔로잉</button>
-          </li>
-          <li>
-            <div className="user-followings-list-title">
-              <img src="/assets/images/img-user-default.png" alt="" />
-              <span>고민중80</span>
-            </div>
-            <button className="btn-outlined btn-32">팔로잉</button>
-          </li>
-          <li>
-            <div className="user-followings-list-title">
-              <img src="/assets/images/img-user-default.png" alt="" />
-              <span>고민중80</span>
-            </div>
-            <button className="btn-outlined btn-32">팔로잉</button>
-          </li>
-          <li>
-            <div className="user-followings-list-title">
-              <img src="/assets/images/img-user-default.png" alt="" />
-              <span>고민중80</span>
-            </div>
-            <button className="btn-outlined btn-32">팔로잉</button>
-          </li>
-          <li>
-            <div className="user-followings-list-title">
-              <img src="/assets/images/img-user-default.png" alt="" />
-              <span>고민중80</span>
-            </div>
-            <button className="btn-outlined btn-32">팔로잉</button>
-          </li>
-          <li>
-            <div className="user-followings-list-title">
-              <img src="/assets/images/img-user-default.png" alt="" />
-              <span>고민중80</span>
-            </div>
-            <button className="btn-outlined btn-32">팔로잉</button>
-          </li>
-          <li>
-            <div className="user-followings-list-title">
-              <img src="/assets/images/img-user-default.png" alt="" />
-              <span>고민중80</span>
-            </div>
-            <button className="btn-outlined btn-32">팔로잉</button>
-          </li>
-          <li>
-            <div className="user-followings-list-title">
-              <img src="/assets/images/img-user-default.png" alt="" />
-              <span>고민중80</span>
-            </div>
-            <button className="btn-outlined btn-32">팔로잉</button>
-          </li>
+          {userFollowings.map((following) => {
+            return (
+              <li key={shortid.generate()}>
+                <div className="user-followings-list-title">
+                  <Link to={`/users/${following?.id}`}>
+                    <img
+                      src={`${import.meta.env.VITE_BACK_END_DOMAIN}/${
+                        following.profile_img
+                      }`}
+                      alt="팔로잉 프로필 이미지"
+                    />
+                  </Link>
+                  <span>{following.nickname}</span>
+                </div>
+                <FollowingUserFollowButtons following={following} />
+              </li>
+            );
+          })}
+          {userFollowings.length === 0 && (
+            <li className="none-followings">없음</li>
+          )}
         </ul>
       </div>
     </section>
