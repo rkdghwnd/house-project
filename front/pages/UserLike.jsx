@@ -6,7 +6,7 @@ import { getMyLiked } from '../actions/user';
 import shortid from 'shortid';
 import ReviewCard from '../components/productions/ReviewCard';
 import Pagination from '../components/productions/Pagination';
-import { SUCCEEDED } from '../hooks/statusConstants';
+import { SUCCEEDED } from '../datas/statusConstants';
 import EmptyBox from '../components/users/EmptyBox';
 
 const UserLike = () => {
