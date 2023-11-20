@@ -1,14 +1,32 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import MyMenu from './MyMenu';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import modalSlice from '../../reducers/modalSlice';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { getMyInfo } from '../../actions/user';
+import MyButtons from './MyButtons';
+import productSlice from '../../reducers/productSlice';
 
 const ButtonGroup = () => {
   const dispatch = useDispatch();
-  const me = false;
+  const { me } = useSelector((state) => state.user);
+  const { browserCartProductCount } = useSelector((state) => state.product);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(productSlice.actions.updateBroswerCartProductCount());
+  }, []);
+
   const onClickSearchButton = useCallback(() => {
     dispatch(modalSlice.actions.openSearchModal());
+  }, []);
+
+  const openLogInModal = useCallback(() => {
+    dispatch(modalSlice.actions.openLogInModal());
+  }, []);
+
+  const onClickCartButton = useCallback(() => {
+    navigate('/cart');
   }, []);
 
   return (
@@ -21,47 +39,21 @@ const ButtonGroup = () => {
       >
         <i className="ic-search"></i>
       </button>
+      {me && <MyButtons />}
+      <button className="gnb-icon-button is-cart" onClick={onClickCartButton}>
+        <i className="ic-cart" aria-label="장바구니 페이지로 이동"></i>
 
-      {me && (
-        <>
-          <Link
-            className="gnb-icon-button sm-hidden"
-            to="/users/1/bookmark"
-            aria-label="스크랩북 페이지로 이동"
-          >
-            <i className="ic-bookmark"></i>
-          </Link>
-
-          <Link
-            className="gnb-icon-button sm-hidden"
-            to="/notification"
-            aria-label="내 소식 페이지로 이동"
-          >
-            <i className="ic-bell"></i>
-          </Link>
-        </>
-      )}
-
-      <Link
-        className="gnb-icon-button is-cart"
-        to="/cart"
-        aria-label="장바구니 페이지로 이동"
-      >
-        <i className="ic-cart"></i>
-        <strong className="badge">5</strong>
-      </Link>
-
+        {browserCartProductCount > 0 ? (
+          <strong className="badge">{browserCartProductCount}</strong>
+        ) : (
+          ''
+        )}
+      </button>
       {me ? (
         <MyMenu />
       ) : (
         <div className="gnb-auth sm-hidden">
-          <button
-            onClick={() => {
-              dispatch(modalSlice.actions.openLogInModal());
-            }}
-          >
-            로그인
-          </button>
+          <button onClick={openLogInModal}>로그인</button>
         </div>
       )}
     </div>
