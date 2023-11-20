@@ -1,4 +1,4 @@
-.cart-product {
+.browser-cart-product {
   background-color: white;
   margin-top: 11px;
 
@@ -11,9 +11,11 @@
 
   &-main {
     padding: 13px;
-    .cart-product-item {
+    .browser-cart-product-item {
+      position: relative;
       display: flex;
       input {
+        flex: 0 0 auto;
         width: 20px;
         height: 20px;
         margin-right: 10px;
@@ -29,14 +31,11 @@
             transition: color 100ms ease-in-out;
           }
           .item-image-container {
-            img {
-              transform: scale(1.05, 1.05);
-              transition: transform 100ms ease-in-out;
-            }
           }
         }
 
         .item-image-container {
+          flex: 0 0 auto;
           width: 70px;
           height: 70px;
           overflow: hidden;
@@ -63,6 +62,8 @@
       }
 
       button {
+        position: absolute;
+        right: 0;
         width: 12px;
         height: 12px;
         padding: 5px;
@@ -73,7 +74,7 @@
       }
     }
 
-    .cart-product-total {
+    .browser-cart-product-total {
       display: flex;
       justify-content: space-between;
       margin: 16px 0 3px 0;

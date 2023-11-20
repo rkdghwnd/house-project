@@ -1,0 +1,50 @@
+.share-modal {
+  width: 500px;
+  height: 100px;
+  font-weight: 700;
+  text-align: left;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  visibility: hidden;
+  position: fixed;
+  right: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  z-index: 200;
+
+  & > :nth-child(3) {
+    position: relative;
+  }
+
+  .url-share-button {
+    width: 48px;
+    height: 48px;
+    color: white;
+    border-radius: 24px;
+    border: 0px;
+    font-weight: 800;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #7362ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .kakao-share-button {
+    cursor: pointer;
+    .kakao-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 24px;
+    }
+  }
+
+  &.is-active {
+    visibility: visible;
+  }
+}

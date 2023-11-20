@@ -2,6 +2,7 @@
   padding-bottom: 40px;
 
   &-header {
+    position: relative;
     @include text-style(12);
     margin-bottom: 8px;
 
@@ -33,6 +34,12 @@
       strong {
         font-weight: 400;
       }
+    }
+
+    .update-remove-buttons {
+      position: absolute;
+      top: 0px;
+      right: 0px;
     }
   }
 

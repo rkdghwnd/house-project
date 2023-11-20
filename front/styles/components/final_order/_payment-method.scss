@@ -59,8 +59,16 @@
     }
 
     &-item.is-active {
-      border: 1px solid $blue !important;
+      position: relative;
       background-color: $blue-light;
+      &::after {
+        cursor: pointer;
+        z-index: 1;
+        position: absolute;
+        content: '';
+        inset: 0px 0px;
+        border: 2px solid rgb(53, 197, 240);
+      }
     }
   }
 

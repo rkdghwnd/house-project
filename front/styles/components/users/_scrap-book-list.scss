@@ -1,0 +1,86 @@
+.scrap-book-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  &-item {
+    position: relative;
+    width: calc(50% - 5px);
+    margin-bottom: 10px;
+    &:nth-child(2n + 1) {
+      margin-right: 10px;
+    }
+    border-radius: 5px;
+    a {
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+    }
+
+    span {
+      position: absolute;
+      font-weight: 700;
+      font-size: 12px;
+      left: 12px;
+      bottom: 12px;
+      border-radius: 5px;
+      padding: 5px;
+      background-color: $dark;
+      opacity: 0.7;
+      color: white;
+    }
+
+    input {
+      position: absolute;
+      cursor: pointer;
+      top: 20px;
+      left: 20px;
+      width: 20px;
+      height: 20px;
+      opacity: 1 !important;
+    }
+
+    .item-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      cursor: pointer;
+      opacity: 0;
+      top: 0;
+      border-radius: 5px;
+      transition: opacity 0.2s ease-in-out;
+
+      &.is-active {
+        opacity: 0.4;
+      }
+    }
+  }
+
+  @include responsive(T) {
+    &-item {
+      width: calc(33% - 13.33px);
+    }
+    &-item:nth-child(2n + 1) {
+      margin-right: 0;
+    }
+    &-item:not(:nth-child(3n)) {
+      margin-right: 20px;
+    }
+  }
+
+  @include responsive(D) {
+    &-item {
+      width: calc(25% - 15px);
+      margin-bottom: 20px;
+    }
+    &-item:not(:nth-child(3n)) {
+      margin-right: 0;
+    }
+    &-item:not(:nth-child(4n)) {
+      margin-right: 20px;
+    }
+  }
+}

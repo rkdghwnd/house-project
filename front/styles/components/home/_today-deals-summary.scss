@@ -8,6 +8,7 @@
     }
 
     a {
+      display: none;
       color: $red;
       font-weight: 700;
       font-size: $font-size-14;
@@ -16,9 +17,17 @@
 
   .btn-48.btn-secondary {
     width: 100%;
+    .ic-chevron {
+      transform: rotate(-90deg);
+    }
   }
 
   @include responsive(T) {
+    &-header {
+      a {
+        display: block;
+      }
+    }
     &-items {
       @include flexbox;
 

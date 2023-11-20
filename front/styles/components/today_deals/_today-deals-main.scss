@@ -14,13 +14,15 @@
 
   @include responsive(T) {
     &-items {
-      &-col {
-        display: flex;
-        & > a:not(:last-child) {
-          margin-right: 20px;
-        }
+      display: flex;
+      flex-wrap: wrap;
+      .hotdeal-store-item {
+        width: calc(25% - 15px);
         .store-item {
           flex-direction: column;
+        }
+        &:not(:nth-child(4n)) {
+          margin-right: 20px;
         }
       }
     }

@@ -86,7 +86,8 @@
     margin-top: 16px;
 
     .user-menu-item {
-      a {
+      a,
+      button {
         @include flexbox(start);
         @include text-style(14, $primary);
         width: 100%;

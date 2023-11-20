@@ -1,18 +1,36 @@
 .exhibition-grid-3-items {
-  .col {
-    display: flex;
-    margin-bottom: 20px;
-
-    & > a:not(:last-child) {
-      margin-right: 10px;
-    }
-
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  a {
+    width: calc(50% - 5px);
     .store-item {
       flex-direction: column;
-      border: 0;
+      &-image,
       &-info {
-        padding: 0;
+        width: 100%;
       }
+
+      &-info-today-delivery > img {
+        width: auto;
+        height: 15px;
+      }
+    }
+  }
+
+  a:nth-child(2n + 1) {
+    margin-right: 10px;
+  }
+
+  @include responsive(T) {
+    a {
+      width: calc(33.3% - 14px);
+    }
+    a:nth-child(3n) {
+      margin-right: 0;
+    }
+    a:not(:nth-child(3n)) {
+      margin-right: 20px;
     }
   }
 }

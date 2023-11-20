@@ -26,6 +26,9 @@
       &:hover {
         color: $blue;
       }
+      &.is-active {
+        color: $blue;
+      }
     }
   }
 
@@ -35,15 +38,18 @@
     }
 
     &-products {
-      &-col {
-        display: flex;
-        a:not(:last-child) {
-          margin-right: 20px;
-        }
+      display: flex;
+      flex-wrap: wrap;
 
+      a {
+        width: calc(25% - 15px);
         .store-item {
           flex-direction: column;
         }
+      }
+
+      a:not(:nth-child(4n)) {
+        margin-right: 20px;
       }
     }
   }

@@ -1,0 +1,12 @@
+.oauth-buttons {
+  padding-top: 30px;
+  @include flexbox;
+
+  a:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  img {
+    width: 50px;
+  }
+}

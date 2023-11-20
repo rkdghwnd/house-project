@@ -13,12 +13,17 @@
     .ic-chevron.on-open {
       transform: translateY(-25%) rotate(180deg);
     }
+
+    h2:hover {
+      color: $tertiary;
+      transition: color 200ms ease-in-out;
+    }
   }
 
   ul {
     max-height: 0;
     overflow-y: hidden;
-    transition: max-height 200ms ease-in;
+    transition: max-height 200ms;
 
     li {
       font-size: 13px;
@@ -26,6 +31,10 @@
     }
     li.is-active {
       color: $blue;
+    }
+    li:hover {
+      color: $tertiary;
+      transition: color 200ms ease-in-out;
     }
   }
 

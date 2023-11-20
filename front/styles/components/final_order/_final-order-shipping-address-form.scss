@@ -1,17 +1,12 @@
-.shipping-address-form {
+.final-order-shipping-address-form {
   ul {
     li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       margin: 10px 15px;
-
       h2 {
         font-size: 17px;
       }
 
       input {
-        flex: 1 1 auto;
         border: 1px solid $border;
         border-radius: 5px;
         padding: 10px;
@@ -34,6 +29,7 @@
       label {
         width: 72px;
         font-size: 14px;
+        white-space: nowrap;
       }
 
       select {
@@ -46,12 +42,22 @@
           transition: background-color 100ms ease-in-out;
         }
       }
+
+      .input-error {
+        font-size: 12px;
+        color: $red;
+        margin-top: 5px;
+        margin-left: 72px;
+      }
     }
 
     li:first-child {
-      padding: 18px 0;
+      display: flex;
       justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
       margin-bottom: 20px;
+
       button {
         color: $blue;
       }
@@ -60,20 +66,61 @@
       }
     }
 
-    li:nth-child(5) {
-      justify-content: flex-start;
-
-      button {
-        width: 85px;
-        margin-right: 8px;
-      }
-      input {
-        flex: 0 1 auto;
+    li:nth-child(2) {
+      .destination-input {
+        display: flex;
+        align-items: center;
+        input {
+          flex: 1 1 auto;
+        }
       }
     }
+
+    li:nth-child(3) {
+      .recipient-input {
+        display: flex;
+        align-items: center;
+        input {
+          flex: 1 1 auto;
+        }
+      }
+    }
+
+    li:nth-child(4) {
+      .phone-input {
+        display: flex;
+        align-items: center;
+        input {
+          flex: 1 1 auto;
+        }
+        .phone-number-select {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    li:nth-child(5) {
+      display: flex;
+      align-items: center;
+      button {
+        width: 85px;
+        margin-right: 10px;
+      }
+      input {
+        flex: 1 1 auto;
+      }
+    }
+    li:nth-child(6),
+    li:nth-child(7) {
+      display: flex;
+      input {
+        flex: 1 1 auto;
+      }
+    }
+
     li:nth-child(8) {
-      justify-content: flex-start;
-      margin-bottom: 20px;
+      display: flex;
+
       input {
         flex: 0 1 auto;
         width: 20px;
@@ -84,8 +131,9 @@
         font-size: 14px;
       }
     }
-    li:nth-child(9) {
+    li.ask-custom {
       position: relative;
+      display: flex;
       textarea {
         all: unset;
         flex: 1 1 auto;
@@ -106,12 +154,10 @@
 
     li:last-child {
       padding: 0 0 20px 0;
-    }
-
-    .phone-number-select {
-      margin-right: 8px;
-      flex: 0 1 auto;
-      width: 85px;
+      display: flex;
+      select {
+        flex: 1 1 auto;
+      }
     }
   }
 

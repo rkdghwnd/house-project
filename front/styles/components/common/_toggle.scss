@@ -1,0 +1,29 @@
+.toggle {
+  position: relative;
+  width: 44px;
+  height: 23px;
+  background-color: $secondary;
+  border-radius: 100px;
+  padding: 0 3px;
+  transition: background-color 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &.is-active {
+    background-color: $blue;
+  }
+
+  div.inner {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: white;
+    transition: transform 0.3s ease-in-out;
+  }
+  div.inner.is-active {
+    transform: translateX(20px);
+  }
+}

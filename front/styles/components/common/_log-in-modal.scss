@@ -6,7 +6,6 @@
   z-index: 700;
   overscroll-behavior: contain;
   visibility: hidden;
-  transition: visibility 100ms ease-in-out;
 
   &.is-active {
     visibility: visible;
@@ -30,19 +29,6 @@
 
       img:last-child {
         width: 90px;
-      }
-    }
-
-    &-buttons {
-      padding-top: 20px;
-      @include flexbox;
-
-      a:not(:last-child) {
-        margin-right: 20px;
-      }
-
-      img {
-        width: 50px;
       }
     }
   }

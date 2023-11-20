@@ -51,6 +51,7 @@
     }
 
     &-email {
+      position: relative;
       .edit-input {
         flex: 1 1 auto;
         display: flex;
@@ -65,15 +66,23 @@
         select {
           flex: 1 1 auto;
         }
+
+        .email-error {
+          position: absolute;
+          color: $red;
+          bottom: 0;
+          font-size: 12px;
+        }
       }
     }
 
     &-nickname {
-      .edit-input {
-        width: 100%;
-        input {
-          width: 100%;
-        }
+      position: relative;
+      .nickname-error {
+        position: absolute;
+        margin-top: 5px;
+        color: $red;
+        font-size: 12px;
       }
     }
 
@@ -95,13 +104,13 @@
       }
     }
 
-    &-profile-image {
+    &-image {
       display: flex;
       align-items: center;
       height: 200px;
       .edit-input {
-        width: 200px;
-        height: 200px;
+        width: 100px;
+        height: 100px;
         img {
           width: 100%;
           height: auto;
