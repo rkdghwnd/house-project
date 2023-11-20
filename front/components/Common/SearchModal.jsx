@@ -1,16 +1,72 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import modalSlice from '../../reducers/modalSlice';
+import shortid from 'shortid';
+import { useNavigate } from 'react-router-dom';
+import searchSlice from '../../reducers/searchSlice';
+import DeleteButton from './DeleteButton';
+import SearchModalHeader from './SearchModalHeader';
 
 const SearchModal = () => {
   const dispatch = useDispatch();
   const { searchModalVisible } = useSelector((state) => state.modal);
+  const navigate = useNavigate();
 
-  const onClickCloseButton = useCallback(() => {
+  const { gnbSearchHistoryList } = useSelector((state) => state.search);
+
+  const onClickHistoryItem = useCallback((e) => {
+    dispatch(
+      searchSlice.actions.updateGnbSearchHistoryList({
+        historyList: [
+          ...new Set([...gnbSearchHistoryList, e.currentTarget.textContent]),
+        ],
+      })
+    );
+    const query = `?keyword=${e.currentTarget.textContent}`;
+    navigate(`/search_result${query}`);
     dispatch(modalSlice.actions.closeModal());
+    e.stopPropagation();
   }, []);
 
-  const onClickRemoveAll = useCallback(() => {}, []);
+  const onClickRemoveAll = useCallback(() => {
+    dispatch(
+      searchSlice.actions.updateGnbSearchHistoryList({
+        historyList: [],
+      })
+    );
+    localStorage.setItem('history', JSON.stringify([]));
+  }, []);
+
+  const searchHistoryList = useMemo(() => {
+    if (gnbSearchHistoryList.length === 0) {
+      {
+        /* //  <!-- NOTE: 최근 검색어가 존재하지 않을 경우 --> */
+      }
+      return (
+        <div className="search-history-content">
+          <p className="placeholder">최근 검색한 내역이 없습니다.</p>
+        </div>
+      );
+    } else {
+      {
+        /* <!-- NOTE: 최근 검색어가 존재할 경우 --> */
+      }
+      return gnbSearchHistoryList.map((history, index) => {
+        return (
+          <li className="search-history-item" key={shortid.generate()}>
+            <button
+              className="word-button"
+              type="button"
+              onClick={onClickHistoryItem}
+            >
+              {history}
+            </button>
+            <DeleteButton index={index} />
+          </li>
+        );
+      });
+    }
+  }, [gnbSearchHistoryList]);
 
   return (
     <aside
@@ -21,27 +77,7 @@ const SearchModal = () => {
       <div className="container">
         <div className="row">
           <div className="col-sm-4">
-            <header className="search-modal-header">
-              <h1 className="visually-hidden">검색창</h1>
-
-              <div className="search-modal-form">
-                <div className="input-group">
-                  <i className="ic-search" aria-hidden></i>
-                  <input
-                    className="form-input"
-                    type="text"
-                    placeholder="스토어 검색"
-                  />
-                </div>
-                <button
-                  className="btn-ghost btn-40"
-                  type="button"
-                  onClick={onClickCloseButton}
-                >
-                  취소
-                </button>
-              </div>
-            </header>
+            <SearchModalHeader />
 
             <section className="search-history">
               <header className="search-history-header">
@@ -51,52 +87,9 @@ const SearchModal = () => {
                 </button>
               </header>
 
-              {/* <!-- NOTE: 최근 검색어가 존재할 경우 --> */}
               <div className="search-history-content">
-                <ol className="search-history-list">
-                  <li className="search-history-item">
-                    <button className="word-button" type="button">
-                      김버그
-                    </button>
-                    <button
-                      className="delete-button"
-                      type="button"
-                      aria-label="검색어 삭제"
-                    >
-                      <i className="ic-close"></i>
-                    </button>
-                  </li>
-                  <li className="search-history-item">
-                    <button className="word-button" type="button">
-                      버그
-                    </button>
-                    <button
-                      className="delete-button"
-                      type="button"
-                      aria-label="검색어 삭제"
-                    >
-                      <i className="ic-close"></i>
-                    </button>
-                  </li>
-                  <li className="search-history-item">
-                    <button className="word-button" type="button">
-                      튕김버그
-                    </button>
-                    <button
-                      className="delete-button"
-                      type="button"
-                      aria-label="검색어 삭제"
-                    >
-                      <i className="ic-close"></i>
-                    </button>
-                  </li>
-                </ol>
+                <ol className="search-history-list">{searchHistoryList}</ol>
               </div>
-
-              {/* <!-- NOTE: 최근 검색어가 존재하지 않을 경우 -->
-            <!-- <div className="search-history-content">
-              <p className="placeholder">최근 검색한 내역이 없습니다.</p>
-            </div> --> */}
             </section>
           </div>
         </div>
