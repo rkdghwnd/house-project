@@ -5,7 +5,7 @@ import UserFollowers from '../components/users/UserFollowers';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getUserFollowers, getUserFollowings } from '../actions/user';
-import { SUCCEEDED } from '../hooks/statusConstants';
+import { SUCCEEDED } from '../datas/statusConstants';
 
 const UsersHome = () => {
   const dispatch = useDispatch();
