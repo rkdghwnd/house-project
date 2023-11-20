@@ -6,7 +6,7 @@ import FinalOrderList from '../components/final_order/FinalOrderList';
 import PaymentMethod from '../components/final_order/PaymentMethod';
 import FinalOrderShippingAddressForm from '../components/final_order/FinalOrderShippingAddressForm';
 import { useDispatch, useSelector } from 'react-redux';
-import { SUCCEEDED } from '../hooks/statusConstants';
+import { SUCCEEDED } from '../datas/statusConstants';
 import { useNavigate } from 'react-router-dom';
 import { getFinalOrder } from '../actions/finalorder';
 
