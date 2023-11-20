@@ -5,8 +5,12 @@ import {
   createDetectPositionFunc,
   scrollByProductPosition,
 } from '../../hooks/productTabPanel';
+import { useSelector } from 'react-redux';
 
 const ProductTab = (props) => {
+  const { productionReviews, productionInquiry } = useSelector(
+    (state) => state.productions
+  );
   const [currentActiveTab, setCurrentActiveTab] = useState(null);
 
   const specTab = useRef();
@@ -86,7 +90,7 @@ const ProductTab = (props) => {
                 <button type="button" onClick={onClickTab}>
                   리뷰
                   <strong className="badge" aria-label="566개 리뷰">
-                    566
+                    {productionReviews?.count}
                   </strong>
                 </button>
               </li>
@@ -99,7 +103,7 @@ const ProductTab = (props) => {
                 <button type="button" onClick={onClickTab}>
                   문의
                   <strong className="badge" aria-label="96개 문의">
-                    96
+                    {productionInquiry?.count}
                   </strong>
                 </button>
               </li>
