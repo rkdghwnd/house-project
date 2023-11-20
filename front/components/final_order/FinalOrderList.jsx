@@ -1,7 +1,10 @@
 import React, { useCallback, useState } from 'react';
 import FinalOrderItem from './finalOrderItem';
+import { useSelector } from 'react-redux';
+import shortid from 'shortid';
 
 const FinalOrderList = () => {
+  const { finalOrders } = useSelector((state) => state.finalorder);
   const [short, setShort] = useState(false);
   const onShortForm = useCallback(() => {
     setShort((state) => !state);
@@ -12,13 +15,14 @@ const FinalOrderList = () => {
       <div className={`final-order-list-header`} onClick={onShortForm}>
         <div className="list-left">
           <h2>주문상품</h2>
-          <span>2건</span>
+          <span>{finalOrders.length}건</span>
         </div>
         <i className={`ic-chevron ${short ? 'short' : ''}`}></i>
       </div>
       <ul>
-        <FinalOrderItem />
-        <FinalOrderItem />
+        {finalOrders.map((product) => {
+          return <FinalOrderItem key={shortid.generate()} {...product} />;
+        })}
       </ul>
     </section>
   );
