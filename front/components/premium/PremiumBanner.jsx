@@ -2,7 +2,7 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
-import { premiumBanners } from '../../hooks/premium';
+import { premiumBanners } from '../../datas/premium';
 import shortid from 'shortid';
 
 const PremiumBanner = () => {
@@ -30,7 +30,7 @@ const PremiumBanner = () => {
         {premiumBanners.map((src) => {
           return (
             <SwiperSlide key={shortid.generate()}>
-              <img src={src} />
+              <img src={src} alt="premium-banner-image" />
             </SwiperSlide>
           );
         })}
