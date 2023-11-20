@@ -17,20 +17,23 @@ import UserBookmark from '../pages/UserBookmark';
 import UserLike from '../pages/UserLike';
 import MyShopping from '../pages/MyShopping';
 import OrderResult from '../pages/OrderResult';
-import ProductionReviews from '../pages/ProductionReviews';
 import UsersEdit from '../pages/UsersEdit';
-import UsersEditPassword from '../pages/UsersEditPassword';
-import MyReviews from '../pages/MyReviews';
-import ProductionReviewsWrite from '../pages/ProductionReviewsWrite';
 import SearchResult from '../pages/SearchResult';
 import UsersUserId from '../pages/UsersUserId';
+import MyReviews from '../pages/MyReviews';
+import UsersReviews from '../pages/UsersReviews';
+import UsersReviewsWrite from '../pages/UsersReviewsWrite';
+import DeliveryStatus from '../components/my_shopping/DeliveryStatus';
+import DeliveryList from '../components/my_shopping/DeliveryList';
+import MyInquiry from '../components/my_shopping/MyInquiry';
+import NotFound from '../components/common/NotFound';
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Store />} />
-        <Route path="category" element={<Category />} />
+        <Route path="/category" element={<Category />} />
         <Route path="/ranks" element={<Ranks />} />
         <Route path="/today_deals" element={<TodayDeals />} />
         <Route path="/exhibitions/:id" element={<Exhibitions />} />
@@ -39,7 +42,6 @@ function App() {
           <Route path="category" element={<PremiumCategoryMain />} />
           <Route path="brand" element={<PremiumBrand />} />
         </Route>
-
         <Route path="/notification" element={<Notification />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/final_order" element={<FinalOrder />} />
@@ -50,16 +52,27 @@ function App() {
             <Route path="like" element={<UserLike />} />
           </Route>
           <Route path="edit" element={<UsersEdit />} />
-          <Route path="edit_password" element={<UsersEditPassword />} />
         </Route>
         <Route path="/users/:userId/bookmark" element={<UserBookmark />} />
-        <Route path="/my_shopping" element={<MyShopping />} />
-        <Route path="/production_reviews" element={<ProductionReviews />}>
-          <Route path="write" element={<ProductionReviewsWrite />} />
+        <Route path="/my_shopping" element={<MyShopping />}>
+          <Route
+            path=""
+            element={
+              <>
+                <DeliveryStatus />
+                <DeliveryList />
+              </>
+            }
+          />
+          <Route path="inquiry" element={<MyInquiry />} />
+        </Route>
+        <Route path="/users_reviews" element={<UsersReviews />}>
+          <Route path="write" element={<UsersReviewsWrite />} />
           <Route path="" element={<MyReviews />} />
         </Route>
         <Route path="/order_result" element={<OrderResult />} />
         <Route path="/search_result" element={<SearchResult />} />
+        <Route path="/*" element={<NotFound />} />
       </Routes>
     </>
   );
