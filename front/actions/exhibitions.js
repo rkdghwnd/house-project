@@ -3,6 +3,10 @@ import axios from 'axios';
 import modalSlice from '../reducers/modalSlice';
 import toastSlice from '../reducers/toastSlice';
 axios.defaults.withCredentials = true;
+axios.defaults.headers = {
+  'Content-type': 'application/json',
+  Accept: 'application/json',
+};
 
 export const getExhibitions = createAsyncThunk(
   'exhibitions/getExhibitionsProducts',

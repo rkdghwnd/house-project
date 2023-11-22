@@ -2,6 +2,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import searchSlice from '../reducers/searchSlice';
 axios.defaults.withCredentials = true;
+axios.defaults.headers = {
+  'Content-type': 'application/json',
+  Accept: 'application/json',
+};
 
 export const getSearchReviewProducts = createAsyncThunk(
   'search/getSearchReviewProducts',

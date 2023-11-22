@@ -6,6 +6,10 @@ import userSlice from '../reducers/userSlice';
 import toastSlice from '../reducers/toastSlice';
 
 axios.defaults.withCredentials = true;
+axios.defaults.headers = {
+  'Content-type': 'application/json',
+  Accept: 'application/json',
+};
 
 export const getMyInfo = createAsyncThunk(
   'user/getMyInfo',

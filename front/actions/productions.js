@@ -4,6 +4,10 @@ import modalSlice from '../reducers/modalSlice';
 import toastSlice from '../reducers/toastSlice';
 import { getMyInquirys, getMyReviews } from './user';
 axios.defaults.withCredentials = true;
+axios.defaults.headers = {
+  'Content-type': 'application/json',
+  Accept: 'application/json',
+};
 
 export const getProductions = createAsyncThunk(
   'productions/getProductions',

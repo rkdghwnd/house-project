@@ -1,6 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 axios.defaults.withCredentials = true;
+axios.defaults.headers = {
+  'Content-type': 'application/json',
+  Accept: 'application/json',
+};
 
 export const addFinalOrder = createAsyncThunk(
   'finalorder/addFinalOrder',
