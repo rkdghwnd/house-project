@@ -1,0 +1,12 @@
+.my-reviews {
+  &-main {
+    margin: 40px 15px;
+  }
+
+  @include responsive(D) {
+    &-main {
+      width: 1200px;
+      margin: 40px auto;
+    }
+  }
+}

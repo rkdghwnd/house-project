@@ -1,0 +1,123 @@
+a:has(.store-item) {
+  margin-bottom: 30px;
+}
+
+.store-item {
+  display: flex;
+  padding-bottom: 7px;
+
+  &-image {
+    width: 50%;
+    overflow: hidden;
+    border-radius: 5px;
+    line-height: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+      transition: 200ms transform ease-in-out;
+    }
+  }
+
+  &-info {
+    width: 50%;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h4 {
+      color: $secondary;
+      font-weight: 400;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    &-title {
+      display: block;
+      font-size: 13px;
+      margin: 5px 0;
+    }
+
+    &-discount {
+      .rate {
+        font-family: $font-price;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 24px;
+        color: $blue;
+        margin-right: 8px;
+      }
+
+      .percent {
+        font-family: $font-main;
+        font-size: 18px;
+        font-weight: 700;
+      }
+    }
+
+    &-review {
+      @include star-rating(14px);
+      margin: 5px 0;
+
+      .ic-star {
+        margin-right: 2px;
+      }
+      span:nth-child(2) {
+        font-weight: 700;
+        margin-right: 8px;
+      }
+      span:nth-child(3),
+      span:nth-child(4) {
+        font-size: 12px;
+        font-weight: 700;
+        color: $tertiary;
+      }
+      span:nth-child(3) {
+        margin-right: 2px;
+      }
+    }
+
+    &-today-delivery {
+      margin-bottom: 5px;
+
+      img {
+        height: 15px;
+      }
+    }
+
+    &-tag {
+      button {
+        font-weight: 500;
+      }
+      button:not(:last-child) {
+        margin-right: 4px;
+      }
+    }
+  }
+
+  &:hover {
+    .store-item-image {
+      img {
+        transform: scale(1.15);
+      }
+    }
+
+    .store-item-info-title {
+      opacity: 0.5;
+      transition: 150ms opacity ease-in-out;
+    }
+  }
+
+  @include responsive(T) {
+    border-bottom: none;
+    &-image {
+      width: 100%;
+    }
+    &-info {
+      width: 100%;
+      padding: 0;
+    }
+  }
+}

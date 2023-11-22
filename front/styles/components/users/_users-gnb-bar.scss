@@ -1,0 +1,37 @@
+.users-gnb-bar {
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+
+    li {
+      @include flexbox;
+      height: 100%;
+      a {
+        padding: 0 10px;
+        font-weight: 700;
+        font-size: 15px;
+      }
+    }
+
+    li:not(:first-child) {
+      margin-left: 30px;
+    }
+
+    li.is-active {
+      color: $blue;
+    }
+  }
+
+  @include responsive(T) {
+    ul {
+      height: 60px;
+      li {
+        a {
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}

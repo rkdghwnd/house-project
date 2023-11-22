@@ -1,0 +1,32 @@
+.notification {
+  max-width: 800px;
+  margin: 0 auto;
+  &-header {
+    margin: 20px 0;
+
+    h2 {
+      font-size: 20px;
+    }
+  }
+
+  &-content {
+    @include flexbox;
+    height: 430px;
+    p {
+      color: $tertiary;
+      font-size: 16px;
+    }
+  }
+
+  @include responsive(T) {
+    &-header {
+      h2 {
+        font-size: 24px;
+      }
+    }
+
+    &-content {
+      height: 460px;
+    }
+  }
+}

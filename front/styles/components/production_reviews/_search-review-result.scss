@@ -1,0 +1,45 @@
+.search-review-result {
+  position: absolute;
+  top: 76px;
+  width: 100%;
+  max-height: 320px;
+  border: 1px solid $border;
+  border-top: none;
+  overflow-y: auto;
+
+  .empty-search-review-item {
+    @include flexbox;
+
+    height: 320px;
+  }
+
+  .search-review-item {
+    display: flex;
+    padding: 10px 15px;
+    border-bottom: 1px solid $border;
+    cursor: pointer;
+
+    img {
+      width: 60px;
+      height: 60px;
+      margin-right: 10px;
+    }
+    .search-review-item-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      span {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 12px;
+        color: $secondary;
+      }
+      h3 {
+        font-size: 14px;
+      }
+    }
+    &:hover {
+      background-color: $blue-light;
+    }
+  }
+}

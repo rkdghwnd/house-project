@@ -1,0 +1,21 @@
+.premium-category {
+  @include flexbox;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+  a {
+    padding: 1px;
+    width: calc(100% / 3);
+  }
+  img {
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  @include responsive(T) {
+    a {
+      width: calc(100% / 9);
+      border-radius: 5px;
+      padding: 0 2px;
+    }
+  }
+}

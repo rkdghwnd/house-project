@@ -1,0 +1,61 @@
+.scrap-book {
+  margin: 20px 0;
+  padding: 0 16px;
+
+  &-header {
+    height: 28px;
+    display: flex;
+    justify-content: space-between;
+    h2 {
+      font-size: 20px;
+    }
+
+    button {
+      border-color: $border;
+      color: $dark;
+      font-weight: 400;
+      padding: 0 15px;
+
+      .share-icon {
+        font-size: 18px;
+        margin-right: 5px;
+      }
+      span {
+        font-size: 13px;
+      }
+    }
+
+    .btn-outlined:not(:disabled):hover {
+      background-color: $background;
+    }
+  }
+
+  .profile-image {
+    @include column-flexbox;
+    img {
+      border-radius: 50%;
+      width: 72px;
+    }
+    h3 {
+      margin: 20px 0;
+    }
+  }
+
+  @include responsive(T) {
+    margin: 40px 0;
+
+    &-header {
+      height: 32px;
+      h2 {
+        font-size: 24px;
+      }
+    }
+
+    .profile-image {
+      @include column-flexbox;
+      img {
+        width: 86px;
+      }
+    }
+  }
+}

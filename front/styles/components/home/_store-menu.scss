@@ -1,0 +1,59 @@
+.store-menu {
+  overflow-x: auto;
+
+  &-row-1,
+  &-row-2 {
+    @include flexbox;
+  }
+
+  &-item {
+    @include column-flexbox;
+
+    img {
+      flex: 1 1 auto;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 30%;
+    }
+
+    span {
+      display: block;
+      white-space: nowrap;
+      font-size: $font-size-12;
+      margin-top: 7px;
+    }
+  }
+
+  a {
+    margin: 10px;
+  }
+
+  @include responsive(T) {
+    display: flex;
+
+    &-row-1,
+    &-row-2 {
+      width: 50%;
+    }
+
+    span {
+      font-size: $font-size-14;
+    }
+
+    a {
+      margin: 40px 10px;
+      flex: 1 1 auto;
+    }
+  }
+
+  @include responsive(D) {
+    a {
+      margin: 50px 15px;
+    }
+
+    img {
+      width: 70px;
+    }
+  }
+}

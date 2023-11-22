@@ -1,0 +1,77 @@
+.exhibitions-layout {
+  $global-header-height: $gnb-height-md + $lnb-height-md;
+
+  &-editor {
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .more-product-button {
+      position: relative;
+      @include flexbox;
+      margin-top: 20px;
+      a {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        top: 12%;
+      }
+    }
+  }
+
+  &-floating {
+    position: sticky;
+    top: $global-header-height + 25px;
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+
+    p {
+      @include text-style-16;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      margin-bottom: 20px;
+    }
+
+    &-selection {
+      display: flex;
+      margin-bottom: 20px;
+
+      button {
+        flex: 1 1 auto;
+
+        i,
+        .ic-share {
+          font-size: 18px;
+          margin-right: 3px;
+        }
+        i {
+          transform: translateY(1px);
+        }
+      }
+
+      button.btn-secondary {
+        border: 1px solid $border;
+        background-color: white;
+        &:hover {
+          background-color: $background;
+        }
+      }
+
+      button:first-child {
+        margin-right: 10px;
+        .ic-bookmark {
+          margin-right: 3px;
+        }
+      }
+    }
+  }
+
+  @include responsive(D) {
+    margin-top: 30px;
+  }
+}

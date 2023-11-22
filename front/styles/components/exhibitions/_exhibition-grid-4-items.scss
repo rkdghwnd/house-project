@@ -1,0 +1,35 @@
+.exhibition-grid-4-items {
+  display: flex;
+  flex-wrap: wrap;
+
+  a {
+    width: calc(50% - 5px);
+    &:nth-child(2n + 1) {
+      margin-right: 10px;
+    }
+
+    .store-item {
+      flex-direction: column;
+
+      &-image,
+      &-info {
+        width: 100%;
+      }
+
+      .store-item-info-today-delivery {
+        img {
+          width: auto;
+          height: 15px;
+        }
+      }
+    }
+  }
+  @include responsive(T) {
+    a {
+      width: calc(25% - 15px);
+      &:not(:nth-child(4n)) {
+        margin-right: 20px;
+      }
+    }
+  }
+}

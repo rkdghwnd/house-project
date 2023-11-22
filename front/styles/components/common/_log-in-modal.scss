@@ -1,0 +1,35 @@
+.log-in-modal {
+  @include no-scrollbar;
+  position: fixed;
+  top: calc(50% - 100px);
+  left: calc(50% - 150px);
+  z-index: 700;
+  overscroll-behavior: contain;
+  visibility: hidden;
+
+  &.is-active {
+    visibility: visible;
+  }
+
+  &-form {
+    border: 1px solid $border;
+    width: 300px;
+    height: 200px;
+    padding: 40px 0;
+    border-radius: 25px;
+    background-color: white;
+
+    &-header {
+      @include flexbox;
+
+      img:first-child {
+        margin-right: 10px;
+        width: 35px;
+      }
+
+      img:last-child {
+        width: 90px;
+      }
+    }
+  }
+}

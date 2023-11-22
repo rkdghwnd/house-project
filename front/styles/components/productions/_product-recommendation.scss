@@ -1,0 +1,35 @@
+.product-recommendation {
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    .product-item {
+      width: calc(50% - 5px);
+
+      .store-item {
+        flex-direction: column;
+        &-image {
+          width: 100%;
+        }
+        &-info {
+          width: 100%;
+          padding-left: 0;
+        }
+      }
+    }
+    .product-item:nth-child(2n + 1) {
+      margin-right: 10px;
+    }
+  }
+
+  @include responsive(T) {
+    .product-list {
+      .product-item {
+        width: calc(25% - 7.5px);
+      }
+
+      .product-item:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+  }
+}

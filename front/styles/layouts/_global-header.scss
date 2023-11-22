@@ -1,0 +1,33 @@
+.global-header {
+  width: 100%;
+  height: $gnb-height-sm + $lnb-height-sm;
+  position: sticky;
+  top: 0;
+
+  z-index: $gnb-level;
+
+  .gnb,
+  .lnb {
+    width: 100%;
+  }
+
+  .gnb {
+    height: $gnb-height-sm;
+  }
+
+  .lnb {
+    height: $lnb-height-sm;
+  }
+
+  @include responsive(T) {
+    height: $gnb-height-md + $lnb-height-md;
+
+    .gnb {
+      height: $gnb-height-md;
+    }
+
+    .lnb {
+      height: $lnb-height-md;
+    }
+  }
+}

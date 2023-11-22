@@ -1,0 +1,25 @@
+.refur-menu {
+  position: relative;
+
+  a {
+    width: 33.3%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+
+    &:nth-child(2) {
+      left: 0;
+    }
+    &:nth-child(3) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &:nth-child(4) {
+      right: 0;
+    }
+
+    &:hover {
+      box-shadow: 0 0 0 3px rgba(130, 224, 250, 0.5);
+    }
+  }
+}

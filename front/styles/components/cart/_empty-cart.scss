@@ -1,0 +1,11 @@
+.empty-cart {
+  @include column-flexbox;
+  background-color: white;
+  height: 700px;
+  img {
+    width: 160px;
+  }
+  button {
+    margin-top: 40px;
+  }
+}

@@ -1,0 +1,55 @@
+.order-result {
+  margin: 60px auto 40px auto;
+
+  &-image {
+    @include flexbox;
+    img {
+      width: 160px;
+      height: 168px;
+    }
+  }
+
+  table {
+    border-collapse: collapse;
+    tr {
+      td {
+        font-size: 13px;
+        border-top: 1px solid $border;
+        border-bottom: 1px solid $border;
+      }
+      td:first-child {
+        width: 90px;
+        color: $secondary;
+        background-color: $background;
+        text-align: center;
+        padding: 10px 0;
+      }
+      td:last-child {
+        color: $primary;
+        width: 300px;
+        padding: 10px 20px;
+      }
+    }
+  }
+
+  &-product {
+    @include flexbox;
+    margin: 30px 0;
+  }
+
+  &-bank {
+    @include flexbox;
+  }
+
+  &-buttons {
+    width: 450px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+
+    button {
+      flex: 1 1 auto;
+      margin: 0 5px;
+    }
+  }
+}

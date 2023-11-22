@@ -1,0 +1,17 @@
+.subcategory-menu {
+  display: flex;
+  flex-wrap: wrap;
+  a {
+    width: 25%;
+    padding: 15px 12px;
+
+    img {
+      width: 100%;
+    }
+    span {
+      display: block;
+      font-size: 13px;
+      text-align: center;
+    }
+  }
+}

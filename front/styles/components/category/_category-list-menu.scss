@@ -1,0 +1,48 @@
+.category-list-menu {
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    h2 {
+      font-size: 20px;
+    }
+    .ic-chevron {
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .ic-chevron.on-open {
+      transform: translateY(-25%) rotate(180deg);
+    }
+
+    h2:hover {
+      color: $tertiary;
+      transition: color 200ms ease-in-out;
+    }
+  }
+
+  ul {
+    max-height: 0;
+    overflow-y: hidden;
+    transition: max-height 200ms;
+
+    li {
+      font-size: 13px;
+      padding-bottom: 15px;
+    }
+    li.is-active {
+      color: $blue;
+    }
+    li:hover {
+      color: $tertiary;
+      transition: color 200ms ease-in-out;
+    }
+  }
+
+  ul.on-open {
+    max-height: 500px;
+
+    padding-bottom: 15px;
+    border-bottom: 1px solid $border;
+    margin-bottom: 30px;
+  }
+}

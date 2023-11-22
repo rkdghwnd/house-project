@@ -1,0 +1,23 @@
+.cart-main-result {
+  margin-top: 13px;
+  background-color: white;
+  padding: 20px 10px;
+  li {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    dt {
+      font-size: 15px;
+      font-weight: 700;
+    }
+  }
+  li:last-child {
+    padding: 15px 10px;
+    dd {
+      font-weight: 700;
+    }
+    dt {
+      font-size: 24px;
+    }
+  }
+}
