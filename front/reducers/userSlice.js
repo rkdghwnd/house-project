@@ -82,7 +82,9 @@ const initialState = {
   getExhibitionsScrapBookError: null,
   removeExhibitionsScrapBookStatus: 'idle',
   removeExhibitionsScrapBookError: null,
-  myInquirys: {},
+  myInquirys: {
+    inquirys: [],
+  },
   getMyInquirysStatus: 'idle',
   getMyInquirysError: null,
 };
