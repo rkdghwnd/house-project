@@ -4,10 +4,6 @@ import modalSlice from '../reducers/modalSlice';
 import toastSlice from '../reducers/toastSlice';
 import { getMyInquirys, getMyReviews } from './user';
 axios.defaults.withCredentials = true;
-axios.defaults.headers = {
-  'Content-type': 'application/json',
-  Accept: 'application/json',
-};
 
 export const getProductions = createAsyncThunk(
   'productions/getProductions',
@@ -37,7 +33,10 @@ export const uploadReviewImage = createAsyncThunk(
   async (data, thunkAPI) => {
     const response = await axios.post(
       `${import.meta.env.VITE_BACK_END_DOMAIN}/productions/review_image`,
-      data.data
+      data.data,
+      {
+        headers: { 'Content-Type': 'multipart/form-data', charset: 'utf-8' },
+      }
     );
     return response.data[0];
   }
