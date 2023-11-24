@@ -33,7 +33,7 @@ const MyInquiry = () => {
 
   return (
     <section className="my-inquiry">
-      {myInquirys.reviews?.length === 0 ? (
+      {myInquirys.inquirys?.length === 0 ? (
         <EmptyBox message={'해당페이지에 작성한 문의가 없습니다.'} />
       ) : (
         myInquirys.inquirys?.map((inquiry) => {
