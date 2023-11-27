@@ -26,6 +26,7 @@ const WritingReviewFormImageAttach = () => {
   }, [fileInput]);
 
   const onChangeUploadImage = useCallback((e) => {
+    console.log(e.currentTarget.files[0]);
     if (e.currentTarget.files[0]) {
       dispatch(
         modalSlice.actions.updateImagePreview({
@@ -40,6 +41,7 @@ const WritingReviewFormImageAttach = () => {
           data: imageFormData,
         })
       );
+      e.currentTarget.value = null;
     }
   }, []);
 

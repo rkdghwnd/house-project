@@ -11,6 +11,7 @@ import {
   getExhibitions,
 } from '../../actions/exhibitions';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const RefurMarket = ({ productsRef }) => {
   const dispatch = useDispatch();
@@ -39,6 +40,9 @@ const RefurMarket = ({ productsRef }) => {
 
   return (
     <>
+      <Helmet>
+        <title>내일의집 - 리퍼마켓</title>
+      </Helmet>
       <img
         src="/assets/images/refur/refur_market_banner.gif"
         alt="리퍼마켓 배너"

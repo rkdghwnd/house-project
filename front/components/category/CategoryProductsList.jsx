@@ -8,6 +8,7 @@ import { createInfiniteScrollObserver } from '../../hooks/createInfiniteScrollOb
 import { LOADING } from '../../datas/statusConstants';
 import CategoryProductsListHeader from './CategoryProductsListHeader';
 import Loading from '../common/Loading';
+import Spinner from '../../loading/spinner';
 
 const CategoryProductsList = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const CategoryProductsList = () => {
     categoryProducts,
     hasMoreCategoryProducts,
     loadCategoryProductsStatus,
+    getCategoryBrandListStatus,
   } = useSelector((state) => state.product);
   const location = useLocation();
 
@@ -53,7 +55,15 @@ const CategoryProductsList = () => {
           return <StoreItem key={shortid.generate()} {...product} />;
         })}
       </div>
-      <Loading loadProductsStatus={loadCategoryProductsStatus} />
+      <div className="category-products-loading">
+        {getCategoryBrandListStatus === LOADING ||
+        loadCategoryProductsStatus === LOADING ? (
+          <Spinner fontSize={24} />
+        ) : (
+          ''
+        )}
+      </div>
+
       <div
         ref={
           hasMoreCategoryProducts && !(loadCategoryProductsStatus === LOADING)

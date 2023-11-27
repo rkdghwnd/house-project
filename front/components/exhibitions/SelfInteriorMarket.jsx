@@ -9,6 +9,7 @@ import {
   getExhibitions,
 } from '../../actions/exhibitions';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const SelfInteriorMarket = ({ productsRef }) => {
   const dispatch = useDispatch();
@@ -33,30 +34,35 @@ const SelfInteriorMarket = ({ productsRef }) => {
   }, [params.id]);
 
   return (
-    <div className="self-interior-market">
-      <img
-        src="/assets/images/selfinterior/self_interior_banner.webp"
-        alt="셀프인테리어 배너"
-      />
-      <img
-        src="/assets/images/selfinterior/self_interior_1.webp"
-        alt="셀프인테리어 이미지1"
-      />
-      <img
-        src="/assets/images/selfinterior/self_interior_2.avif"
-        alt="셀프인테리어 이미지2"
-      />
-      <ExhibitionsGrid4Items products={exhibitions.selfInterior} />
-      <img
-        src="/assets/images/selfinterior/self_interior_3.avif"
-        alt="셀프인테리어 이미지3"
-      />
-      <ExhibitionsTags tags={selfInteriorTags} />
-      <ExhibitionsTagsItems
-        ref={productsRef}
-        categoryExhibitions={categoryExhibitions}
-      />
-    </div>
+    <>
+      <Helmet>
+        <title>내일의집 - 셀프인테리어</title>
+      </Helmet>
+      <div className="self-interior-market">
+        <img
+          src="/assets/images/selfinterior/self_interior_banner.webp"
+          alt="셀프인테리어 배너"
+        />
+        <img
+          src="/assets/images/selfinterior/self_interior_1.webp"
+          alt="셀프인테리어 이미지1"
+        />
+        <img
+          src="/assets/images/selfinterior/self_interior_2.avif"
+          alt="셀프인테리어 이미지2"
+        />
+        <ExhibitionsGrid4Items products={exhibitions.selfInterior} />
+        <img
+          src="/assets/images/selfinterior/self_interior_3.avif"
+          alt="셀프인테리어 이미지3"
+        />
+        <ExhibitionsTags tags={selfInteriorTags} />
+        <ExhibitionsTagsItems
+          ref={productsRef}
+          categoryExhibitions={categoryExhibitions}
+        />
+      </div>
+    </>
   );
 };
 

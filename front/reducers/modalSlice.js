@@ -123,6 +123,7 @@ const modalSlice = createSlice({
       state.removeReviewConfirmModalVisible = false;
       state.removeInquiryConfirmModalVisible = false;
       state.messageModalVisible = false;
+      state.imagePreviewVisible = false;
       state.overlay = false;
     },
   },

@@ -33,6 +33,10 @@
     }
   }
 
+  .category-products-loading {
+    @include flexbox;
+  }
+
   @include responsive(D) {
     &-header {
       padding: 0;

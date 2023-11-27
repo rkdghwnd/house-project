@@ -95,15 +95,16 @@ const WritingInquiryForm = () => {
         }`}
       >
         <h4>문의내용</h4>
+        <textarea
+          name="inquiry-content-input"
+          rows="6"
+          placeholder="문의 내용을 입력하세요"
+          ref={textareaRef}
+          onChange={onChangeInquiryText}
+          value={text}
+        ></textarea>
       </div>
-      <textarea
-        name="inquiry-content-input"
-        rows="6"
-        placeholder="문의 내용을 입력하세요"
-        ref={textareaRef}
-        onChange={onChangeInquiryText}
-        value={text}
-      ></textarea>
+
       <WritingInquiryFormNotice />
 
       <div className="writing-inquiry-form-secret-check">

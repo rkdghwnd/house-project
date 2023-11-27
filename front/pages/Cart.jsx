@@ -6,6 +6,7 @@ import CartOrderCTA from '../components/cart/CartOrderCTA';
 import { useDispatch, useSelector } from 'react-redux';
 import CartMain from '../components/cart/CartMain';
 import productSlice from '../reducers/productSlice';
+import { Helmet } from 'react-helmet-async';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -39,12 +40,17 @@ const Cart = () => {
   }, [browserCartProductCount]);
 
   return (
-    <AppLayout>
-      <div className="container">
-        <div className="row">{cartList}</div>
-      </div>
-      {browserCart.length !== 0 && <CartOrderCTA />}
-    </AppLayout>
+    <>
+      <Helmet>
+        <title>내일의집 - 장바구니</title>
+      </Helmet>
+      <AppLayout>
+        <div className="container">
+          <div className="row">{cartList}</div>
+        </div>
+        {browserCart.length !== 0 && <CartOrderCTA />}
+      </AppLayout>
+    </>
   );
 };
 

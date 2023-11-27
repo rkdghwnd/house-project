@@ -62,7 +62,7 @@ const ReviewCard = ({
 
             <div className="misc">
               <time dateTime={createdTime}>{createdTime}&nbsp;</time>
-              <span>&nbsp;오늘의집 구매</span>
+              <span>&nbsp;내일의집 구매</span>
             </div>
           </div>
         </div>

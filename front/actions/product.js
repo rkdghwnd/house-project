@@ -3,10 +3,6 @@ import axios from 'axios';
 import productSlice from '../reducers/productSlice';
 import { makeQuery } from '../hooks/query';
 axios.defaults.withCredentials = true;
-axios.defaults.headers = {
-  'Content-type': 'application/json',
-  Accept: 'application/json',
-};
 
 export const getStoreHotdeals = createAsyncThunk(
   'product/getStoreHotdeals',
