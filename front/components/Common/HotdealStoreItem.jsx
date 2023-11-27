@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import StoreItem from '../home/StoreItem';
 
 const hotdealStoreItem = (product) => {
-  const offset = 1000 * 60 * 60 * 9;
-  const timeDifference = product.hotdeal_end_at - new Date().getTime() - offset;
+  const timeDifference = new Date(
+    new Date(product.hotdeal_end_at) - new Date()
+  );
   const remainingTime = new Date(
-    timeDifference <= -offset ? -offset : timeDifference
+    timeDifference.setHours(timeDifference.getHours() + 15)
   );
   const [hotdealTime, setHotdealTime] = useState(
     `${remainingTime.getHours()}:${remainingTime.getMinutes()}:${remainingTime.getSeconds()}`
@@ -13,12 +14,13 @@ const hotdealStoreItem = (product) => {
 
   useEffect(() => {
     const intervalTiming = setInterval(() => {
-      const offset = 1000 * 60 * 60 * 9;
-      const timeDifference =
-        product.hotdeal_end_at - new Date().getTime() - offset;
-      const remainingTime = new Date(
-        timeDifference <= -offset ? -offset : timeDifference
+      const timeDifference = new Date(
+        new Date(product.hotdeal_end_at) - new Date()
       );
+      const remainingTime = new Date(
+        timeDifference.setHours(timeDifference.getHours() + 15)
+      );
+
       setHotdealTime(
         `${remainingTime.getHours()}:${remainingTime.getMinutes()}:${remainingTime.getSeconds()}`
       );

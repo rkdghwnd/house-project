@@ -56,7 +56,6 @@ module.exports = (sequelize, DataTypes) => {
   User.associate = (db) => {
     db.User.hasMany(db.Product_question);
     db.User.hasOne(db.Review);
-    db.User.hasMany(db.Product_question);
 
     db.User.belongsToMany(db.Review, { through: 'Like', as: 'Liked' });
     // 좋아요 기능, through : N : M 관계테이블 이름 설정, as : 관계에 대한 별칭(상대에 대한)

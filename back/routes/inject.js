@@ -102,7 +102,7 @@ router.get('/', async (req, res, next) => {
       // ...wallpaper,
       // ...bathroom3,
       // ...beddingSet3,
-      ...beds3,
+      // ...beds3,
       // ...bowl3,
       // ...cabinet3,
       // ...ceilingLamp3,
@@ -134,7 +134,7 @@ router.get('/', async (req, res, next) => {
       // ...towel3,
       // ...tv3,
       // ...washingMachine3,
-      // ...hotdeal3,
+      ...hotdeal3,
     ];
 
     const dummyIds = dummyDatas.map((el) => {
@@ -201,8 +201,8 @@ router.get('/', async (req, res, next) => {
           dummy[i].production_detail.delivery.seller_info
         ),
         category_index: dummy[i].production_detail.categoryIndex,
-        hotdeal_end_at: 0,
-        // hotdeal_end_at: new Date().getTime() + 172800000,
+        // hotdeal_end_at: null,
+        hotdeal_end_at: new Date(new Date().setDate(new Date().getDate() + 1)),
         delivery_restrict:
           dummy[i].production_detail.delivery.delivery.restrict.etc,
       });
@@ -352,15 +352,17 @@ router.get('/', async (req, res, next) => {
 
 router.get('/hotdealtime/reset', async (req, res, next) => {
   try {
-    const oneDay = 1000 * 60 * 60 * 24;
     const result = await Product.update(
-      { hotdeal_end_at: new Date().getTime() + oneDay },
+      {
+        hotdeal_end_at: new Date(new Date().setDate(new Date().getDate() + 1)),
+      },
       {
         where: {
-          hotdeal_end_at: { [Op.ne]: 0 },
+          hotdeal_end_at: { [Op.ne]: null },
         },
       }
     );
+    console.log(result);
     res.status(201).json('핫딜 상품들 시간 리셋 완료 !');
   } catch (error) {
     console.log(error);
