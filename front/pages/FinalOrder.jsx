@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SUCCEEDED } from '../datas/statusConstants';
 import { useNavigate } from 'react-router-dom';
 import { getFinalOrder } from '../actions/finalorder';
+import { Helmet } from 'react-helmet-async';
 
 const FinalOrder = () => {
   const dispatch = useDispatch();
@@ -79,81 +80,86 @@ const FinalOrder = () => {
   };
 
   return (
-    <AppLayout>
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-4 col-lg-8">
-            <div className="product-section-divider lg-hidden"></div>
-            <FinalOrdererForm
-              orderer={orderer}
-              setOrderer={setOrderer}
-              emailName={emailName}
-              setEmailName={setEmailName}
-              domain={domain}
-              setDomain={setDomain}
-              ordererFirstPhoneNumber={ordererFirstPhoneNumber}
-              setOrdererFirstPhoneNumber={setOrdererFirstPhoneNumber}
-              ordererLastPhoneNumber={ordererLastPhoneNumber}
-              setOrdererLastPhoneNumber={setOrdererLastPhoneNumber}
-              ordererError={ordererError}
-              setOrdererError={setOrdererError}
-              emailNameError={emailNameError}
-              setEmailNameError={setEmailNameError}
-              domainError={domainError}
-              setDomainError={setDomainError}
-              ordererPhoneNumberError={ordererPhoneNumberError}
-              setOrdererPhoneNumberError={setOrdererPhoneNumberError}
-            />
-            <div className="product-section-divider lg-hidden"></div>
-            <FinalOrderShippingAddressForm
-              destination={destination}
-              setDestination={setDestination}
-              recipient={recipient}
-              setRecipient={setRecipient}
-              recipientFirstPhoneNumber={recipientFirstPhoneNumber}
-              setRecipientFirstPhoneNumber={setRecipientFirstPhoneNumber}
-              recipientLastPhoneNumber={recipientLastPhoneNumber}
-              setRecipientLastPhoneNumber={setRecipientLastPhoneNumber}
-              zonecode={zonecode}
-              address={address}
-              addressDetail={addressDetail}
-              setZoneCode={setZoneCode}
-              setAddress={setAddress}
-              setAddressDetail={setAddressDetail}
-              additionalAsk={additionalAsk}
-              setAdditionalAsk={setAdditionalAsk}
-              orderer={orderer}
-              ordererFirstPhoneNumber={ordererFirstPhoneNumber}
-              ordererLastPhoneNumber={ordererLastPhoneNumber}
-              addressError={addressError}
-              setAddressError={setAddressError}
-              destinationError={destinationError}
-              setDestinationError={setDestinationError}
-              recipientError={recipientError}
-              setRecipientError={setRecipientError}
-              recipientPhoneNumberError={recipientPhoneNumberError}
-              setRecipientPhoneNumberError={setRecipientPhoneNumberError}
-            />
-            <div className="product-section-divider lg-hidden"></div>
-            <FinalOrderList />
-            <div className="product-section-divider lg-hidden"></div>
-            <PaymentMethod />
-            <FinalOrderSideBar
-              mobileVisible={true}
-              finalOrderInfo={finalOrderInfo}
-              errorStateFunctions={errorStateFunctions}
-            />
-          </div>
-          <div className="col-lg-4">
-            <FinalOrderSideBar
-              mobileVisible={false}
-              finalOrderInfo={finalOrderInfo}
-              errorStateFunctions={errorStateFunctions}
-            />
+    <>
+      <Helmet>
+        <title>내일의집 - 주문</title>
+      </Helmet>{' '}
+      <AppLayout>
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-4 col-lg-8">
+              <div className="product-section-divider lg-hidden"></div>
+              <FinalOrdererForm
+                orderer={orderer}
+                setOrderer={setOrderer}
+                emailName={emailName}
+                setEmailName={setEmailName}
+                domain={domain}
+                setDomain={setDomain}
+                ordererFirstPhoneNumber={ordererFirstPhoneNumber}
+                setOrdererFirstPhoneNumber={setOrdererFirstPhoneNumber}
+                ordererLastPhoneNumber={ordererLastPhoneNumber}
+                setOrdererLastPhoneNumber={setOrdererLastPhoneNumber}
+                ordererError={ordererError}
+                setOrdererError={setOrdererError}
+                emailNameError={emailNameError}
+                setEmailNameError={setEmailNameError}
+                domainError={domainError}
+                setDomainError={setDomainError}
+                ordererPhoneNumberError={ordererPhoneNumberError}
+                setOrdererPhoneNumberError={setOrdererPhoneNumberError}
+              />
+              <div className="product-section-divider lg-hidden"></div>
+              <FinalOrderShippingAddressForm
+                destination={destination}
+                setDestination={setDestination}
+                recipient={recipient}
+                setRecipient={setRecipient}
+                recipientFirstPhoneNumber={recipientFirstPhoneNumber}
+                setRecipientFirstPhoneNumber={setRecipientFirstPhoneNumber}
+                recipientLastPhoneNumber={recipientLastPhoneNumber}
+                setRecipientLastPhoneNumber={setRecipientLastPhoneNumber}
+                zonecode={zonecode}
+                address={address}
+                addressDetail={addressDetail}
+                setZoneCode={setZoneCode}
+                setAddress={setAddress}
+                setAddressDetail={setAddressDetail}
+                additionalAsk={additionalAsk}
+                setAdditionalAsk={setAdditionalAsk}
+                orderer={orderer}
+                ordererFirstPhoneNumber={ordererFirstPhoneNumber}
+                ordererLastPhoneNumber={ordererLastPhoneNumber}
+                addressError={addressError}
+                setAddressError={setAddressError}
+                destinationError={destinationError}
+                setDestinationError={setDestinationError}
+                recipientError={recipientError}
+                setRecipientError={setRecipientError}
+                recipientPhoneNumberError={recipientPhoneNumberError}
+                setRecipientPhoneNumberError={setRecipientPhoneNumberError}
+              />
+              <div className="product-section-divider lg-hidden"></div>
+              <FinalOrderList />
+              <div className="product-section-divider lg-hidden"></div>
+              <PaymentMethod />
+              <FinalOrderSideBar
+                mobileVisible={true}
+                finalOrderInfo={finalOrderInfo}
+                errorStateFunctions={errorStateFunctions}
+              />
+            </div>
+            <div className="col-lg-4">
+              <FinalOrderSideBar
+                mobileVisible={false}
+                finalOrderInfo={finalOrderInfo}
+                errorStateFunctions={errorStateFunctions}
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </AppLayout>
+      </AppLayout>
+    </>
   );
 };
 

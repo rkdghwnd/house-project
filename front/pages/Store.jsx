@@ -5,6 +5,7 @@ import StoreMenu from '../components/home/StoreMenu';
 import TodayDealsSummary from '../components/home/TodayDealsSummary';
 import PopularProducts from '../components/home/PopularProducts';
 import StoreCategoryMenu from '../components/home/StoreCategoryMenu';
+import { Helmet } from 'react-helmet-async';
 
 const Store = () => {
   return (

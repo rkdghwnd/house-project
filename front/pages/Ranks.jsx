@@ -7,10 +7,10 @@ import { useLocation } from 'react-router-dom';
 import shortid from 'shortid';
 import { createInfiniteScrollObserver } from '../hooks/createInfiniteScrollObserver';
 import { LOADING } from '../datas/statusConstants';
-import Spinner from '../loading/spinner';
 import RanksMenu from '../components/ranks/RanksMenu';
 import RanksCategory from '../components/ranks/RanksCategory';
 import Loading from '../components/common/Loading';
+import { Helmet } from 'react-helmet-async';
 
 const Ranks = () => {
   const dispatch = useDispatch();
@@ -63,32 +63,38 @@ const Ranks = () => {
   ]);
 
   return (
-    <AppLayout>
-      <main className="ranks">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-4">
-              <RanksMenu />
-              {isActive && <RanksCategory />}
-              <div className="ranks-header">{ranksTime} 기준</div>
-              <section className="ranks-products">
-                {ranksProducts.map((product) => {
-                  return <StoreItem key={shortid.generate()} {...product} />;
-                })}
-              </section>
-              <Loading loadProductsStatus={getRanksProductsStatus} />
-              <div
-                ref={
-                  hasMoreRanksProducts && !(getRanksProductsStatus === LOADING)
-                    ? scrollTarget
-                    : undefined
-                }
-              />
+    <>
+      <Helmet>
+        <title>내일의집 - 베스트</title>
+      </Helmet>
+      <AppLayout>
+        <main className="ranks">
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-4">
+                <RanksMenu />
+                {isActive && <RanksCategory />}
+                <div className="ranks-header">{ranksTime} 기준</div>
+                <section className="ranks-products">
+                  {ranksProducts.map((product) => {
+                    return <StoreItem key={shortid.generate()} {...product} />;
+                  })}
+                </section>
+                <Loading loadProductsStatus={getRanksProductsStatus} />
+                <div
+                  ref={
+                    hasMoreRanksProducts &&
+                    !(getRanksProductsStatus === LOADING)
+                      ? scrollTarget
+                      : undefined
+                  }
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </main>
-    </AppLayout>
+        </main>
+      </AppLayout>
+    </>
   );
 };
 

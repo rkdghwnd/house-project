@@ -2,11 +2,10 @@ import React, { useEffect } from 'react';
 import AppLayout from '../components/common/AppLayout';
 import UsersGnbBar from '../components/users/UsersGnbBar';
 import UsersLnbBar from '../components/users/UsersLnbBar';
-import DeliveryStatus from '../components/my_shopping/DeliveryStatus';
-import DeliveryList from '../components/my_shopping/DeliveryList';
 import { useSelector } from 'react-redux';
 import { SUCCEEDED } from '../datas/statusConstants';
 import { Outlet, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const MyShopping = () => {
   const { getMyInfoStatus, me } = useSelector((state) => state.user);
@@ -20,17 +19,22 @@ const MyShopping = () => {
   }, [me, getMyInfoStatus]);
 
   return (
-    <AppLayout>
-      <UsersGnbBar />
-      <UsersLnbBar />
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-4">
-            <Outlet />
+    <>
+      <Helmet>
+        <title>내일의집 - 쇼핑</title>
+      </Helmet>{' '}
+      <AppLayout>
+        <UsersGnbBar />
+        <UsersLnbBar />
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-4">
+              <Outlet />
+            </div>
           </div>
         </div>
-      </div>
-    </AppLayout>
+      </AppLayout>
+    </>
   );
 };
 
