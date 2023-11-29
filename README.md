@@ -3,7 +3,7 @@
 
 가구 부터 생활용품까지 다양한 카테고리와 필터 검색, 장바구니 등의 쇼핑기능을 제공합니다.
 
-## :rocket: <a href="">WIKI</a> 
+## :rocket: <a href="https://github.com/rkdghwnd/tomorrow-house/wiki">WIKI</a> 
 
 
 <img src="https://velog.velcdn.com/images/rkdghwnd/post/df90dd1e-4e67-4e77-aceb-ce9d82fa7274/image.gif" width="600" height="450" />
