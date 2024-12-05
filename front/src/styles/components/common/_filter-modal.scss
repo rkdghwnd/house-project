@@ -1,0 +1,54 @@
+.filter-modal {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  background-color: white;
+  min-height: 400px;
+  border-radius: 5px;
+  z-index: $filter-modal-level;
+
+  transform: translateY(15%);
+  visibility: hidden;
+
+  transition: transform 0.3s ease-in-out;
+
+  .ant-switch-inner,
+  .ant-switch-handle {
+    display: none;
+  }
+
+  &.is-active {
+    transform: translateY(0);
+    visibility: visible;
+    .ant-switch-inner,
+    .ant-switch-handle {
+      display: block;
+    }
+  }
+
+  &-header {
+    @include flexbox;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  ul > li {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 15px;
+    border-bottom: 1px solid $border;
+    font-size: 14px;
+    &:hover {
+      background-color: $blue-light;
+    }
+    cursor: pointer;
+  }
+
+  @include responsive(T) {
+    width: 380px;
+    max-height: 500px;
+    left: calc(50% - 190px);
+    bottom: calc(50% - 190px);
+  }
+}

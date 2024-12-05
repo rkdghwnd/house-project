@@ -616,7 +616,9 @@ router.get('/:userId', async (req, res, next) => {
       where: {
         id: req.params.userId,
       },
-      attributes: { exclude: ['password', 'createdAt', 'updatedAt'] },
+      attributes: {
+        exclude: ['password', 'createdAt', 'updatedAt', 'snsId', 'withdraw'],
+      },
       include: [
         { model: Review, as: 'Liked', attributes: ['id'] },
         { model: Product, as: 'Bookmarked', attributes: ['id'] },

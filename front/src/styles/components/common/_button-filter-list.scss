@@ -1,0 +1,68 @@
+.button-filter-list {
+  margin: 10px 0 20px 0;
+  display: inline-block;
+  position: relative;
+  z-index: 10;
+
+  &-container {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding: 20px 0;
+
+    .button-filter {
+      position: relative;
+
+      button {
+        border-color: $border;
+        font-weight: 400;
+        color: $dark;
+        white-space: nowrap;
+      }
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
+      button:hover {
+        background-color: $background !important;
+      }
+      button.is-active {
+        border: 1px solid $blue-dark;
+        font-weight: 700;
+        color: $blue-dark;
+        i {
+          color: $blue-dark;
+          font-weight: 700;
+        }
+      }
+
+      i {
+        color: $tertiary;
+      }
+      .ic-check {
+        margin-right: 5px;
+      }
+      .ic-chevron {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  @include responsive(T) {
+    &-container {
+      overflow: visible;
+    }
+  }
+
+  @include responsive(D) {
+    margin: 30px 0 20px 0;
+    &-container {
+      padding: 0;
+    }
+    &-buttons {
+      flex-wrap: wrap;
+      button {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

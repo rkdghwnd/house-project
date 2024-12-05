@@ -1,0 +1,53 @@
+.today-deals-summary {
+  &-header {
+    @include flexbox;
+    margin-top: 50px;
+    margin-bottom: 15px;
+
+    &-title {
+      flex: 1 1 auto;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    a {
+      display: none;
+      color: $red;
+      font-weight: 700;
+      font-size: $font-size-14;
+    }
+  }
+
+  .btn-48.btn-secondary {
+    width: 100%;
+    .ic-chevron {
+      transform: rotate(-90deg);
+    }
+  }
+
+  @include responsive(T) {
+    &-header {
+      a {
+        display: block;
+      }
+    }
+    &-items {
+      display: flex;
+
+      .hotdeal-store-item {
+        width: calc(25% - 15px);
+      }
+      .hotdeal-store-item:not(:last-child) {
+        margin-right: 20px;
+      }
+
+      .store-item {
+        flex-direction: column;
+      }
+    }
+
+    .today-deals-mobile-button {
+      display: none;
+    }
+  }
+}

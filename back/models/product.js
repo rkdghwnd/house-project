@@ -82,7 +82,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
       },
       hotdeal_end_at: {
-        type: DataTypes.BIGINT,
+        type: DataTypes.DATE,
         allowNull: true,
       },
     },
