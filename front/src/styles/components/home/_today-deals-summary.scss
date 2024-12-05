@@ -3,8 +3,11 @@
     @include flexbox;
     margin-top: 50px;
     margin-bottom: 15px;
-    h3 {
+
+    &-title {
       flex: 1 1 auto;
+      font-weight: 700;
+      font-size: 16px;
     }
 
     a {
@@ -29,9 +32,12 @@
       }
     }
     &-items {
-      @include flexbox;
+      display: flex;
 
-      & > a:not(:last-child) {
+      .hotdeal-store-item {
+        width: calc(25% - 15px);
+      }
+      .hotdeal-store-item:not(:last-child) {
         margin-right: 20px;
       }
 
@@ -40,7 +46,7 @@
       }
     }
 
-    .btn-48.btn-secondary {
+    .today-deals-mobile-button {
       display: none;
     }
   }

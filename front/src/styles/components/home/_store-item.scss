@@ -27,7 +27,8 @@ a:has(.store-item) {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    h4 {
+
+    & > span {
       color: $secondary;
       font-weight: 400;
       font-size: 12px;

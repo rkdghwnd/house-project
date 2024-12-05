@@ -1,8 +1,7 @@
 .filter-modal {
   position: fixed;
   bottom: 0;
-  left: 0;
-  right: 0;
+  width: 100vw;
   background-color: white;
   min-height: 400px;
   border-radius: 5px;
@@ -30,6 +29,8 @@
   &-header {
     @include flexbox;
     padding: 10px 0;
+    font-size: 16px;
+    font-weight: 700;
   }
 
   ul > li {

@@ -4,9 +4,11 @@
     position: relative;
     margin: 30px 15px;
 
-    h4 {
+    &-title {
       font-size: 18px;
+      font-weight: 700;
     }
+
     .search-reviews-input {
       width: 100%;
       height: 50px;

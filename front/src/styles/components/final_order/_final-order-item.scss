@@ -10,8 +10,9 @@
     font-size: 13px;
     padding: 11px 16px;
     background-color: $background;
-    h2 {
+    & > span {
       font-weight: 700;
+      font-size: 16px;
     }
     span:first-child {
       margin-right: 5px;
@@ -33,9 +34,10 @@
 
     .item-content-right {
       font-size: 14px;
-      h4 {
+      & > span {
         font-weight: 400;
         margin-bottom: 8px;
+        font-size: 16px;
       }
       p {
         margin-bottom: 8px;

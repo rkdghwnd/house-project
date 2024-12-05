@@ -1,8 +1,10 @@
 .popular-products {
   margin-top: 20px;
 
-  h3 {
+  &-title {
     margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 700;
   }
 
   &-header {

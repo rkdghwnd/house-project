@@ -6,7 +6,8 @@
 
   &-container {
     display: flex;
-    // overflow: auto;
+    overflow-x: scroll;
+    overflow-y: hidden;
     padding: 20px 0;
 
     .button-filter {
@@ -46,11 +47,16 @@
     }
   }
 
+  @include responsive(T) {
+    &-container {
+      overflow: visible;
+    }
+  }
+
   @include responsive(D) {
     margin: 30px 0 20px 0;
     &-container {
       padding: 0;
-      overflow: visible;
     }
     &-buttons {
       flex-wrap: wrap;

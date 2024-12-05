@@ -10,6 +10,10 @@
     .swiper-slide {
       .store-item {
         flex-direction: column;
+        &-info,
+        &-image {
+          width: 100%;
+        }
       }
     }
   }
